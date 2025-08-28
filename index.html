@@ -17,7 +17,7 @@ layout: custom-home
     <a href="/about/" class="btn btn-outline-primary">
       <i class="fas fa-user"></i> About Me
     </a>
-    <a href="/assets/docs/Shahzeb_Mahmood_Resume.pdf" class="btn btn-outline-primary" target="_blank" download>
+    <a href="/assets/docs/Shahzeb_Mahmood_Resume.md" class="btn btn-outline-primary" target="_blank">
       <i class="fas fa-download"></i> Resume
     </a>
     <a href="/categories/" class="btn btn-outline-primary">
@@ -304,15 +304,18 @@ layout: custom-home
 
 .card {
   transition: transform 0.2s, box-shadow 0.2s;
-  border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--main-border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: var(--card-shadow);
   animation: slideInUp 0.5s ease-out;
   animation-fill-mode: both;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--card-hovor-bg);
+  box-shadow: var(--card-shadow);
 }
 
 .card:nth-child(1) { animation-delay: 0.1s; }
@@ -329,6 +332,22 @@ layout: custom-home
 
 .featured-content {
   animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.featured-content .card-title a {
+  color: var(--heading-color);
+}
+
+.featured-content .card-title a:hover {
+  color: var(--link-color);
+}
+
+.featured-content .card-text {
+  color: var(--text-muted-color);
+}
+
+.featured-content .text-muted {
+  color: var(--text-muted-color) !important;
 }
 
 .tech-stack li {

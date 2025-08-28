@@ -40,7 +40,7 @@ I build and maintain secure CI/CD pipelines with integrated security scanning, a
 
 ## Education
 
-**MSc Computer Science with Cybersecurity** *(Expected August 2025)*  
+**MSc Computer Science with Cybersecurity** *(Expected August 2026)*  
 University of York, United Kingdom
 
 **BSc (Hons) Sport and Exercise Science** *(July 2017)*  
