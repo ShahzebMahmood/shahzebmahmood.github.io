@@ -2,3 +2,198 @@
 layout: home
 # Index page
 ---
+
+<div class="hero-section" style="text-align: center; padding: 2rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: -2rem -1rem 2rem; border-radius: 10px;">
+  <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">
+    <i class="fas fa-terminal" style="color: #00ff41;"></i> Shahzeb Mahmood
+  </h1>
+  <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+    DevOps Engineer | Cybersecurity Enthusiast | Cloud Architect
+  </p>
+  <p style="font-size: 1rem; margin-bottom: 2rem; opacity: 0.9;">
+    Building secure, scalable infrastructure with shift-left security practices
+  </p>
+  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+    <a href="/about/" class="btn btn-outline-light">
+      <i class="fas fa-user"></i> About Me
+    </a>
+    <a href="/categories/" class="btn btn-outline-light">
+      <i class="fas fa-code"></i> My Posts
+    </a>
+    <a href="https://github.com/ShahzebMahmood" class="btn btn-outline-light" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+</div>
+
+<div class="tech-stack" style="margin: 3rem 0;">
+  <h2 style="text-align: center; margin-bottom: 2rem;">
+    <i class="fas fa-cogs" style="color: #667eea;"></i> Tech Stack & Expertise
+  </h2>
+  
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100" style="border-left: 4px solid #00ff41;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="fas fa-cloud" style="color: #ff6b6b;"></i> Cloud & Infrastructure
+          </h5>
+          <ul class="list-unstyled">
+            <li><i class="fab fa-aws" style="color: #ff9500;"></i> AWS</li>
+            <li><i class="fab fa-microsoft" style="color: #00bcf2;"></i> Azure</li>
+            <li><i class="fab fa-google" style="color: #4285f4;"></i> Google Cloud</li>
+            <li><i class="fas fa-cube" style="color: #326ce5;"></i> Kubernetes</li>
+            <li><i class="fab fa-docker" style="color: #2496ed;"></i> Docker</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+      <div class="card h-100" style="border-left: 4px solid #ff6b6b;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="fas fa-shield-alt" style="color: #00ff41;"></i> Security & DevOps
+          </h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-bug" style="color: #ff6b6b;"></i> Vulnerability Scanning</li>
+            <li><i class="fas fa-key" style="color: #ffd93d;"></i> Secrets Management</li>
+            <li><i class="fas fa-code-branch" style="color: #6f42c1;"></i> CI/CD Pipelines</li>
+            <li><i class="fas fa-code" style="color: #28a745;"></i> Infrastructure as Code</li>
+            <li><i class="fas fa-search" style="color: #17a2b8;"></i> Threat Detection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+      <div class="card h-100" style="border-left: 4px solid #667eea;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="fas fa-tools" style="color: #667eea;"></i> Tools & Technologies
+          </h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-cube" style="color: #623ce4;"></i> Terraform</li>
+            <li><i class="fab fa-python" style="color: #3776ab;"></i> Python</li>
+            <li><i class="fas fa-terminal" style="color: #000;"></i> Bash</li>
+            <li><i class="fas fa-chart-line" style="color: #ff6384;"></i> Monitoring</li>
+            <li><i class="fas fa-robot" style="color: #6c757d;"></i> Automation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="current-focus" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin: 3rem 0;">
+  <h2 style="text-align: center; margin-bottom: 2rem;">
+    <i class="fas fa-target" style="color: #28a745;"></i> Current Focus
+  </h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h5><i class="fas fa-briefcase" style="color: #667eea;"></i> Professional</h5>
+      <ul>
+        <li><strong>DevOps Engineer</strong> at Seqera Labs</li>
+        <li>Building secure CI/CD pipelines with <strong>Trivy</strong> integration</li>
+        <li>Automating secrets management with <strong>ESO</strong></li>
+        <li>Multi-cloud infrastructure automation</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h5><i class="fas fa-graduation-cap" style="color: #ff6b6b;"></i> Learning & Growth</h5>
+      <ul>
+        <li><strong>MSc Cybersecurity</strong> at University of York</li>
+        <li><strong>TCM Practical Junior Penetration Tester</strong> certification</li>
+        <li>Advanced <strong>HackTheBox</strong> challenges</li>
+        <li>Cloud security architecture patterns</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="featured-content" style="margin: 3rem 0;">
+  <h2 style="text-align: center; margin-bottom: 2rem;">
+    <i class="fas fa-star" style="color: #ffd93d;"></i> Latest Insights
+  </h2>
+  <div class="row">
+    {% for post in site.posts limit:3 %}
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h6 class="card-title">
+            <a href="{{ post.url | relative_url }}" class="text-decoration-none">
+              {{ post.title }}
+            </a>
+          </h6>
+          <p class="card-text text-muted small">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+          <div class="mt-auto">
+            <small class="text-muted">
+              <i class="fas fa-calendar-alt"></i> {{ post.date | date: "%b %d, %Y" }}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="/archives/" class="btn btn-primary">
+      <i class="fas fa-arrow-right"></i> View All Posts
+    </a>
+  </div>
+</div>
+
+<style>
+.hero-section {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section .btn {
+  margin: 0.2rem;
+  border-width: 2px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.hero-section .btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #00ff41;
+  color: #00ff41;
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tech-stack li {
+  padding: 0.2rem 0;
+  font-weight: 500;
+}
+
+.current-focus ul li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section p {
+    font-size: 1rem;
+  }
+  
+  .hero-section {
+    margin: -1rem -0.5rem 2rem;
+    padding: 1.5rem 1rem;
+  }
+}
+</style>
