@@ -1,0 +1,16 @@
+<!-- Custom Loading Animations JavaScript -->
+<script src="/assets/js/loading-animations.js"></script>
+
+<!-- Resume Download Analytics -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Track resume downloads
+    const resumeLinks = document.querySelectorAll('a[href*="resume"], a[href*="Resume"]');
+    resumeLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Analytics tracking would go here
+            console.log('Resume download tracked');
+        });
+    });
+});
+</script>

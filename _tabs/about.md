@@ -82,7 +82,8 @@ I'm always interested in discussing DevOps practices, cybersecurity, cloud archi
 
 📧 **Email**: [shahzebmahmood3@gmail.com](mailto:shahzebmahmood3@gmail.com)  
 💼 **LinkedIn**: [linkedin.com/in/shahzeb-m-70b694166](https://www.linkedin.com/in/shahzeb-m-70b694166)  
-🐱 **GitHub**: [github.com/ShahzebMahmood](https://github.com/ShahzebMahmood)
+🐱 **GitHub**: [github.com/ShahzebMahmood](https://github.com/ShahzebMahmood)  
+📄 **Resume**: [Download PDF](/assets/docs/Shahzeb_Mahmood_Resume.pdf) | [View Online](/assets/docs/Shahzeb_Mahmood_Resume.md)
 
 ---
 
