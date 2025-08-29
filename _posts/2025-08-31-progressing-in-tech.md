@@ -1,46 +1,26 @@
 ---
-title: Progressing in Tech: My DevOps Journey
+title: My Journey to DevOps
 date: 2025-08-31 12:00:00 -0500
 categories: [General, Career]
 tags: [devops, cybersecurity, career, progress, learning]
 pin: false
 ---
 
-# Progressing in Tech: My DevOps Journey
+# Where my Journey Began
+My first ever job was working in McDonald's as a crew member. Working there made me realize the importance of finding a path to success and the value of hard work. However, working there for over 7 years gave me an understanding that working there was not sustainable and I needed to really focus on what I want to pursue.
 
-As I continue to grow in the DevOps and cybersecurity space, I wanted to share some thoughts on progression and continuous learning in our rapidly evolving field.
+# My First Tech Job
+I was blessed to have a family that would look after me and always advocate for my growth and my sister was able to refer me to a position in Impellam as a Service Desk Analyst. This role was my entry point into the tech industry, and was a significant learning curve one which helped me understand what it takes to be in this field. In this role, I learned basic troubleshooting skills, customer service, and the importance of effective communication in a technical environment. I was exposed to security, Hardware, Firmware and Networking concepts, which sparked my interest in pursuing a career in cybersecurity. 
 
-## The Learning Never Stops
+# My Path Forward
+After gaining foundational knowledge and experience in IT support, I began to explore opportunities in cybersecurity and DevOps. I was blessed to be promoted to an Application Support Analyst role, where I could leverage my technical skills while continuing to learn about application security and cloud technologies. This then led me to move out of the UK and work for a company in Canada called TractionOnDemand as an Infrastructure Technology Helpdesk Administrator. This role allowed me to work with cloud technologies and gain hands-on experience with AWS and Azure, further solidifying my interest in DevOps and cloud security.
 
-One thing that constantly amazes me about working in tech is how much there is to learn. Every day brings new tools, methodologies, and challenges. Whether it's:
+After working for TractionOnDemand which was acquired by Salesforce, I was given the opportunity to transition to an IT Administrator role in a company called Cloudbeds. In this role, I was able to further develop my skills in cloud infrastructure management, security best practices, and automation. I worked closely with cross-functional teams to ensure the reliability and security of our systems, and I was able to contribute to several key projects that improved our overall security posture.
 
-- **New Cloud Services**: AWS, Azure, and GCP are constantly releasing new features
-- **Emerging Security Threats**: The cybersecurity landscape evolves daily
-- **DevOps Tools**: From Kubernetes to Terraform, the toolchain keeps expanding
-- **Best Practices**: Industry standards and methodologies continue to mature
+# What I do right now
+I was blessed with another opportunity to join a company called Seqera Labs as a Cloud Support Engineer. In this role, I am able to apply my skills in cloud technologies, automation, and security to help clients. I work closely with customers to understand their needs and provide solutions that enhance their cloud infrastructure and security posture. After a year of working as a Cloud Support Engineer, I was then able to be promoted to a DevOps Engineer role, where I could further expand my knowledge and skills in cloud-native technologies, CI/CD pipelines, and infrastructure as code, and this is what I do currently. 
 
-## My Current Focus Areas
+# My thoughts
+My Journey to DevOps was a very different experience compared to my initial foray into the tech industry. While my early roles were focused on support and troubleshooting, my transition into DevOps has allowed me to take a more proactive approach to technology. I have learned the importance of automation, collaboration, and continuous improvement in delivering high-quality software and services. I am grateful for the opportunities I have had to grow and evolve in my career, and I look forward to what the future holds as my goal is now to become a Pentester or DevSecOps.
 
-### Infrastructure as Code
-I've been diving deeper into Terraform and exploring how to make our infrastructure more maintainable and scalable. The shift from manual processes to code-based infrastructure management has been a game-changer.
-
-### Security Integration
-Implementing security practices earlier in the development lifecycle (shift-left security) has become a priority. It's fascinating how DevSecOps practices can prevent issues before they reach production.
-
-### Continuous Learning
-Balancing hands-on work with staying current on industry trends and earning certifications. The key is finding practical applications for new knowledge.
-
-## Looking Forward
-
-The intersection of DevOps and cybersecurity continues to evolve, and I'm excited to be part of this journey. Whether it's through:
-
-- Building more secure CI/CD pipelines
-- Implementing zero-trust architectures
-- Exploring cloud-native security solutions
-- Sharing knowledge with the community
-
-Every challenge is an opportunity to grow and contribute to the broader tech community.
-
----
-
-What areas of DevOps or cybersecurity are you currently exploring? I'd love to hear about your journey and experiences!
+If you made it this far, thank you for reading and I hope you are doing well! 
