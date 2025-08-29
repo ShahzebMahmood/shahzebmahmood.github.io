@@ -21,7 +21,11 @@
 #
 - type: linkedin
   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-  url:  ''                  # Fill with your Linkedin homepage
+  url: 'https://www.linkedin.com/in/shahzeb-m-70b694166/'
+
+- type: hackthebox
+  icon: 'fas fa-cube'   # Using cube icon for HackTheBox
+  url: 'https://app.hackthebox.com/profile/1949647'
 #
 # - type: stack-overflow
 #   icon: 'fab fa-stack-overflow'
