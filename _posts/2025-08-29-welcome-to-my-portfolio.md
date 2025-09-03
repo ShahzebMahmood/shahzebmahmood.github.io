@@ -16,12 +16,11 @@ I'll be posting about:
 
 - **DevOps Practices**: CI/CD pipelines, infrastructure as code, automation
 - **Cloud Technologies**: AWS, Azure, GCP experiences and tutorials
-- **Cybersecurity**: Penetration testing, vulnerability assessments, security best practices
+- **Cybersecurity**: Penetration testing, vulnerability assessments, security best practices, osint
 - **Automation**: Scripts and tools that make life easier
 - **Learning**: My progress through certifications and hands-on labs
 
 ## My Focus Areas
-
 Currently working as a DevOps Engineer at Seqera Labs, I'm passionate about:
 - Building secure, scalable infrastructure
 - Implementing shift-left security practices
