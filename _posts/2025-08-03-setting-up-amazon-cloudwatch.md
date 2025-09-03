@@ -42,9 +42,7 @@ I decided to take the Helm chart approach as it would probably make the deployme
 
  The base directory will handle the Helm chart deployment and configuration. This will span all environments we need to deploy to.
 
-<details>
-<summary>base/kustomization.yaml</summary>
-
+base/kustomization.yaml
 ```yaml
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -157,11 +155,8 @@ patches:
           eks.amazonaws.com/role-arn: arn:aws:iam::<AWS_ACCOUNT_ID>:role/<EKS_ROLE_NAME>
 
 ```
-</details>
 
-<details>
-<summary>base/values.yaml</summary>
-
+base/values.yaml:
 ```yaml
 ---
 # Values for Amazon CloudWatch Observability Helm Chart
@@ -232,13 +227,10 @@ updateStrategy:
     maxSurge: 1
 
 ```
-</details>
 
 The above code is generic and can be customized for specific environments by overriding the values in the respective environment's `values.yaml` file. Just a note I found out the hard way is that the AWS observability Helm chart is strict - something like `clusterName` will need to be patched to the correct name in the `kustomization.yaml` file for each environment.
 
-<details>
-<summary>Environment-specific kustomization example</summary>
-
+Below is an example:
 ```yaml
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -258,7 +250,6 @@ patches:
         value: '{"agent":{"region":"<AWS_REGION>"},"logs":{"metrics_collected":{"application_signals":{"hosted_in":"<ENVIRONMENT>"},"kubernetes":{"cluster_name":"<ENVIRONMENT>","enhanced_container_insights":true,"force_flush_interval":30,"metrics_collection_interval":300}}},"metrics":{"namespace":"CWAgent","metrics_collected":{"cpu":{"measurement":[{"name":"cpu_usage_idle","rename":"CPU_USAGE_IDLE","unit":"Percent"},{"name":"cpu_usage_iowait","rename":"CPU_USAGE_IOWAIT","unit":"Percent"},{"name":"cpu_usage_user","rename":"CPU_USAGE_USER","unit":"Percent"},{"name":"cpu_usage_system","rename":"CPU_USAGE_SYSTEM","unit":"Percent"}],"metrics_collection_interval":60}}},"traces":{"traces_collected":{"application_signals":{}}}}'
 ---
 ```
-</details>
 
 This just works for me and my work, yours could be different.
 
