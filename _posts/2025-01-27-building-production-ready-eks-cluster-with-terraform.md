@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My Journey Building an EKS Cluster: The Struggles, Breakthroughs, and Lessons Learned"
-date: 2025-01-27 10:00:00 -0000
+date: 2025-09-17 10:00:00 -0000
 categories: [Personal, DevOps, Learning, AWS]
 tags: [EKS, Terraform, Learning, Challenges, Growth]
 ---
