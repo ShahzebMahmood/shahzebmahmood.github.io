@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Terraform Modules: How I Built Reusable Azure and GCP Building Blocks"
-date: 2025-10-15 13:00:00 -0500
+date: 2025-10-08 13:00:00 -0500
 categories: [DevOps, Terraform]
 tags: [terraform, azure, gcp, modules, iac, best-practices]
 pin: false
@@ -112,6 +112,6 @@ terraform -chdir=envs/dev apply -auto-approve
 
 ---
 
-Working in DevOps can feel fast‑paced and performative. I move more slowly, and that’s sometimes looked down upon—but it’s also why my changes stick. Not knowing is not a bad thing it helps you investigate and grow
+Working in DevOps can feel fast‑paced and performative. I move more slowly, and that’s sometimes looked down upon but it’s also why my changes stick. Not knowing is not a bad thing it helps you investigate and grow
 
 
