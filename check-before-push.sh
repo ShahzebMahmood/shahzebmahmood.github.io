@@ -63,6 +63,10 @@ fi
 echo ""
 if [ $ERRORS -eq 0 ]; then
     echo "✅ All checks passed! Safe to push."
+    echo ""
+    echo "ℹ️  Note: If you see a 'site.webmanifest' conflict warning during build,"
+    echo "   it's harmless - Jekyll is just seeing the same file with different"
+    echo "   path representations. The file will still be copied correctly."
     exit 0
 else
     echo "❌ Found $ERRORS issue(s). Please fix before pushing."
