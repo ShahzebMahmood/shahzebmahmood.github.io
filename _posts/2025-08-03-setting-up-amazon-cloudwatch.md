@@ -57,7 +57,7 @@ helmCharts:
     releaseName: amazon-cloudwatch-observability
     namespace: amazon-cloudwatch
     valuesInline:
-      clusterName: "{% raw %}{{ .cluster }}{% endraw %}"
+      clusterName: "{{ .cluster }}"
       region: <AWS_REGION>
       containerLogs:
         enabled: true
@@ -90,12 +90,12 @@ helmCharts:
           logs:
             metrics_collected:
               kubernetes:
-                cluster_name: "{% raw %}{{ .cluster }}{% endraw %}"
+                cluster_name: "{{ .cluster }}"
                 enhanced_container_insights: true
                 force_flush_interval: 30
                 metrics_collection_interval: 300
               application_signals:
-                hosted_in: "{% raw %}{{ .cluster }}{% endraw %}"
+                hosted_in: "{{ .cluster }}"
           metrics:
             namespace: CWAgent
             metrics_collected:
@@ -142,7 +142,7 @@ patches:
         value: <AWS_REGION>
       - op: replace
         path: /spec/template/spec/containers/0/env/1/value
-        value: "{% raw %}{{ .cluster }}{% endraw %}"
+        value: "{{ .cluster }}"
   # Patch ServiceAccounts with IAM role
   - target:
       kind: ServiceAccount
@@ -163,7 +163,7 @@ base/values.yaml:
 # This file structure must match the chart's values.yaml format
 
 # Cluster configuration
-clusterName: "{% raw %}{{ .Values.cluster }}{% endraw %}" 
+clusterName: "{{ .Values.cluster }}" 
 region: <AWS_REGION>
 
 # Container logs configuration
