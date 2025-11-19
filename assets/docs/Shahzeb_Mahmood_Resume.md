@@ -62,7 +62,7 @@ Buckinghamshire New University, High Wycombe
 - **Google Professional Workspace Administrator**
 - **Okta Workflow Certificate**
 - **Terraform Certificate** - Udemy
-- **TCM Practical Junior Penetration Tester** *(In Progress)*
+- **TCM Security Practical Junior Penetration Tester** *(Jan 2025)*
 
 ---
 

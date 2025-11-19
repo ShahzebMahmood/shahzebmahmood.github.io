@@ -55,7 +55,7 @@ Buckinghamshire New University, High Wycombe
 - **Google Professional Workspace Administrator**
 - **Okta Workflow Certificate**
 - **Terraform Certificate** - Udemy
-- **TCM Practical Junior Penetration Tester** *(In Progress)*
+- **TCM Security Practical Junior Penetration Tester** *(Jan 2025)*
 
 ## Career Journey
 
@@ -87,4 +87,4 @@ I'm always interested in discussing DevOps practices, cybersecurity, cloud archi
 
 ---
 
-*Currently pursuing my Master's in Computer Science with Cybersecurity and working toward my TCM Practical Junior Penetration Tester certification.*
+*Currently pursuing my Master's in Computer Science with Cybersecurity.*
