@@ -38,7 +38,7 @@ I decided to take the Helm chart approach as it would probably make the deployme
  - Helm chart for easier deployment and management
  - Testing in a development environment
 
- I created a new directory in our git repo called `test`, then I created a base directory and two files: one called `kustomization.yaml` and a base `values.yaml` file. Since I was testing in dev, my understanding was that by adding a base configuration, I could deploy it to different environments using an ApplicationSet. The `{{ .Values.cluster }}` template variable in the values file would be replaced with the correct cluster name for each environment.
+ I created a new directory in our git repo called `test`, then I created a base directory and two files: one called `kustomization.yaml` and a base `values.yaml` file. Since I was testing in dev, my understanding was that by adding a base configuration, I could deploy it to different environments using an ApplicationSet. The `{% raw %}{{ .Values.cluster }}{% endraw %}` template variable in the values file would be replaced with the correct cluster name for each environment.
 
  The base directory will handle the Helm chart deployment and configuration. This will span all environments we need to deploy to.
 
@@ -57,7 +57,7 @@ helmCharts:
     releaseName: amazon-cloudwatch-observability
     namespace: amazon-cloudwatch
     valuesInline:
-      clusterName: "{{ .cluster }}"
+      clusterName: "&#123;&#123; .cluster &#125;&#125;"
       region: <AWS_REGION>
       containerLogs:
         enabled: true
@@ -90,12 +90,12 @@ helmCharts:
           logs:
             metrics_collected:
               kubernetes:
-                cluster_name: "{{ .cluster }}"
+                cluster_name: "&#123;&#123; .cluster &#125;&#125;"
                 enhanced_container_insights: true
                 force_flush_interval: 30
                 metrics_collection_interval: 300
               application_signals:
-                hosted_in: "{{ .cluster }}"
+                hosted_in: "&#123;&#123; .cluster &#125;&#125;"
           metrics:
             namespace: CWAgent
             metrics_collected:
@@ -142,7 +142,7 @@ patches:
         value: <AWS_REGION>
       - op: replace
         path: /spec/template/spec/containers/0/env/1/value
-        value: "{{ .cluster }}"
+        value: "&#123;&#123; .cluster &#125;&#125;"
   # Patch ServiceAccounts with IAM role
   - target:
       kind: ServiceAccount
@@ -163,7 +163,7 @@ base/values.yaml:
 # This file structure must match the chart's values.yaml format
 
 # Cluster configuration
-clusterName: "{{ .Values.cluster }}" 
+clusterName: "&#123;&#123; .Values.cluster &#125;&#125;" 
 region: <AWS_REGION>
 
 # Container logs configuration
