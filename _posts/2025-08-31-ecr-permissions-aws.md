@@ -2,7 +2,7 @@
 title: "ECR Permissions in AWS"
 date: 2025-08-31 12:00:00 -0500
 categories: [Learnings, AWS]
-tags: [ECR, permissions, troubleshooting, learning, security]
+tags: [ecr, permissions, troubleshooting, learning, security]
 pin: false
 ---
 
@@ -104,4 +104,3 @@ Note that `ecr:GetAuthorizationToken` is not included in these repository polici
 What I learned is that replicating an issue can really make a difference when troubleshooting permissions issues in AWS. By actually testing the push operation myself, I could see the exact error and understand what permissions were missing.
 
 I learned that sometimes navigating the AWS console reveals settings that aren't immediately obvious through CLI or SDKs, particularly for repository-level policies and permissions.
-

@@ -1,0 +1,67 @@
+name: "Content QA"
+
+on:
+  pull_request:
+    paths:
+      - "_posts/**/*.md"
+      - "_tabs/**/*.md"
+      - "README.md"
+      - "assets/docs/**/*.md"
+      - ".markdownlint.json"
+      - ".codespellrc"
+      - ".github/workflows/content-qa.yml"
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "_posts/**/*.md"
+      - "_tabs/**/*.md"
+      - "README.md"
+      - "assets/docs/**/*.md"
+      - ".markdownlint.json"
+      - ".codespellrc"
+      - ".github/workflows/content-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  markdownlint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install markdownlint-cli
+        run: npm install --global markdownlint-cli@0.39.0
+
+      - name: Run markdownlint
+        run: |
+          markdownlint "_posts/**/*.md" "_tabs/**/*.md" "README.md" "assets/docs/**/*.md" \
+            --config .markdownlint.json
+
+  spellcheck:
+    name: Spellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install codespell
+        run: pip install codespell==2.3.0
+
+      - name: Run codespell
+        run: codespell --config .codespellrc "_posts" "_tabs" "README.md" "assets/docs"

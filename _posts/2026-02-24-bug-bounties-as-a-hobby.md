@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Bug Bounties as a Hobby: What Keeps Me Consistent"
+description: "How I approach bug bounties as a long-term hobby with scoped testing, better notes, and consistent practice."
 date: 2026-02-24 11:00:00 -0500
 categories: [Cybersecurity, Personal]
 tags: [bug-bounty, hacking, cybersecurity, learning, hobby]
@@ -74,3 +75,8 @@ Bug bounties have made me a better engineer and a better security practitioner. 
 
 I do not see it as a side hustle first. I see it as deliberate practice that compounds over time.
 
+## Related Posts
+
+- [Earning My TCM Security Practical Junior Penetration Tester Certification](/posts/tcm-security-practical-junior-pentester-certification/)
+- [HTB Cap CTF: My Experience and Write-Up](/posts/ctf-htb-cap-my-experience/)
+- [HTB TwoMillion CTF: Write-Up](/posts/ctf-htb-twomillion-writeup/)

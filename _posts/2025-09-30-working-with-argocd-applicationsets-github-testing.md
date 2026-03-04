@@ -3,7 +3,7 @@ layout: post
 title: "Working with ArgoCD ApplicationSets: Making Changes in GitHub and Testing"
 date: 2025-09-30 10:00:00 -0000
 categories: [DevOps, Kubernetes, ArgoCD]
-tags: [ArgoCD, ApplicationSet, GitOps, Kubernetes, Testing, GitHub]
+tags: [argocd, applicationset, gitops, kubernetes, testing, github]
 pin: false
 ---
 
@@ -397,4 +397,3 @@ But the more you practice, the more confident you become. The more you test, the
 If you're just starting with ApplicationSets, my advice is simple: start small, test everything, and don't be afraid to make mistakes. That's how you learn.
 
 Thank you for reading, and happy GitOps-ing!
-

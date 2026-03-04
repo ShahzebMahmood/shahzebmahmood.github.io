@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "CI/CD Pipelines for Harbor to ECR Migration and Terraform Plan"
+description: "Practical GitHub Actions examples for Harbor to ECR image migration and Terraform plan checks on pull requests."
 date: 2026-01-16 10:00:00 -0500
 categories: [DevOps, CI/CD]
 tags: [ci-cd, github-actions, harbor, ecr, terraform, aws, automation]
@@ -15,6 +16,26 @@ I recently worked on two pipelines that solved real delivery problems:
 - Running Terraform `plan` automatically on pull requests
 
 Both pipelines were designed to be repeatable, auditable, and safe to run in shared environments.
+
+## Prerequisites
+
+Before using these snippets, I set up the following:
+
+- IAM role for Harbor to ECR migration workflow:
+  `arn:aws:iam::<ACCOUNT_ID>:role/github-ecr-migration-role`
+- IAM role for Terraform PR workflow:
+  `arn:aws:iam::<ACCOUNT_ID>:role/github-terraform-plan-role`
+- GitHub Actions secrets:
+  `HARBOR_USERNAME`, `HARBOR_PASSWORD`
+- `images.txt` at repo root with one repository path per line:
+
+```text
+platform/api
+platform/worker
+shared/frontend
+```
+
+- Terraform backend/state access already configured for the target environment
 
 ## Pipeline 1: Harbor to ECR Migration
 
@@ -159,3 +180,9 @@ jobs:
 - Keep production `apply` as a separate workflow with approvals
 
 These two pipelines made migrations safer and IaC reviews faster for the team.
+
+## Related Posts
+
+- [GitHub Actions Security Hardening — What I Actually Use](/posts/github-actions-security-hardening-what-i-use/)
+- [Terraform Modules: How I Built Reusable Azure and GCP Building Blocks](/posts/terraform-azure-gcp-modules-my-approach/)
+- [ECR Permissions in AWS](/posts/ecr-permissions-aws/)

@@ -2,7 +2,7 @@
 title: "Setting up Amazon CloudWatch in EKS"
 date: 2025-08-03 12:00:00 -0500
 categories: [AWS, EKS]
-tags: [CloudWatch, EKS]
+tags: [cloudwatch, eks]
 pin: false
 ---
 

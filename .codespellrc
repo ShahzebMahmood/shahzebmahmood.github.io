@@ -1,0 +1,4 @@
+[codespell]
+skip = ./.git,./assets/lib,./assets/docs/*.pdf,./favicon.ico
+quiet-level = 2
+ignore-words-list = argocd,applicationset,gitops,cloudwatch,kustomize,kubectx,kubens,k9s,oidc,skopeo,tfplan,devops,pentester,pentesting,twomillion,htb,eks,ecr,iac

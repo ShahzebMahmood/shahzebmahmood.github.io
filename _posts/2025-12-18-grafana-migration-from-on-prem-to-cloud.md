@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Grafana Migration: From On-Prem to Cloud"
+description: "How I migrated Grafana from on-prem to Grafana Cloud with staged cutover, alert parity checks, and RBAC mapping."
 date: 2025-12-18 09:00:00 -0500
 categories: [DevOps, Observability]
 tags: [grafana, migration, cloud, observability, dashboards, alerting]
@@ -85,3 +86,8 @@ After migration:
 
 If I do this again, I would automate more of the inventory and validation checks up front so I can reduce manual comparisons.
 
+## Related Posts
+
+- [Setting up Amazon CloudWatch in EKS](/posts/setting-up-amazon-cloudwatch-in-eks/)
+- [Working with ArgoCD ApplicationSets: Making Changes in GitHub and Testing](/posts/working-with-argocd-applicationsets-github-testing/)
+- [GitHub Actions Security Hardening — What I Actually Use](/posts/github-actions-security-hardening-what-i-use/)
