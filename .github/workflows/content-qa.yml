@@ -34,6 +34,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -43,10 +45,41 @@ jobs:
       - name: Install markdownlint-cli
         run: npm install --global markdownlint-cli@0.39.0
 
-      - name: Run markdownlint
+      - name: Collect changed markdown files
+        id: changed_md
+        shell: bash
         run: |
-          markdownlint "_posts/**/*.md" "_tabs/**/*.md" "README.md" "assets/docs/**/*.md" \
-            --config .markdownlint.json
+          set -euo pipefail
+
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          else
+            BASE_SHA="${{ github.event.before }}"
+            HEAD_SHA="${{ github.sha }}"
+          fi
+
+          # Handle first push where "before" can be all-zeroes.
+          if [[ "${BASE_SHA}" =~ ^0+$ ]]; then
+            BASE_SHA="$(git rev-list --max-parents=0 "${HEAD_SHA}" | tail -n 1)"
+          fi
+
+          git diff --name-only "${BASE_SHA}" "${HEAD_SHA}" \
+            | grep -E '^(README\.md|_posts/.*\.md|_tabs/.*\.md|assets/docs/.*\.md)$' > changed-md-files.txt || true
+
+          echo "Changed markdown files:"
+          cat changed-md-files.txt || true
+
+          COUNT="$(wc -l < changed-md-files.txt | tr -d ' ')"
+          echo "count=${COUNT}" >> "${GITHUB_OUTPUT}"
+
+      - name: Run markdownlint
+        if: steps.changed_md.outputs.count != '0'
+        run: xargs -r markdownlint --config .markdownlint.json < changed-md-files.txt
+
+      - name: Skip markdownlint (no markdown changes)
+        if: steps.changed_md.outputs.count == '0'
+        run: echo "No markdown files changed. Skipping markdownlint."
 
   spellcheck:
     name: Spellcheck
@@ -54,6 +87,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -63,5 +98,37 @@ jobs:
       - name: Install codespell
         run: pip install codespell==2.3.0
 
+      - name: Collect changed markdown files
+        id: changed_md
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          else
+            BASE_SHA="${{ github.event.before }}"
+            HEAD_SHA="${{ github.sha }}"
+          fi
+
+          if [[ "${BASE_SHA}" =~ ^0+$ ]]; then
+            BASE_SHA="$(git rev-list --max-parents=0 "${HEAD_SHA}" | tail -n 1)"
+          fi
+
+          git diff --name-only "${BASE_SHA}" "${HEAD_SHA}" \
+            | grep -E '^(README\.md|_posts/.*\.md|_tabs/.*\.md|assets/docs/.*\.md)$' > changed-md-files.txt || true
+
+          echo "Changed markdown files:"
+          cat changed-md-files.txt || true
+
+          COUNT="$(wc -l < changed-md-files.txt | tr -d ' ')"
+          echo "count=${COUNT}" >> "${GITHUB_OUTPUT}"
+
       - name: Run codespell
-        run: codespell --config .codespellrc "_posts" "_tabs" "README.md" "assets/docs"
+        if: steps.changed_md.outputs.count != '0'
+        run: xargs -r codespell --config .codespellrc < changed-md-files.txt
+
+      - name: Skip codespell (no markdown changes)
+        if: steps.changed_md.outputs.count == '0'
+        run: echo "No markdown files changed. Skipping codespell."
