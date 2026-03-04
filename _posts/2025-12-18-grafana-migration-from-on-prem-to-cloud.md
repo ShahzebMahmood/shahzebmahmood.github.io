@@ -88,6 +88,6 @@ If I do this again, I would automate more of the inventory and validation checks
 
 ## Related Posts
 
-- [Setting up Amazon CloudWatch in EKS](/posts/setting-up-amazon-cloudwatch-in-eks/)
+- [Setting up Amazon CloudWatch in EKS](/posts/setting-up-amazon-cloudwatch/)
 - [Working with ArgoCD ApplicationSets: Making Changes in GitHub and Testing](/posts/working-with-argocd-applicationsets-github-testing/)
 - [GitHub Actions Security Hardening — What I Actually Use](/posts/github-actions-security-hardening-what-i-use/)
