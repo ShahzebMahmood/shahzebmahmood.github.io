@@ -8,8 +8,6 @@ tags: [cloudflare, cache, cdn, troubleshooting, s3, api]
 pin: false
 ---
 
-# How to Purge Cloudflare Cache When Your CDN Serves Stale Files
-
 I hit this issue in production: a file was updated in S3 (origin), but Cloudflare kept serving an older cached version.
 
 The symptom was a JSON file still pointing to an old versioned asset path even though the new JSON was already in S3. The response headers showed:
