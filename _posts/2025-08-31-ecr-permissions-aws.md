@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "ECR Permissions in AWS"
 date: 2025-08-31 12:00:00 -0500
 categories: [Learnings, AWS]

@@ -52,6 +52,7 @@ The objective was to move existing images from Harbor into ECR without rebuildin
 I used `skopeo` so the pipeline copies manifests/layers directly and keeps tags intact.
 
 ```yaml
+{% raw %}
 name: harbor-to-ecr-migration
 
 on:
@@ -105,6 +106,7 @@ jobs:
               docker://$ECR_REGISTRY/$IMAGE:$TAG
             echo "Migrated $IMAGE:$TAG"
           done < images.txt
+{% endraw %}
 ```
 
 ## Pipeline 2: Terraform Plan on Pull Requests

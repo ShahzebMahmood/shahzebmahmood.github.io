@@ -4,6 +4,7 @@ title: "My Journey Building an EKS Cluster: The Struggles, Breakthroughs, and Le
 date: 2025-09-17 10:00:00 -0000
 categories: [Personal, DevOps, Learning, AWS]
 tags: [eks, terraform, learning, challenges, growth]
+pin: false
 ---
 
 # My Journey Building an EKS Cluster: The Struggles and Breakthroughs

@@ -42,6 +42,7 @@ git checkout -b test/application-set-changes
 Let's say I'm updating an ApplicationSet configuration. I'll modify the YAML file, making sure to test the syntax:
 
 ```yaml
+{% raw %}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -73,6 +74,7 @@ spec:
         automated:
           prune: true
           selfHeal: true
+{% endraw %}
 ```
 
 ## Using Template Patches
