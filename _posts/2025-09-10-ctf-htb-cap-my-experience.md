@@ -7,7 +7,7 @@ tags: [htb, cap, ctf, walkthrough, enumeration, privilege-escalation]
 pin: false
 ---
 
-# Hack The Box: Cap (Easy)
+## Hack The Box: Cap (Easy)
 
 I worked on Cap last month when I wanted something simple and focused. It was a good reminder that basic enumeration and reading the UI carefully often beats overthinking.
 
@@ -86,5 +86,3 @@ PY
 ---
 
 Working in DevOps can feel fast‑paced. I move slower, and that’s sometimes looked down on—but that’s why my changes stick. Not knowing isn’t a bad thing—it forces investigation and growth.
-
-

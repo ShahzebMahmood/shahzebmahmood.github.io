@@ -8,8 +8,6 @@ tags: [kubernetes, kustomize, gitops, iac, best-practices]
 pin: false
 ---
 
-# A Deep Dive into Kustomize for Multi-Env Setups
-
 In my post about building an EKS cluster, I mentioned that Kustomize "saved my sanity." That wasn't an exaggeration. Before I adopted it, managing Kubernetes configurations for different environments (dev, staging, prod) was a mess of duplicated YAML files and error-prone `sed` commands in shell scripts. Every small change had to be manually propagated across files, which was both tedious and risky.
 
 Kustomize changed my entire approach. It allows you to customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is. It's built into `kubectl`, which is a huge plus. Here’s a deeper look at how I use it to keep my Kubernetes manifests DRY (Don't Repeat Yourself) and maintainable.
@@ -18,8 +16,8 @@ Kustomize changed my entire approach. It allows you to customize raw, template-f
 
 The Kustomize workflow revolves around two concepts: a `base` and `overlays`.
 
--   **Base:** This is a directory containing the common, environment-agnostic Kubernetes resource definitions (Deployment, Service, etc.) and a `kustomization.yaml` file that lists them. This is the single source of truth for your application's structure.
--   **Overlays:** These are environment-specific directories (e.g., `dev`, `prod`) that build upon the `base`. Each overlay has its own `kustomization.yaml` that points to the `base` and specifies patches or modifications.
+- **Base:** This is a directory containing the common, environment-agnostic Kubernetes resource definitions (Deployment, Service, etc.) and a `kustomization.yaml` file that lists them. This is the single source of truth for your application's structure.
+- **Overlays:** These are environment-specific directories (e.g., `dev`, `prod`) that build upon the `base`. Each overlay has its own `kustomization.yaml` that points to the `base` and specifies patches or modifications.
 
 This structure is incredibly powerful. You define the core resources once and then apply small, targeted changes for each environment.
 
@@ -28,7 +26,8 @@ This structure is incredibly powerful. You define the core resources once and th
 Let's walk through a simple setup for a web application.
 
 Our directory structure looks like this:
-```
+
+```text
 my-app/
 ├── base/
 │   ├── deployment.yaml
@@ -48,6 +47,7 @@ my-app/
 The `base` contains the standard stuff.
 
 `base/deployment.yaml`:
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -76,6 +76,7 @@ spec:
 ```
 
 `base/kustomization.yaml`:
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -90,6 +91,7 @@ resources:
 For dev, I usually just want to use a different image tag and maybe add a label to help me identify it easily.
 
 `overlays/dev/kustomization.yaml`:
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -106,6 +108,7 @@ images:
 ```
 
 Now, to see the final YAML for `dev`, we can run:
+
 ```bash
 kubectl kustomize overlays/dev
 ```

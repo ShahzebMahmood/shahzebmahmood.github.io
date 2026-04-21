@@ -7,7 +7,7 @@ tags: [eks, terraform, learning, challenges, growth]
 pin: false
 ---
 
-# My Journey Building an EKS Cluster: The Struggles and Breakthroughs
+## My Journey Building an EKS Cluster: The Struggles and Breakthroughs
 
 When I decided to build a complete EKS cluster from scratch, I had no idea what I was getting into. Sure, I'd worked with Docker and had some Kubernetes experience, but even with that background, I found myself overthinking and over-engineering the solution. In hindsight, for a simple app like this, Kubernetes was probably overkill—running it on EC2 with Docker would have been more cost-effective and efficient.
 

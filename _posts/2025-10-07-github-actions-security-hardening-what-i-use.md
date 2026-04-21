@@ -7,7 +7,7 @@ tags: [github-actions, oidc, ci-cd, security, least-privilege]
 pin: false
 ---
 
-# GitHub Actions Security Hardening — What I Actually Use
+## GitHub Actions Security Hardening — What I Actually Use
 
 I tightened my pipelines without slowing anyone down. This is the short list that stuck for me across personal projects and DevOps work.
 
@@ -55,5 +55,3 @@ permissions:
 
 ## My Take
 I think CI/CD can be good, but it comes with a lot of troubleshooting. I cannot tell you the amount of debugging I had to do 😅
-
-

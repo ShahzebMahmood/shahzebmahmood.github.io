@@ -8,7 +8,7 @@ tags: [grafana, migration, cloud, observability, dashboards, alerting]
 pin: false
 ---
 
-# Grafana Migration: From On-Prem to Cloud
+## Grafana Migration: From On-Prem to Cloud
 
 I recently worked through a Grafana migration from an on-prem setup to Grafana Cloud. The biggest goal was reducing operational overhead while keeping dashboards, alerts, and access controls stable for teams that rely on them daily.
 

@@ -7,7 +7,7 @@ tags: [learning, career, growth, development, persistence]
 pin: false
 ---
 
-# Why It's Important to Keep Learning?
+## Why It's Important to Keep Learning?
 
 If you had told me seven years ago, while I was working at McDonald's, that I would become a DevOps Engineer working with Kubernetes, ArgoCD, and cloud infrastructure, I wouldn't have believed you. But here I am, and the only reason I got here is because I never stopped learning.
 
@@ -76,4 +76,3 @@ My journey from McDonald's to DevOps Engineer wasn't easy, but it was possible b
 If you're just starting out, or if you're feeling stuck, remember: everyone starts somewhere. The important thing is to keep learning, keep building, and keep pushing forward. The skills you gain and the knowledge you build will serve you well, even if it doesn't always feel like it in the moment.
 
 Thank you for reading, and keep learning!
-

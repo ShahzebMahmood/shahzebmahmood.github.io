@@ -7,7 +7,7 @@ tags: [htb, twomillion, ctf, walkthrough, enumeration, privilege-escalation]
 pin: false
 ---
 
-# Hack The Box: TwoMillion (Easy)
+## Hack The Box: TwoMillion (Easy)
 
 I picked up TwoMillion after a long week because I wanted something that felt fun, fast, and a little nostalgic. It’s one of those HTB boxes that rewards curiosity more than heavy tooling—perfect for a quick win and a reminder that reading what’s right in front of you is often enough.
 
@@ -90,5 +90,3 @@ getent group docker || true
 - Reading client JS first saved time—it literally pointed me to the right door.
 - Security isn’t about obscurity or “nice UI”; it’s about boring, consistent validation.
 - The fastest path is often the cleanest one: be curious, read the code, then move.
-
-

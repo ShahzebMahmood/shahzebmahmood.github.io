@@ -8,7 +8,7 @@ tags: [bug-bounty, hacking, cybersecurity, learning, hobby]
 pin: false
 ---
 
-# Bug Bounties as a Hobby: What Keeps Me Consistent
+## Bug Bounties as a Hobby: What Keeps Me Consistent
 
 I treat bug bounties as a hobby that sharpens my security mindset outside of day-to-day DevOps work. It is one of the best ways I have found to stay curious, practice responsibly, and keep learning through real systems.
 

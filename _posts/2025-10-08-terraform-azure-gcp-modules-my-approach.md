@@ -7,7 +7,7 @@ tags: [terraform, azure, gcp, modules, iac, best-practices]
 pin: false
 ---
 
-# Terraform Modules: Azure and GCP, My Way
+## Terraform Modules: Azure and GCP, My Way
 
 I spent some time last week refactoring IaC into proper Terraform modules for both Azure and GCP. The goal was simple: make it easy to stamp out secure, tagged, and observable infrastructure with as little duplication as possible.
 
@@ -113,5 +113,3 @@ terraform -chdir=envs/dev apply -auto-approve
 ---
 
 Working in DevOps can feel fast‑paced and performative. I move more slowly, and that’s sometimes looked down upon but it’s also why my changes stick. Not knowing is not a bad thing it helps you investigate and grow
-
-

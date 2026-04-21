@@ -8,8 +8,6 @@ tags: [ci-cd, github-actions, harbor, ecr, terraform, aws, automation]
 pin: false
 ---
 
-# CI/CD Pipelines for Harbor to ECR Migration and Terraform Plan
-
 I recently worked on two pipelines that solved real delivery problems:
 
 - Migrating container images from Harbor to AWS ECR

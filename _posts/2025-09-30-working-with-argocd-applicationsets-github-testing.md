@@ -7,8 +7,6 @@ tags: [argocd, applicationset, gitops, kubernetes, testing, github]
 pin: false
 ---
 
-# Working with ArgoCD ApplicationSets: Making Changes in GitHub and Testing
-
 When I first started working with ArgoCD ApplicationSets, I thought it would be straightforward. You make changes in GitHub, push them, and ArgoCD syncs everything automatically. What could be simpler? Well, as it turns out, a lot of things.
 
 ## The Challenge
@@ -96,6 +94,7 @@ Then I discovered template patches. Instead of managing multiple ApplicationSets
 Here's an example of how I use template patches in my ApplicationSet:
 
 ```yaml
+{% raw %}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -139,6 +138,7 @@ spec:
     - op: add
       path: /metadata/annotations/retention-days
       value: "{{retention}}"
+{% endraw %}
 ```
 
 ### Common Use Cases for Template Patches
