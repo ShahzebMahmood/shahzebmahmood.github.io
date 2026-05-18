@@ -4,7 +4,7 @@ title: Welcome to My DevOps & Cybersecurity Journey
 date: 2025-08-29 12:00:00 -0500
 categories: [General, Introduction]
 tags: [devops, cybersecurity, portfolio, introduction]
-pin: true
+pin: false
 ---
 
 ## Welcome!

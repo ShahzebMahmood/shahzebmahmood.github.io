@@ -10,7 +10,7 @@ Hi! I'm **Shahzeb Mahmood**, a passionate DevOps Engineer and cybersecurity enth
 
 ## Professional Summary
 
-I'm a skilled professional with a robust background in infrastructure automation, continuous integration, and cloud services. My expertise spans scripting, system administration, and container orchestration, ensuring seamless deployments and efficient system operations. I have a strong focus on team collaboration and adaptability, consistently delivering reliable and effective solutions while leveraging technical skills to drive operational excellence.
+I build and secure infrastructure — CI/CD pipelines, Kubernetes clusters, cloud environments across AWS, Azure, and GCP. My focus is on automation and shift-left security: catching problems in the pipeline before they reach production. Outside of work I'm studying for my MSc in Cybersecurity and working through CTF challenges to sharpen my offensive skills.
 
 ## Current Role
 
@@ -57,16 +57,12 @@ Buckinghamshire New University, High Wycombe
 - **Terraform Certificate** - Udemy
 - **TCM Security Practical Junior Penetration Tester** *(Jan 2025)*
 
-## Career Journey
+## Experience
 
-My career has evolved from technical support roles to specialized DevOps engineering, with experience at companies including:
-
-- **Seqera Labs** - DevOps Engineer & Cloud Support Engineer
-- **Cloudbeds** - IT Administrator
-- **TractionOnDemand** - Infrastructure Technology Helpdesk Administrator  
-- **Impellam Group** - Application Support Analyst & Service Desk Analyst
-
-Throughout my journey, I've consistently focused on automation, security, and operational excellence, achieving measurable improvements like 99.9% system uptime and 40% reduction in support ticket volumes.
+- **Seqera Labs** — DevOps Engineer & Cloud Support Engineer
+- **Cloudbeds** — IT Administrator
+- **TractionOnDemand** — Infrastructure Technology Helpdesk Administrator
+- **Impellam Group** — Application Support Analyst & Service Desk Analyst
 
 ## What Drives Me
 
@@ -81,7 +77,7 @@ I'm passionate about:
 I'm always interested in discussing DevOps practices, cybersecurity, cloud architecture, or potential collaboration opportunities.
 
 📧 **Email**: [shahzebmahmood3@gmail.com](mailto:shahzebmahmood3@gmail.com)  
-💼 **LinkedIn**: [linkedin.com/in/shahzeb-m-70b694166](https://www.linkedin.com/in/shahzeb-m-70b694166)  
+💼 **LinkedIn**: [linkedin.com/in/shaz-mahmood1](https://www.linkedin.com/in/shaz-mahmood1/)  
 🐱 **GitHub**: [github.com/ShahzebMahmood](https://github.com/ShahzebMahmood)  
 📄 **Resume**: [Download PDF](/assets/docs/Shahzeb_Mahmood_Resume.pdf) | [View Online](/assets/docs/Shahzeb_Mahmood_Resume.md)
 
