@@ -45,12 +45,12 @@ cat <<EOF | sudo apparmor_parser -rW
 profile container-runtime-profile flags=(attach_disconnected,mediate_deleted) {
   include <abstractions/base>
   include <abstractions/nameservice>
-  
+
   # Allow unprivileged user namespaces
   capability sys_admin,
   mount,
   pivot_root,
-  
+
   # Runtime specific requirements
   /usr/bin/runtime-mount-tool flags=(unconfined),
   owner /proc/** r,
@@ -64,6 +64,6 @@ Azure Batch pools frequently use the latest marketplace images. If a pool was re
 
 ## Conclusion
 
-Modern Linux security hardening is a powerful tool but requires intentional configuration. While Ubuntu 24.04s AppArmor changes provide protection against namespace exploits, DevOps engineers must now explicitly authorize specialized runtimes to perform these operations.
+Modern Linux security hardening is a powerful tool but requires intentional configuration. While Ubuntu 24.04's AppArmor changes provide protection against namespace exploits, DevOps engineers must now explicitly authorize specialized runtimes to perform these operations.
 
 If a start task fails on a 24.04 node, the first step should always be to check dmesg | grep apparmor.

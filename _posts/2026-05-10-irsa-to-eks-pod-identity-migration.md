@@ -67,7 +67,7 @@ With Pod Identity, the trust policy is significantly cleaner:
 
 ## Migrating the Stack: Storage & Identity Controllers
 
-The migration focuses on the EKS Pod Identity Agent addon. 
+The migration focuses on the EKS Pod Identity Agent addon.
 
 1. **Install the Addon:** Ensure the `eks-auth-agent` is running on the nodes.
 2. **Map the Role:** Use the `aws_eks_pod_identity_association` resource to link the ServiceAccount to the IAM Role.

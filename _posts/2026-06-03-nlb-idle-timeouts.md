@@ -40,9 +40,9 @@ During a large image pull:
 
 Two methods were tested to resolve this:
 
-### 1. TCP Keep-Alives
+### 1. TCP keep-alive
 
-The registry client transport layer was modified to send TCP keep-alives every 60 seconds. This ensures the NLB maintains the connection in its flow table, even if the application layer is busy with CPU-intensive tasks like decompression.
+The registry client transport layer was modified to send TCP keep-alive every 60 seconds. This ensures the NLB maintains the connection in its flow table, even if the application layer is busy with CPU-intensive tasks like decompression.
 
 ### 2. Utilizing ALB for Large Payloads
 
