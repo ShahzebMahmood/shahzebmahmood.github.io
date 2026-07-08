@@ -155,6 +155,7 @@ I've found template patches particularly useful for:
 Here's a real example I used recently for CloudWatch monitoring:
 
 ```yaml
+{% raw %}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -195,6 +196,7 @@ spec:
             limits:
               memory: 512Mi
               cpu: 500m
+{% endraw %}
 ```
 
 ### Tips for Using Template Patches
