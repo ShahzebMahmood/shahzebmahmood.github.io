@@ -22,7 +22,7 @@ I'll be posting about:
 - **Learning**: My progress through certifications and hands-on labs
 
 ## My Focus Areas
-Currently working as a DevOps Engineer at Seqera Labs, I'm passionate about:
+Currently working as a DevOps Engineer, I'm passionate about:
 - Building secure, scalable infrastructure
 - Implementing shift-left security practices
 - Automating everything that can be automated

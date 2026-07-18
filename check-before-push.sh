@@ -84,6 +84,48 @@ else
     echo "   ✓ favicon-16x16.png exists"
 fi
 
+# Check for company references in blog posts
+echo ""
+echo "5. Checking for company/employer references in blog posts..."
+COMPANY_ERRORS=$(python3 -c '
+import glob, sys, re
+errors = 0
+forbidden_patterns = [
+    r"my work at [Ss]eqera",
+    r"my team at [Ss]eqera",
+    r"internal tool at [Ss]eqera",
+    r"developed at [Ss]eqera",
+    r"built at [Ss]eqera",
+    r"project at [Ss]eqera",
+    r"at [Ss]eqera [Ll]abs",
+    r"my current company",
+    r"the company i work for",
+    r"my employer",
+    r"in my current role at",
+    r"work at [Ss]eqera",
+    r"project for [Ss]eqera"
+]
+for filepath in glob.glob("_posts/*.md"):
+    if "welcome-to-my-portfolio" in filepath or "progressing-in-tech" in filepath:
+        continue
+    with open(filepath, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    for line_num, line in enumerate(lines, 1):
+        for pattern in forbidden_patterns:
+            if re.search(pattern, line):
+                print(f"   ✗ {filepath}:{line_num} - Found forbidden company reference pattern \"{pattern}\" in line: {line.strip()}")
+                errors += 1
+sys.exit(errors)
+' 2>&1)
+
+if [ $? -ne 0 ]; then
+    echo "   ✗ Found issues:"
+    echo "$COMPANY_ERRORS"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ No forbidden company or product references found"
+fi
+
 # Summary
 echo ""
 if [ $ERRORS -eq 0 ]; then
