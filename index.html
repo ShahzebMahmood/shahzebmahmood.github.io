@@ -117,14 +117,14 @@ title: Home
       </div>
 
       <div class="terminal-quick-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        <button class="cli-chip" data-cmd="whoami"><i class="fas fa-user"></i> whoami</button>
-        <button class="cli-chip" data-cmd="shazlabs"><i class="fas fa-server"></i> shaz labs status</button>
-        <button class="cli-chip" data-cmd="projects"><i class="fas fa-code-branch"></i> flagship projects</button>
-        <button class="cli-chip" data-cmd="certs"><i class="fas fa-shield-alt"></i> certifications</button>
-        <button class="cli-chip" data-cmd="skills"><i class="fas fa-layer-group"></i> skills</button>
-        <button class="cli-chip" data-cmd="ai what are Shahzeb's top projects?"><i class="fas fa-robot"></i> ask AI</button>
-        <button class="cli-chip" data-cmd="cat resume.pdf"><i class="fas fa-file-pdf"></i> cat resume</button>
-        <button class="cli-chip" data-cmd="clear"><i class="fas fa-trash-alt"></i> clear</button>
+        <button class="cli-chip" data-cmd="whoami" onclick="window.runTerminalCommand && window.runTerminalCommand('whoami')"><i class="fas fa-user"></i> whoami</button>
+        <button class="cli-chip" data-cmd="shazlabs" onclick="window.runTerminalCommand && window.runTerminalCommand('shazlabs')"><i class="fas fa-server"></i> shaz labs status</button>
+        <button class="cli-chip" data-cmd="projects" onclick="window.runTerminalCommand && window.runTerminalCommand('projects')"><i class="fas fa-code-branch"></i> flagship projects</button>
+        <button class="cli-chip" data-cmd="certs" onclick="window.runTerminalCommand && window.runTerminalCommand('certs')"><i class="fas fa-shield-alt"></i> certifications</button>
+        <button class="cli-chip" data-cmd="skills" onclick="window.runTerminalCommand && window.runTerminalCommand('skills')"><i class="fas fa-layer-group"></i> skills</button>
+        <button class="cli-chip" data-cmd="ai what are Shahzeb's top projects?" onclick="window.runTerminalCommand && window.runTerminalCommand('ai what are Shahzeb\'s top projects?')"><i class="fas fa-robot"></i> ask AI</button>
+        <button class="cli-chip" data-cmd="cat resume.pdf" onclick="window.runTerminalCommand && window.runTerminalCommand('cat resume.pdf')"><i class="fas fa-file-pdf"></i> cat resume</button>
+        <button class="cli-chip" data-cmd="clear" onclick="window.runTerminalCommand && window.runTerminalCommand('clear')"><i class="fas fa-trash-alt"></i> clear</button>
       </div>
 
       <div id="term-output-area"></div>
@@ -1132,7 +1132,7 @@ title: Home
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  function initShazPortfolio() {
     // ----------------------------------------------------
     // SHAZ LABS SEMANTIC KNOWLEDGE BASE ENGINE
     // ----------------------------------------------------
@@ -1572,6 +1572,9 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
       if (termBody) termBody.scrollTop = termBody.scrollHeight;
     }
 
+    // Expose globally for inline buttons and chips
+    window.runTerminalCommand = runCommand;
+
     if (cliInput) {
       cliInput.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
@@ -1615,5 +1618,12 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
         this.classList.add("active");
       });
     });
-  });
+  }
+
+  // Ensure initialization runs immediately if DOM is already ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initShazPortfolio);
+  } else {
+    initShazPortfolio();
+  }
 </script>
