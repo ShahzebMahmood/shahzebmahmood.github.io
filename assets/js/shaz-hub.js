@@ -133,13 +133,18 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
   // GLOBAL METHODS
   window.openShazChat = function () {
     const drawer = document.getElementById("shaz-ai-drawer");
-    const aiInput = document.getElementById("shaz-ai-input");
     if (drawer) {
       if (drawer.parentNode !== document.body) {
         document.body.appendChild(drawer);
       }
       drawer.classList.add("shaz-ai-drawer-open");
+      drawer.style.setProperty("display", "flex", "important");
+      drawer.style.setProperty("opacity", "1", "important");
+      drawer.style.setProperty("visibility", "visible", "important");
+      drawer.style.setProperty("pointer-events", "auto", "important");
+      drawer.style.setProperty("transform", "translateY(0) scale(1)", "important");
     }
+    const aiInput = document.getElementById("shaz-ai-input");
     if (aiInput) setTimeout(() => aiInput.focus(), 150);
   };
 
@@ -147,13 +152,19 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     const drawer = document.getElementById("shaz-ai-drawer");
     if (drawer) {
       drawer.classList.remove("shaz-ai-drawer-open");
+      drawer.style.setProperty("display", "none", "important");
+      drawer.style.setProperty("opacity", "0", "important");
+      drawer.style.setProperty("pointer-events", "none", "important");
+      drawer.style.setProperty("visibility", "hidden", "important");
+      drawer.style.setProperty("transform", "translateY(20px) scale(0.95)", "important");
     }
   };
 
   window.toggleShazChat = function () {
     const drawer = document.getElementById("shaz-ai-drawer");
     if (!drawer) return;
-    if (drawer.classList.contains("shaz-ai-drawer-open")) {
+    const isOpen = drawer.classList.contains("shaz-ai-drawer-open") && drawer.style.display !== "none";
+    if (isOpen) {
       window.closeShazChat();
     } else {
       window.openShazChat();
@@ -379,7 +390,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     if (termBody) termBody.scrollTop = termBody.scrollHeight;
   };
 
-  // GLOBAL DOCUMENT EVENT DELEGATION
+  // GLOBAL DOCUMENT EVENT DELEGATION (Capture phase)
   document.addEventListener("click", function (e) {
     // 1. Terminal Chips
     const cliChip = e.target.closest(".cli-chip");
@@ -444,7 +455,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
       document.querySelectorAll(".timeline-item").forEach(item => item.classList.remove("active"));
       timelineItem.classList.add("active");
     }
-  });
+  }, true);
 
   // GLOBAL KEYDOWN EVENT DELEGATION
   document.addEventListener("keydown", function (e) {
@@ -460,7 +471,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
         window.sendShazAIChat(e.target.value);
       }
     }
-  });
+  }, true);
 
   // AUTO-INITIALIZE ONCE DOM IS READY
   function initHub() {
@@ -473,12 +484,10 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
       document.body.appendChild(launcher);
     }
 
-    setTimeout(() => {
-      const outputArea = document.getElementById("term-output-area");
-      if (outputArea && !outputArea.hasChildNodes()) {
-        window.runTerminalCommand("whoami");
-      }
-    }, 200);
+    const outputArea = document.getElementById("term-output-area");
+    if (outputArea && outputArea.children.length === 0) {
+      window.runTerminalCommand("whoami");
+    }
   }
 
   if (document.readyState === "loading") {
@@ -486,4 +495,5 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
   } else {
     initHub();
   }
+  window.addEventListener("load", initHub);
 })();

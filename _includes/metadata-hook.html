@@ -1,6 +1,13 @@
-<!-- Custom Loading Animations CSS & JS -->
-<link rel="stylesheet" href="/assets/css/loading-animations.css">
-<script defer src="/assets/js/loading-animations.js"></script>
+<!-- Unregister stale service workers from old PWA caches -->
+<script>
+  if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for (var i = 0; i < registrations.length; i++) {
+        registrations[i].unregister();
+      }
+    });
+  }
+</script>
 
-<!-- Shaz Labs Hub JavaScript (Terminal CLI & AI Chatbot) -->
+<!-- Shaz Labs Hub Engine (Terminal CLI & AI Assistant) -->
 <script defer src="/assets/js/shaz-hub.js"></script>
