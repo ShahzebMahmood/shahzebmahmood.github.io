@@ -601,7 +601,7 @@ title: Home
 <!-- ==================================================== -->
 <!-- FLOATING SHAZ LABS AI CHATBOT DRAWER                 -->
 <!-- ==================================================== -->
-<div id="shaz-ai-drawer" class="shaz-ai-drawer-hidden">
+<div id="shaz-ai-drawer">
   <div class="shaz-ai-header">
     <div class="shaz-ai-title-wrap">
       <div class="shaz-ai-avatar">
@@ -942,6 +942,7 @@ title: Home
   }
 
   #shaz-ai-drawer {
+    display: none;
     position: fixed !important;
     bottom: 85px !important;
     right: 24px !important;
@@ -953,19 +954,21 @@ title: Home
     border: 1px solid #30363d !important;
     border-radius: 16px !important;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
-    display: flex !important;
     flex-direction: column !important;
     z-index: 9999999 !important;
     overflow: hidden !important;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.95);
     transition: opacity 0.25s ease, transform 0.25s ease !important;
   }
 
-  .shaz-ai-drawer-hidden {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transform: translateY(20px) scale(0.95) !important;
-    visibility: hidden !important;
+  #shaz-ai-drawer.shaz-ai-drawer-open {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
   }
 
   .shaz-ai-header {

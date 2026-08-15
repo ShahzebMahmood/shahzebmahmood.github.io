@@ -150,36 +150,28 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     const drawer = document.getElementById("shaz-ai-drawer");
     const aiInput = document.getElementById("shaz-ai-input");
     if (drawer) {
-      drawer.classList.remove("shaz-ai-drawer-hidden");
-      drawer.style.setProperty("display", "flex", "important");
-      drawer.style.setProperty("opacity", "1", "important");
-      drawer.style.setProperty("visibility", "visible", "important");
-      drawer.style.setProperty("pointer-events", "auto", "important");
       if (drawer.parentNode !== document.body) {
         document.body.appendChild(drawer);
       }
+      drawer.classList.add("shaz-ai-drawer-open");
     }
-    if (aiInput) setTimeout(() => aiInput.focus(), 100);
+    if (aiInput) setTimeout(() => aiInput.focus(), 150);
   };
 
   window.closeShazChat = function () {
     const drawer = document.getElementById("shaz-ai-drawer");
     if (drawer) {
-      drawer.classList.add("shaz-ai-drawer-hidden");
-      drawer.style.setProperty("display", "none", "important");
+      drawer.classList.remove("shaz-ai-drawer-open");
     }
   };
 
   window.toggleShazChat = function () {
     const drawer = document.getElementById("shaz-ai-drawer");
     if (!drawer) return;
-    const isHidden = drawer.classList.contains("shaz-ai-drawer-hidden") ||
-      drawer.style.display === "none" ||
-      getComputedStyle(drawer).display === "none";
-    if (isHidden) {
-      window.openShazChat();
-    } else {
+    if (drawer.classList.contains("shaz-ai-drawer-open")) {
       window.closeShazChat();
+    } else {
+      window.openShazChat();
     }
   };
 
