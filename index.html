@@ -41,7 +41,7 @@ title: Home
     <a href="#interactive-terminal" class="btn btn-primary" style="background: var(--link-color); border-color: var(--link-color); color: #fff; font-weight: 600;">
       <i class="fas fa-terminal"></i> Open Terminal CLI
     </a>
-    <button id="hero-open-ai-btn" class="btn btn-outline-primary" style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+    <button id="hero-open-ai-btn" class="btn btn-outline-primary" onclick="window.openShazChat && window.openShazChat()" style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
       <i class="fas fa-robot"></i> Ask Shaz Labs AI
     </button>
     <a href="#flagship-projects" class="btn btn-outline-primary">
@@ -101,7 +101,7 @@ title: Home
         <i class="fas fa-terminal" style="font-size: 0.75rem;"></i> shaz@shazlabs:~ (zsh)
       </div>
       <div style="display: flex; gap: 0.4rem;">
-        <button id="term-ai-toggle-btn" style="background: #238636; border: 1px solid #2ea043; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
+        <button id="term-ai-toggle-btn" onclick="window.openShazChat && window.openShazChat()" style="background: #238636; border: 1px solid #2ea043; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
           <i class="fas fa-robot"></i> Ask AI
         </button>
         <button id="term-clear-btn" style="background: transparent; border: 1px solid #30363d; color: #8b949e; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
@@ -615,7 +615,7 @@ title: Home
       </div>
     </div>
     <div class="shaz-ai-header-actions">
-      <button id="shaz-ai-close-btn" class="shaz-ai-icon-btn" title="Close"><i class="fas fa-times"></i></button>
+      <button id="shaz-ai-close-btn" class="shaz-ai-icon-btn" onclick="window.closeShazChat && window.closeShazChat()" title="Close"><i class="fas fa-times"></i></button>
     </div>
   </div>
 
@@ -644,7 +644,7 @@ title: Home
 </div>
 
 <!-- FLOATING LAUNCHER BUTTON -->
-<button id="shaz-ai-launcher" class="shaz-ai-launcher-btn" title="Open AI Assistant">
+<button id="shaz-ai-launcher" class="shaz-ai-launcher-btn" onclick="window.toggleShazChat && window.toggleShazChat()" title="Open AI Assistant">
   <span class="ai-launcher-pulse"></span>
   <i class="fas fa-robot"></i>
   <span class="ai-launcher-text">Ask Shaz Labs AI</span>
@@ -908,28 +908,28 @@ title: Home
   /* FLOATING CHATBOT WIDGET STYLES                       */
   /* ---------------------------------------------------- */
   .shaz-ai-launcher-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    border: none;
-    border-radius: 9999px;
-    padding: 0.75rem 1.3rem;
-    font-weight: 700;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    box-shadow: 0 8px 24px rgba(118, 75, 162, 0.4);
-    cursor: pointer;
-    z-index: 9999;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    padding: 0.75rem 1.3rem !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    box-shadow: 0 8px 24px rgba(118, 75, 162, 0.4) !important;
+    cursor: pointer !important;
+    z-index: 999999 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   .shaz-ai-launcher-btn:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 12px 30px rgba(118, 75, 162, 0.55);
+    transform: translateY(-3px) scale(1.03) !important;
+    box-shadow: 0 12px 30px rgba(118, 75, 162, 0.55) !important;
   }
 
   .ai-launcher-pulse {
@@ -942,28 +942,30 @@ title: Home
   }
 
   #shaz-ai-drawer {
-    position: fixed;
-    bottom: 85px;
-    right: 24px;
-    width: 390px;
-    max-width: calc(100vw - 32px);
-    height: 530px;
-    max-height: calc(100vh - 120px);
-    background: #0d1117;
-    border: 1px solid #30363d;
-    border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    z-index: 10000;
-    overflow: hidden;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    position: fixed !important;
+    bottom: 85px !important;
+    right: 24px !important;
+    width: 390px !important;
+    max-width: calc(100vw - 32px) !important;
+    height: 530px !important;
+    max-height: calc(100vh - 120px) !important;
+    background: #0d1117 !important;
+    border: 1px solid #30363d !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    z-index: 9999999 !important;
+    overflow: hidden !important;
+    transition: opacity 0.25s ease, transform 0.25s ease !important;
   }
 
   .shaz-ai-drawer-hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px) scale(0.95);
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(20px) scale(0.95) !important;
+    visibility: hidden !important;
   }
 
   .shaz-ai-header {
@@ -1292,20 +1294,44 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     const sendBtn = document.getElementById("shaz-ai-send-btn");
     const chipsContainer = document.getElementById("shaz-ai-suggestions");
 
+    // Detach and append to body to ensure it is never trapped in nested transformed containers
+    if (drawer && drawer.parentNode !== document.body) {
+      document.body.appendChild(drawer);
+    }
+    if (launcher && launcher.parentNode !== document.body) {
+      document.body.appendChild(launcher);
+    }
+
     function openChat() {
-      drawer.classList.remove("shaz-ai-drawer-hidden");
-      if (aiInput) aiInput.focus();
+      if (drawer) {
+        drawer.classList.remove("shaz-ai-drawer-hidden");
+        drawer.style.display = "flex";
+      }
+      if (aiInput) setTimeout(() => aiInput.focus(), 100);
     }
 
     function closeChat() {
-      drawer.classList.add("shaz-ai-drawer-hidden");
+      if (drawer) {
+        drawer.classList.add("shaz-ai-drawer-hidden");
+        drawer.style.display = "none";
+      }
     }
 
-    if (launcher) launcher.addEventListener("click", () => {
-      if (drawer.classList.contains("shaz-ai-drawer-hidden")) openChat();
-      else closeChat();
-    });
+    function toggleChat() {
+      if (!drawer) return;
+      if (drawer.classList.contains("shaz-ai-drawer-hidden") || drawer.style.display === "none") {
+        openChat();
+      } else {
+        closeChat();
+      }
+    }
 
+    // Expose globally for inline event handlers
+    window.openShazChat = openChat;
+    window.closeShazChat = closeChat;
+    window.toggleShazChat = toggleChat;
+
+    if (launcher) launcher.addEventListener("click", toggleChat);
     if (closeBtn) closeBtn.addEventListener("click", closeChat);
     if (heroAiBtn) heroAiBtn.addEventListener("click", openChat);
 
