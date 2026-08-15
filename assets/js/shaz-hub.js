@@ -90,44 +90,28 @@ Shahzeb is a DevOps Engineer at Seqera Labs and an MSc Cybersecurity researcher 
     }
   ];
 
-  function formatMarkdown(text) {
-    if (!text) return "";
-    return text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(/`([^`]+)`/g, '<code style="background:#21262d;padding:0.1rem 0.3rem;border-radius:4px;color:#58a6ff;font-family:monospace;">$1</code>')
-      .replace(/\n\n/g, '<br><br>')
-      .replace(/\n/g, '<br>');
-  }
+  async function queryAI(prompt) {
+    const raw = (prompt || "").trim();
+    if (!raw) return "";
 
-  async function queryHomelabAI(prompt) {
-    const isLocalDev = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
-    if (isLocalDev) {
+    // 1. Math Evaluation (e.g. 1+1, what is 25*4)
+    const mathCandidate = raw.replace(/^(what is|calculate|solve|evaluate|compute)\s+/i, "").replace(/[^0-9+\-*/().\s]/g, "").trim();
+    if (mathCandidate && /[0-9]/.test(mathCandidate) && /^[0-9+\-*/().\s]+$/.test(mathCandidate)) {
       try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000);
-        const res = await fetch("http://127.0.0.1:11434/api/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            model: "qwen2.5:3b",
-            system: "You are Shahzeb Mahmood's Portfolio AI Assistant running on his Debian Shaz Labs server. Shahzeb is a DevOps Engineer at Seqera Labs, MSc Cybersecurity candidate at University of York, and TCM Security PJPT certified. Career history: 4 companies total (Seqera Labs: DevOps Engineer & Cloud Support 2024-Present, Cloudbeds: IT Admin 2023-2024, Traction on Demand: Infra Tech Helpdesk 2022-2023, Impellam Group: App Support 2021-2022). Flagship projects: Amanah AI Security Gateway (Go runtime proxy stopping prompt injections), Pythia CLI (LLM red-teaming fuzzer), Production EKS GitOps (Terraform, ArgoCD, ESO, Trivy), and Digital Amannah (Next.js privacy platform). Shaz Labs: headless Debian 13 with ZRAM in-memory swap and Tailscale mesh with 0 open WAN ports. Answer accurately and concisely in 2-4 sentences.",
-            prompt: prompt,
-            stream: false
-          }),
-          signal: controller.signal
-        });
-        clearTimeout(timeoutId);
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.response && data.response.trim().length > 10) {
-            return formatMarkdown(data.response.trim()) + `<div style="margin-top:0.4rem;font-size:0.75rem;color:#10b981;"><i class="fas fa-bolt"></i> Live from Shaz Labs Qwen 2.5 3B (${(data.total_duration / 1e9).toFixed(1)}s)</div>`;
-          }
+        const mathResult = Function("return " + mathCandidate)();
+        if (typeof mathResult === "number" && !isNaN(mathResult)) {
+          return `<strong>🧮 Calculation:</strong><br><code>${mathCandidate}</code> = <strong style="color: #7ee787; font-size: 1.05rem;">${mathResult}</strong>`;
         }
-      } catch (err) {}
+      } catch (e) {}
     }
 
-    const lower = (prompt || "").toLowerCase().trim();
+    // 2. Greetings
+    const lower = raw.toLowerCase().trim();
+    if (/^(hi|hello|hey|greetings|salaam|assalamu alaikum|sup|yo)\b/i.test(lower)) {
+      return `<strong>👋 Hello!</strong><br>I am Shahzeb's AI Assistant running on his Debian Shaz Labs server. Ask me anything about his cloud architecture, Kubernetes GitOps, Amanah AI Gateway, Pythia CLI, or his career history!`;
+    }
+
+    // 3. Knowledge Base Search
     for (const entry of knowledgeBase) {
       const isMatch = entry.triggers.some(t => {
         if (t.includes(" ")) {
@@ -141,6 +125,7 @@ Shahzeb is a DevOps Engineer at Seqera Labs and an MSc Cybersecurity researcher 
       }
     }
 
+    // 4. Default Fallback
     return `<strong>💡 Shaz AI Assistant:</strong><br>
 Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecurity | TCM PJPT). He specializes in AWS, Kubernetes (EKS), Terraform, Go AI Firewalls (Amanah), and local Shaz Labs micro-services. Try asking about his <strong>career history</strong>, <strong>projects</strong>, <strong>Shaz Labs architecture</strong>, or <strong>certifications</strong>!`;
   }
@@ -197,11 +182,11 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
 
       const botDiv = document.createElement("div");
       botDiv.className = "shaz-msg shaz-msg-bot";
-      botDiv.innerHTML = `<div class="shaz-msg-bubble"><i class="fas fa-spinner fa-spin"></i> Generating response...</div>`;
+      botDiv.innerHTML = `<div class="shaz-msg-bubble"><i class="fas fa-spinner fa-spin"></i> Processing...</div>`;
       chatBody.appendChild(botDiv);
       chatBody.scrollTop = chatBody.scrollHeight;
 
-      const aiAnswer = await queryHomelabAI(q);
+      const aiAnswer = await queryAI(q);
       botDiv.querySelector(".shaz-msg-bubble").innerHTML = aiAnswer;
       chatBody.scrollTop = chatBody.scrollHeight;
     }
@@ -360,14 +345,14 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
           <span style="color: #58a6ff;">${clean}</span>
         </div>
         <div style="margin-left: 0.5rem; color: #d2a8ff; margin-top: 0.2rem;">
-          🤖 <span style="font-weight:600;">Shaz Labs AI:</span> <span class="term-ai-response"><i class="fas fa-spinner fa-spin"></i> Querying Qwen 2.5 3B...</span>
+          🤖 <span style="font-weight:600;">Shaz Labs AI:</span> <span class="term-ai-response"><i class="fas fa-spinner fa-spin"></i> Processing...</span>
         </div>
       `;
       outputArea.appendChild(cmdBlock);
       const termBody = document.querySelector(".terminal-body");
       if (termBody) termBody.scrollTop = termBody.scrollHeight;
 
-      const aiResponse = await queryHomelabAI(query);
+      const aiResponse = await queryAI(query);
       cmdBlock.querySelector(".term-ai-response").innerHTML = aiResponse;
       if (termBody) termBody.scrollTop = termBody.scrollHeight;
       return;
@@ -400,6 +385,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     const cliChip = e.target.closest(".cli-chip");
     if (cliChip) {
       e.preventDefault();
+      e.stopPropagation();
       const cmd = cliChip.getAttribute("data-cmd");
       if (cmd) window.runTerminalCommand(cmd);
       return;
@@ -409,6 +395,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     const shazChip = e.target.closest(".shaz-chip");
     if (shazChip) {
       e.preventDefault();
+      e.stopPropagation();
       const prompt = shazChip.getAttribute("data-prompt") || shazChip.innerText;
       if (prompt) window.sendShazAIChat(prompt);
       return;
@@ -421,6 +408,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
       e.target.closest("#term-ai-toggle-btn")
     ) {
       e.preventDefault();
+      e.stopPropagation();
       window.toggleShazChat();
       return;
     }
@@ -428,6 +416,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     // 4. Close AI Chat
     if (e.target.closest("#shaz-ai-close-btn")) {
       e.preventDefault();
+      e.stopPropagation();
       window.closeShazChat();
       return;
     }
@@ -435,6 +424,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     // 5. Terminal Clear
     if (e.target.closest("#term-clear-btn")) {
       e.preventDefault();
+      e.stopPropagation();
       window.runTerminalCommand("clear");
       return;
     }
@@ -442,6 +432,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     // 6. Send AI Message Button
     if (e.target.closest("#shaz-ai-send-btn")) {
       e.preventDefault();
+      e.stopPropagation();
       const aiInput = document.getElementById("shaz-ai-input");
       if (aiInput) window.sendShazAIChat(aiInput.value);
       return;
@@ -460,10 +451,12 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
     if (e.key === "Enter") {
       if (e.target && e.target.id === "term-cli-input") {
         e.preventDefault();
+        e.stopPropagation();
         window.runTerminalCommand(e.target.value);
       }
       if (e.target && e.target.id === "shaz-ai-input") {
         e.preventDefault();
+        e.stopPropagation();
         window.sendShazAIChat(e.target.value);
       }
     }
@@ -485,7 +478,7 @@ Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecur
       if (outputArea && !outputArea.hasChildNodes()) {
         window.runTerminalCommand("whoami");
       }
-    }, 300);
+    }, 200);
   }
 
   if (document.readyState === "loading") {

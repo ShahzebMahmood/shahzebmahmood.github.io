@@ -41,7 +41,7 @@ title: Home
     <a href="#interactive-terminal" class="btn btn-primary" style="background: var(--link-color); border-color: var(--link-color); color: #fff; font-weight: 600;">
       <i class="fas fa-terminal"></i> Open Terminal CLI
     </a>
-    <button id="hero-open-ai-btn" class="btn btn-outline-primary" onclick="window.openShazChat && window.openShazChat()" style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+    <button id="hero-open-ai-btn" class="btn btn-outline-primary" style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
       <i class="fas fa-robot"></i> Ask Shaz Labs AI
     </button>
     <a href="#flagship-projects" class="btn btn-outline-primary">
@@ -101,7 +101,7 @@ title: Home
         <i class="fas fa-terminal" style="font-size: 0.75rem;"></i> shaz@shazlabs:~ (zsh)
       </div>
       <div style="display: flex; gap: 0.4rem;">
-        <button id="term-ai-toggle-btn" onclick="window.openShazChat && window.openShazChat()" style="background: #238636; border: 1px solid #2ea043; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
+        <button id="term-ai-toggle-btn" style="background: #238636; border: 1px solid #2ea043; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
           <i class="fas fa-robot"></i> Ask AI
         </button>
         <button id="term-clear-btn" style="background: transparent; border: 1px solid #30363d; color: #8b949e; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
@@ -117,21 +117,21 @@ title: Home
       </div>
 
       <div class="terminal-quick-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        <button class="cli-chip" data-cmd="whoami" onclick="window.runTerminalCommand && window.runTerminalCommand('whoami')"><i class="fas fa-user"></i> whoami</button>
-        <button class="cli-chip" data-cmd="shazlabs" onclick="window.runTerminalCommand && window.runTerminalCommand('shazlabs')"><i class="fas fa-server"></i> shaz labs status</button>
-        <button class="cli-chip" data-cmd="projects" onclick="window.runTerminalCommand && window.runTerminalCommand('projects')"><i class="fas fa-code-branch"></i> flagship projects</button>
-        <button class="cli-chip" data-cmd="certs" onclick="window.runTerminalCommand && window.runTerminalCommand('certs')"><i class="fas fa-shield-alt"></i> certifications</button>
-        <button class="cli-chip" data-cmd="skills" onclick="window.runTerminalCommand && window.runTerminalCommand('skills')"><i class="fas fa-layer-group"></i> skills</button>
-        <button class="cli-chip" data-cmd="ai what are Shahzeb's top projects?" onclick="window.runTerminalCommand && window.runTerminalCommand('ai what are Shahzeb\'s top projects?')"><i class="fas fa-robot"></i> ask AI</button>
-        <button class="cli-chip" data-cmd="cat resume.pdf" onclick="window.runTerminalCommand && window.runTerminalCommand('cat resume.pdf')"><i class="fas fa-file-pdf"></i> cat resume</button>
-        <button class="cli-chip" data-cmd="clear" onclick="window.runTerminalCommand && window.runTerminalCommand('clear')"><i class="fas fa-trash-alt"></i> clear</button>
+        <button class="cli-chip" data-cmd="whoami"><i class="fas fa-user"></i> whoami</button>
+        <button class="cli-chip" data-cmd="shazlabs"><i class="fas fa-server"></i> shaz labs status</button>
+        <button class="cli-chip" data-cmd="projects"><i class="fas fa-code-branch"></i> flagship projects</button>
+        <button class="cli-chip" data-cmd="certs"><i class="fas fa-shield-alt"></i> certifications</button>
+        <button class="cli-chip" data-cmd="skills"><i class="fas fa-layer-group"></i> skills</button>
+        <button class="cli-chip" data-cmd="ai what are Shahzeb's top projects?"><i class="fas fa-robot"></i> ask AI</button>
+        <button class="cli-chip" data-cmd="cat resume.pdf"><i class="fas fa-file-pdf"></i> cat resume</button>
+        <button class="cli-chip" data-cmd="clear"><i class="fas fa-trash-alt"></i> clear</button>
       </div>
 
       <div id="term-output-area"></div>
 
       <div class="term-input-row" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem;">
         <span style="color: #7ee787; font-weight: 600;">shaz@shazlabs:~$</span>
-        <input type="text" id="term-cli-input" onkeydown="if(event.key==='Enter'){window.runTerminalCommand && window.runTerminalCommand(this.value);}" placeholder="type 'help', 'shazlabs', 'ai <question>'..." autocomplete="off" spellcheck="false" style="flex: 1; background: transparent; border: none; outline: none; color: #58a6ff; font-family: inherit; font-size: inherit; font-weight: 600;" />
+        <input type="text" id="term-cli-input" placeholder="type 'help', 'shazlabs', 'ai <question>'..." autocomplete="off" spellcheck="false" style="flex: 1; background: transparent; border: none; outline: none; color: #58a6ff; font-family: inherit; font-size: inherit; font-weight: 600;" />
       </div>
     </div>
   </div>
@@ -615,7 +615,7 @@ title: Home
       </div>
     </div>
     <div class="shaz-ai-header-actions">
-      <button id="shaz-ai-close-btn" class="shaz-ai-icon-btn" onclick="window.closeShazChat && window.closeShazChat()" title="Close"><i class="fas fa-times"></i></button>
+      <button id="shaz-ai-close-btn" class="shaz-ai-icon-btn" title="Close"><i class="fas fa-times"></i></button>
     </div>
   </div>
 
@@ -627,24 +627,24 @@ title: Home
     </div>
 
     <div class="shaz-ai-suggestions" id="shaz-ai-suggestions">
-      <button class="shaz-chip" onclick="window.sendShazAIChat && window.sendShazAIChat('What projects has he worked on?')">🛠️ Flagship Projects</button>
-      <button class="shaz-chip" onclick="window.sendShazAIChat && window.sendShazAIChat('What is Shahzeb\'s DevOps experience?')">⚡ DevOps experience</button>
-      <button class="shaz-chip" onclick="window.sendShazAIChat && window.sendShazAIChat('Tell me about the Amanah AI Security Gateway')">🛡️ Amanah AI Gateway</button>
-      <button class="shaz-chip" onclick="window.sendShazAIChat && window.sendShazAIChat('How does Shaz Labs work?')">🐧 Shaz Labs Architecture</button>
-      <button class="shaz-chip" onclick="window.sendShazAIChat && window.sendShazAIChat('What are his certifications and MSc?')">🎓 Certifications & MSc</button>
+      <button class="shaz-chip" data-prompt="What projects has he worked on?">🛠️ Flagship Projects</button>
+      <button class="shaz-chip" data-prompt="What is Shahzeb's DevOps experience?">⚡ DevOps experience</button>
+      <button class="shaz-chip" data-prompt="Tell me about the Amanah AI Security Gateway">🛡️ Amanah AI Gateway</button>
+      <button class="shaz-chip" data-prompt="How does Shaz Labs work?">🐧 Shaz Labs Architecture</button>
+      <button class="shaz-chip" data-prompt="What are his certifications and MSc?">🎓 Certifications & MSc</button>
     </div>
   </div>
 
   <div class="shaz-ai-footer">
     <div class="shaz-ai-input-wrap">
-      <input type="text" id="shaz-ai-input" onkeydown="if(event.key==='Enter'){window.sendShazAIChat && window.sendShazAIChat(this.value);}" placeholder="Ask about projects, Shaz Labs, skills..." autocomplete="off" spellcheck="false" />
-      <button id="shaz-ai-send-btn" onclick="const inp=document.getElementById('shaz-ai-input'); if(inp) window.sendShazAIChat(inp.value);" title="Send message"><i class="fas fa-paper-plane"></i></button>
+      <input type="text" id="shaz-ai-input" placeholder="Ask about projects, Shaz Labs, skills..." autocomplete="off" spellcheck="false" />
+      <button id="shaz-ai-send-btn" title="Send message"><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
 </div>
 
 <!-- FLOATING LAUNCHER BUTTON -->
-<button id="shaz-ai-launcher" class="shaz-ai-launcher-btn" onclick="window.toggleShazChat && window.toggleShazChat()" title="Open AI Assistant">
+<button id="shaz-ai-launcher" class="shaz-ai-launcher-btn" title="Open AI Assistant">
   <span class="ai-launcher-pulse"></span>
   <i class="fas fa-robot"></i>
   <span class="ai-launcher-text">Ask Shaz Labs AI</span>
