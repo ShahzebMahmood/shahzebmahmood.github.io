@@ -111,7 +111,7 @@ I do not open any ports on my home router. I do not like port forwarding because
 
 Instead, I use **Tailscale (WireGuard mesh)**:
 
-- The server gets a private encrypted IP (`100.92.57.31`) accessible only by my authenticated devices.
+- The server gets a private encrypted IP (`100.64.0.10`) accessible only by my authenticated devices.
 - I can SSH or access my dashboards from anywhere on my phone or laptop over 5G.
 - By setting the server as my global DNS in Tailscale, my phone routes through my home AdGuard DNS blocker even when I am on public Wi-Fi or cellular data.
 
@@ -144,7 +144,7 @@ flowchart TD
     end
 
     subgraph Mesh["🌐 Encrypted WireGuard Mesh (Tailscale)"]
-        TS["Tailscale Private IP: 100.92.57.31\n(Zero Router Ports Exposed)"]
+        TS["Tailscale Private IP: 100.64.0.10\n(Zero Router Ports Exposed)"]
     end
 
     subgraph HostOS["🐧 Headless Debian 13 Minimal (Intel Core i3 | 5-7W Draw)"]

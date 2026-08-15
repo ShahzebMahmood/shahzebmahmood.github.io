@@ -31,7 +31,7 @@ flowchart TD
         Browser["Reader on shahzebmahmood.github.io"]
     end
 
-    subgraph HomeServer["🐧 Debian Homelab (192.168.2.194)"]
+    subgraph HomeServer["🐧 Debian Homelab (192.168.1.100)"]
         subgraph AnalyticsStack["🐳 Umami Container Stack"]
             UmamiApp["Umami Analytics App\n(Port 3002 | 180MB RAM limit)"]
             UmamiDB[("🐘 PostgreSQL 15 Database\n(Internal Port 5432 | 150MB RAM limit)")]
@@ -88,13 +88,13 @@ services:
 
 ## Injecting the Tracking Script into Jekyll
 
-Once Umami was running on `http://192.168.2.194:3002`, I logged into the dashboard, registered my website, and generated my tracking ID.
+Once Umami was running on `http://192.168.1.100:3002`, I logged into the dashboard, registered my website, and generated my tracking ID.
 
 To inject it cleanly across every page of my Jekyll portfolio without editing dozens of markdown posts individually, I added the snippet into `_includes/custom-head.html`:
 
 ```html
 <!-- Umami Analytics (Home Server) -->
-<script defer src="http://192.168.2.194:3002/script.js" data-website-id="0de93f25-d93c-43b2-8df1-b71cb55bb087"></script>
+<script defer src="http://192.168.1.100:3002/script.js" data-website-id="your-umami-website-id"></script>
 ```
 
 Because the script is only around 4.6 KB and loads with `defer`, it has zero impact on page load speed or Core Web Vitals. It does not set cookies, so there is no need for cookie consent banners.
@@ -109,35 +109,35 @@ I set up **Homepage** (running on port `3005`) and configured `/opt/personal-ai/
 - AI & Intelligence:
     - Ollama AI Engine:
         icon: ollama.png
-        href: "http://192.168.2.194:11434"
+        href: "http://192.168.1.100:11434"
         description: "Qwen 2.5 3B & DeepSeek R1 1.5B (Local CPU)"
     - Qdrant Vector Memory:
         icon: qdrant.png
-        href: "http://192.168.2.194:6333/dashboard"
+        href: "http://192.168.1.100:6333/dashboard"
         description: "Knowledge Base & Portfolio Vector Embeddings"
 
 - Telemetry & Monitoring:
     - Uptime Kuma Status:
         icon: uptime-kuma.png
-        href: "http://192.168.2.194:3001"
+        href: "http://192.168.1.100:3001"
         description: "24/7 Endpoint Health & Telegram Phone Alerts"
     - Umami Web Analytics:
         icon: umami.png
-        href: "http://192.168.2.194:3002"
+        href: "http://192.168.1.100:3002"
         description: "Privacy-Preserving Traffic Analytics"
 
 - Network & Security:
     - AdGuard DNS Firewall:
         icon: adguard-home.png
-        href: "http://192.168.2.194:8080"
+        href: "http://192.168.1.100:8080"
         description: "Whole-Home DNS Protection & Query Log"
     - n8n Automation Engine:
         icon: n8n.png
-        href: "http://192.168.2.194:5678"
+        href: "http://192.168.1.100:5678"
         description: "Event-Driven CI/CD & Notification Workflows"
 ```
 
-Now, instead of memorizing port numbers or bookmarking 8 different URLs, opening `http://192.168.2.194:3005` (or my Tailscale IP when on the road) gives me instant access to my entire personal cloud.
+Now, instead of memorizing port numbers or bookmarking 8 different URLs, opening `http://192.168.1.100:3005` (or my Tailscale IP when on the road) gives me instant access to my entire personal cloud.
 
 ## Lessons Learned and Troubleshooting
 
