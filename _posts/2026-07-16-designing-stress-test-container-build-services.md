@@ -9,7 +9,7 @@ tags: [go, docker, kubernetes, load-testing, scaling, cloud]
 
 # Designing and Running a Stress Test for Container Build Services at Scale
 
-In modern cloud-native architectures, dynamically building and caching container images is a core part of operating scalable compute jobs. When hundreds or thousands of background jobs trigger simultaneously, the underlying container build service is hit with massive request spikes. This surge can expose architectural bottlenecks—from image layer caching inefficiencies to API latency, and aggressive rate limiting thresholds.
+In modern cloud-native architectures, dynamically building and caching container images is a core part of operating scalable compute jobs. When hundreds or thousands of background jobs trigger simultaneously, the underlying container build service is hit with massive request spikes. This surge can expose architectural bottlenecks, ranging from image layer caching inefficiencies to API latency and aggressive rate limiting thresholds.
 
 To ensure stability, running structured stress tests against your build engine is critical. In this post, we’ll explore how to design and run a highly concurrent stress test for a container build service using Go.
 
@@ -27,7 +27,7 @@ To prepare for these challenges, we need a load generation tool capable of simul
 
 ## Why Go for Stress Testing?
 
-Go (Golang) is uniquely positioned for building load testing tools. Its concurrency model, built on goroutines and channels, allows developers to spawn thousands of concurrent tasks with minimal memory overhead compared to traditional threading models. Additionally, its robust standard library (`net/http`) makes handling network connections and HTTP requests extremely efficient.
+Go (Golang) is uniquely positioned for building load testing tools. Its concurrency model, built on goroutines and channels, allows developers to spawn thousands of concurrent tasks with minimal memory overhead compared to traditional threading models. Additionally, its resilient standard library (`net/http`) makes handling network connections and HTTP requests extremely efficient.
 
 ## Designing the Load Tester
 

@@ -116,7 +116,7 @@ This will output the full Kubernetes manifests with the `env: dev` label and the
 
 ### The `prod` Overlay
 
-For production, we need higher replica counts and more robust resource limits. We'll use a patch for this.
+For production, we need higher replica counts and more reliable resource limits. We'll use a patch for this.
 
 `overlays/prod/deployment-patch.yaml`:
 ```yaml

@@ -9,7 +9,7 @@ tags: [llm-red-teaming, prompt-injection, security-testing, python, cli]
 
 As large language models (LLMs) find their way into production applications, they introduce a brand-new threat vector: adversarial prompt injections. Unlike traditional inputs, natural language prompts can bypass security constraints, causing models to leak confidential data, execute unauthorized actions, or bypass safety guardrails.
 
-To address this, I built **Pythia**—a research CLI designed to automate safety audits and prompt-injection vulnerability testing against both local and remote LLMs.
+To address this, I built **Pythia**, a research CLI designed to automate safety audits and prompt-injection vulnerability testing against both local and remote LLMs.
 
 ---
 

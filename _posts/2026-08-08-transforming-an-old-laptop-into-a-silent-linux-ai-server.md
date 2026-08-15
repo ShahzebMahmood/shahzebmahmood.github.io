@@ -26,7 +26,7 @@ Here is how I set it up and the exact engineering decisions that made it work.
 An old laptop has a few huge advantages over a bare mini PC that people often overlook:
 
 - **Built-in battery backup (UPS)**: If the power flickers or I accidentally trip a plug, the laptop battery keeps everything online. No sudden dirty shutdowns and no corrupted databases.
-- **Very low power draw**: It sips about 5–7W at idle. In Canada, that costs roughly $1.50 a month to run 24/7.
+- **Very low power draw**: It sips about 5-7W at idle. In Canada, that costs roughly $1.50 a month to run 24/7.
 - **Whisper quiet**: With low CPU load and good thermal scaling, the fan stays off or barely audible.
 
 To make it run properly as a headless server, I disabled sleep when the lid is closed:

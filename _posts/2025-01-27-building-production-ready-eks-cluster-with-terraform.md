@@ -9,11 +9,11 @@ pin: true
 
 ## My Journey Building an EKS Cluster: The Struggles and Breakthroughs
 
-When I decided to build a complete EKS cluster from scratch, I had no idea what I was getting into. Sure, I'd worked with Docker and had some Kubernetes experience, but even with that background, I found myself overthinking and over-engineering the solution. In hindsight, for a simple app like this, Kubernetes was probably overkill—running it on EC2 with Docker would have been more cost-effective and efficient.
+When I decided to build a complete EKS cluster from scratch, I had no idea what I was getting into. Sure, I'd worked with Docker and had some Kubernetes experience, but even with that background, I found myself overthinking and over-engineering the solution. In hindsight, for a simple app like this, Kubernetes was probably overkill: running it on EC2 with Docker would have been more cost-effective and efficient.
 
-I set out wanting to build something real—deploy a Node.js app to AWS using EKS, but not just as a quick demo. I wanted to do it the right way, with all the security, monitoring, and production-grade features that make something feel “finished.” What I didn’t expect was just how overwhelming that would feel. “Doing it properly” meant diving into a dozen different technologies, each with its own learning curve, and trying to make them all work together.
+I set out wanting to build something real: deploy a Node.js app to AWS using EKS, but not just as a quick demo. I wanted to do it the right way, with all the security, monitoring, and production-grade features that make something feel “finished.” What I didn’t expect was just how overwhelming that would feel. “Doing it properly” meant diving into a dozen different technologies, each with its own learning curve, and trying to make them all work together.
 
-There were days I felt completely lost, frustrated, and honestly, a bit defeated. The constant context-switching and the pressure to get every detail right started to take a toll—not just on my time, but on my confidence. It’s easy to underestimate how much this kind of project can wear you down, especially when you care about doing it well.
+There were days I felt completely lost, frustrated, and honestly, a bit defeated. The constant context-switching and the pressure to get every detail right started to take a toll, not just on my time, but on my confidence. It’s easy to underestimate how much this kind of project can wear you down, especially when you care about doing it well.
 
 After weeks of work, I ended up with:
 - **Infrastructure as Code**: Terraform modules that actually work (after many iterations)
@@ -25,7 +25,7 @@ After weeks of work, I ended up with:
 
 ## The Major Struggles
 
-One of the biggest challenges I faced was setting up a GitHub Action to automate the entire deployment process—from code commit to a live app running on EKS. At first, I underestimated how complex this would be. It quickly became clear that managing Terraform state remotely was essential for reliable, repeatable deployments. This realization only hit me after several failed attempts and confusing errors, forcing me to rethink my workflow and integrate remote state management into the pipeline.
+One of the biggest challenges I faced was setting up a GitHub Action to automate the entire deployment process, from code commit to a live app running on EKS. At first, I underestimated how complex this would be. It quickly became clear that managing Terraform state remotely was essential for reliable, repeatable deployments. This realization only hit me after several failed attempts and confusing errors, forcing me to rethink my workflow and integrate remote state management into the pipeline.
 
 ## The Breakthrough Moments
 
@@ -34,7 +34,7 @@ The first time I pushed code and saw it automatically deploy to my cluster - tha
 
 ## Security: The Hard Way
 
-One thing I love is security, but making something secure isn’t always efficient and can sometimes hinder the application. Security was the most intimidating part for me—I didn’t realize how many layers there were to consider. It’s all about balancing risk and accepting that some aspects may never be perfectly secure.
+One thing I love is security, but making something secure isn’t always efficient and can sometimes hinder the application. Security was the most intimidating part for me because I didn’t realize how many layers there were to consider. It’s all about balancing risk and accepting that some aspects may never be perfectly secure.
 
 There’s always a trade-off!
 
@@ -89,7 +89,7 @@ Understanding workflows, jobs, steps, and secrets was overwhelming. The feeling 
 
 ## Monitoring: The Afterthought
 
-I initially thought monitoring was something you add at the end. Boy, was I wrong. Understanding what's happening in your infrastructure is crucial.
+I initially thought monitoring was something you add at the end. Boy, was I wrong. Understanding what's happening in your infrastructure is essential if you want peace of mind.
 
 Setting up CloudWatch dashboards seemed straightforward until I realized I had no idea what metrics were actually important. Not all metrics are created equal.
 

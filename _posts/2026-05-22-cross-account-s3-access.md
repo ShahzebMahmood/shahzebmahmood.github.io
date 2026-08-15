@@ -42,7 +42,7 @@ In this model, Account B access is granted direct access via a bucket policy in 
 
 ## Option 2: Role Chaining with External ID (Cross-Account Assumption)
 
-This is a robust pattern for shared infrastructure. A role in Account B assumes a dedicated role in Account A.
+This is a solid pattern for shared infrastructure. A role in Account B assumes a dedicated role in Account A.
 
 1. **Role in Account A:** Defined with the necessary S3 permissions.
 2. **Trust Policy in Account A:** Permits Account B to assume the role, provided a specific `ExternalId` is supplied.

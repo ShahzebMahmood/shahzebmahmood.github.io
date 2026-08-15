@@ -77,7 +77,7 @@ spec:
 
 ## Using Template Patches
 
-I recently discovered template patches in ApplicationSets, and they've been a game-changer for managing environment-specific configurations. Template patches allow you to modify the generated Application resources based on different generator values, which is perfect when you need slight variations between environments.
+I recently discovered template patches in ApplicationSets, and they've been a huge improvement for managing environment-specific configurations. Template patches allow you to modify the generated Application resources based on different generator values, which is perfect when you need slight variations between environments.
 
 ### What Are Template Patches?
 

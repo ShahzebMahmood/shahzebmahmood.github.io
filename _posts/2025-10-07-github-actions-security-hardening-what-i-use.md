@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "GitHub Actions Security Hardening — What I Actually Use"
+title: "GitHub Actions Security Hardening: What I Actually Use"
 date: 2025-10-07 12:00:00 -0500
 categories: [DevOps, Security]
 tags: [github-actions, oidc, ci-cd, security, least-privilege]
 pin: false
 ---
 
-## GitHub Actions Security Hardening — What I Actually Use
+## GitHub Actions Security Hardening: What I Actually Use
 
 I tightened my pipelines without slowing anyone down. This is the short list that stuck for me across personal projects and DevOps work.
 

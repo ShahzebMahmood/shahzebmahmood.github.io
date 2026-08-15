@@ -9,13 +9,13 @@ tags: [nextjs, tailwind, typescript, supabase, security, privacy]
 
 # Building Digital Amannah: A Case Study in Values-Based Digital Wellness Tech
 
-Creating a digital wellness platform inherently demands a strict adherence to privacy and security. Users seeking digital safety tools do not want to be tracked, logged, or monetized. Digital Amannah was conceived with exactly these principles in mind—a values-based platform dedicated to zero-tracking and absolute user privacy.
+Creating a digital wellness platform inherently demands a strict adherence to privacy and security. Users seeking digital safety tools do not want to be tracked, logged, or monetized. Digital Amannah was conceived with exactly these principles in mind: a values-based platform dedicated to zero-tracking and absolute user privacy.
 
 In this case study, we dive deep into the architectural decisions and technical stack utilized to build Digital Amannah, focusing on Next.js, Tailwind CSS, Supabase, and our lightweight browser extension, Wiqayah.
 
 ## The Core Philosophy: Privacy by Design
 
-From day one, the architecture was constrained by one overriding rule: **no user activity tracking**. This meant avoiding standard analytics pixels, minimizing server-side logging of IP addresses, and building localized execution paths for any content moderation tools. We adopted a "shift-left" security mentality—securing the platform at the deployment layer and database level rather than retrofitting it later.
+From day one, the architecture was constrained by one overriding rule: **no user activity tracking**. This meant avoiding standard analytics pixels, minimizing server-side logging of IP addresses, and building localized execution paths for any content moderation tools. We adopted a "shift-left" security mentality, securing the platform at the deployment layer and database level rather than retrofitting it later.
 
 ## Architectural Foundation: Next.js App Router
 
@@ -72,7 +72,7 @@ export async function getPostData(slug: string) {
 
 For user authentication and minimal state management (such as user preferences), we utilized **Supabase**, an open-source Firebase alternative backed by PostgreSQL.
 
-Supabase was chosen heavily for its robust implementation of **Row Level Security (RLS)**. RLS allows us to define security policies directly inside the database.
+Supabase was chosen heavily for its rock-solid implementation of **Row Level Security (RLS)**. RLS allows us to define security policies directly inside the database.
 
 ```sql
 -- Example RLS Policy for user settings

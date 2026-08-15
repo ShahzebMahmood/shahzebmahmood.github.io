@@ -7,7 +7,7 @@ categories: [AWS, EKS]
 tags: [aws, eks, iam, pod-identity, irsa, kubernetes, devops]
 ---
 
-As EKS Pod Identity gains traction, many are weighing the trade-offs against the established IAM Roles for Service Accounts (IRSA) pattern. In a recent modernization of a production Kubernetes environment, I migrated a multi-controller stack—including identity managers, the AWS Load Balancer Controller, and the EFS CSI driver—to this new model.
+As EKS Pod Identity gains traction, many are weighing the trade-offs against the established IAM Roles for Service Accounts (IRSA) pattern. In a recent modernization of a production Kubernetes environment, I migrated a multi-controller stack (including identity managers, the AWS Load Balancer Controller, and the EFS CSI driver) to this new model.
 
 Here is an analysis of why the "Pod Identity" approach is fundamentally changing how identity is handled in Kubernetes.
 
@@ -79,7 +79,7 @@ The migration focuses on the EKS Pod Identity Agent addon.
 |---------|------|--------------|
 | **Setup** | OIDC Provider + Annotations | EKS Addon + Association |
 | **Complexity** | High (Trust Policies) | Low (Centralized) |
-| **Cross-Account** | Supported | Not yet natively seamless |
+| **Cross-Account** | Supported | Not yet natively smooth |
 | **Performance** | Native STS | Local Agent Proxy |
 
 ## Conclusion

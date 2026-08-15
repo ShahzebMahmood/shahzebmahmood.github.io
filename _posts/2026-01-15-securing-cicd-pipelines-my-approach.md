@@ -51,7 +51,7 @@ The environment where your code is built and tested is a prime target.
 
 ### 3. Artifact Management
 
-The output of your build—a container image, a JAR file, etc.—needs to be protected.
+The output of your build (like a container image or JAR file) needs to be protected.
 
 - **Use a Secure Registry:** Store artifacts in a private, secure registry like ECR, GCR, or Artifactory.
 - **Sign Your Artifacts:** Use tools like Cosign to sign container images. This allows you to verify the integrity and origin of an image before deploying it, preventing tampering.
@@ -72,7 +72,7 @@ cosign sign --key cosign.key my-app:${{ github.sha }}
 The final step is getting your application into production.
 
 - **Secrets Management:** Never store secrets in Git. Use a proper secrets manager like AWS Secrets Manager, HashiCorp Vault, or GitHub's encrypted secrets. Inject them into the environment at runtime.
-- **Least Privilege for Deployments:** The identity your CI/CD pipeline uses to deploy should have the minimum permissions necessary. For Kubernetes, use a dedicated ServiceAccount. For cloud, use a specific IAM role with a narrow policy. OpenID Connect (OIDC) is a game-changer for this, allowing for short-lived, keyless credentials.
+- **Least Privilege for Deployments:** The identity your CI/CD pipeline uses to deploy should have the minimum permissions necessary. For Kubernetes, use a dedicated ServiceAccount. For cloud, use a specific IAM role with a narrow policy. OpenID Connect (OIDC) is a huge win for this, allowing for short-lived, keyless credentials.
 - **Deployment Gating:** Use manual approval steps for production deployments. This provides a final human checkpoint to prevent accidental or malicious deployments.
 
 ## What Stuck With Me

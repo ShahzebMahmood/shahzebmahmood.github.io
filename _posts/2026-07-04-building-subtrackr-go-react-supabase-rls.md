@@ -7,7 +7,7 @@ categories: [Web Development, Projects]
 tags: [go, react, supabase, postgresql, tailwind, fullstack]
 ---
 
-Keeping track of monthly and annual software subscriptions can quickly get messy. To solve this problem for myself—and to experiment with modern full-stack architectures—I built **SubTrackr**, a clean, responsive subscription management web application. 
+Keeping track of monthly and annual software subscriptions can quickly get messy. To solve this problem for myself and experiment with modern full-stack architectures, I built **SubTrackr**, a clean, responsive subscription management web application. 
 
 Here is a look at the architecture, security decisions, and engineering lessons behind the project.
 
@@ -109,8 +109,8 @@ Go's built-in testing framework is paired with **testify** (for structured asser
 
 ## Lessons Learned
 
-1. **Leveraging DB-Level Security:** Moving user-isolation policies to the database level (RLS) simplifies backend logic. The API server doesn't need to manually check permissions on every query—the database handles it natively.
+1. **Leveraging DB-Level Security:** Moving user-isolation policies to the database level (RLS) simplifies backend logic. The API server doesn't need to manually check permissions on every query; the database handles it natively.
 2. **Go's Concurrency for Background Tasks:** When dispatching bulk reminder emails, Go's goroutines make it trivial to handle SMTP network calls concurrently, preventing the HTTP trigger request from hanging.
 3. **Structured Testing Pays Off:** Using `sqlmock` early in the backend development saved hours of debugging database connection logic and made unit tests run in milliseconds.
 
-SubTrackr started as a simple weekend utility, but building it with robust testing, robust database-level security policies, and a compiled backend made it a great sandbox for practicing clean architectural habits.
+SubTrackr started as a simple weekend utility, but building it with solid testing, solid database-level security policies, and a compiled backend made it a great sandbox for practicing clean architectural habits.

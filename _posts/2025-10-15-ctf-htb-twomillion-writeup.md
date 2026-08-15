@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hack The Box: TwoMillion (Easy) — My Experience"
+title: "Hack The Box: TwoMillion (Easy) - My Experience"
 date: 2025-10-15 12:00:00 -0500
 categories: [CTF, HackTheBox]
 tags: [htb, twomillion, ctf, walkthrough, enumeration, privilege-escalation]
@@ -9,12 +9,12 @@ pin: false
 
 ## Hack The Box: TwoMillion (Easy)
 
-I picked up TwoMillion after a long week because I wanted something that felt fun, fast, and a little nostalgic. It’s one of those HTB boxes that rewards curiosity more than heavy tooling—perfect for a quick win and a reminder that reading what’s right in front of you is often enough.
+I picked up TwoMillion after a long week because I wanted something that felt fun, fast, and a little nostalgic. It’s one of those HTB boxes that rewards curiosity more than heavy tooling, perfect for a quick win and a reminder that reading what’s right in front of you is often enough.
 
 > Legal note: This is about my experience on a legal training lab.
 
 ## First Impressions
-I did a quick scan and headed straight to the website. The UI felt familiar—HTB throwback style—with an invite flow that immediately made me think: “There’s probably something helpful hiding in the client code.” That hunch paid off. No brute forcing.
+I did a quick scan and headed straight to the website. The UI felt familiar (classic HTB throwback style) with an invite flow that immediately made me think: “There’s probably something helpful hiding in the client code.” That hunch paid off. No brute forcing.
 
 What I enjoyed here was the reminder that client-side JavaScript can be a treasure map. Reading it felt like walking behind the scenes and finding the door that everyone assumes is locked.
 
@@ -32,7 +32,7 @@ cat invite.b64 | base64 -d | tr 'A-Za-z' 'N-ZA-Mn-za-m' | tee invite.txt
 ```
 
 ## The Little Nudge That Opened The Door
-Once I registered and poked around, I watched the network calls and noticed how roles were being handled. It was one of those “surely this is checked server‑side… right?” moments. It wasn’t. A tiny change and—boom—an Admin panel appeared. That mix of surprise and “I knew it” is the best part of these easier machines.
+Once I registered and poked around, I watched the network calls and noticed how roles were being handled. It was one of those “surely this is checked server‑side… right?” moments. It wasn’t. A tiny change and, boom, an Admin panel appeared. That mix of surprise and “I knew it” is the best part of these easier machines.
 
 ```bash
 # Conceptual example: promoting my role after login
@@ -43,7 +43,7 @@ curl -i -X POST "http://$TARGET/api/user/role" \
 ```
 
 ## Getting a Shell (And Keeping It)
-The admin “network tool” practically built shell commands for me. It’s the classic trap: convenience over safety. A quick injection later I had a shell. I stabilized it out of habit and did my usual sweep—users, services, config paths. Nothing dramatic, just tidy and methodical.
+The admin “network tool” practically built shell commands for me. It’s the classic trap: convenience over safety. A quick injection later I had a shell. I stabilized it out of habit and did my usual sweep: users, services, and config paths. Nothing dramatic, just tidy and methodical.
 
 ```bash
 # Listener
@@ -61,7 +61,7 @@ ls -al /home; cat /etc/os-release
 ```
 
 ## PrivEsc Thoughts
-For escalation I kept it simple: check sudo, peek at SUIDs, and read through the web app’s files for secrets. Depending on the kernel build, there are well‑known locals that might apply—but I don’t fire those unless I need to. In my run, good hygiene and a bit of config snooping were enough to finish.
+For escalation I kept it simple: check sudo, peek at SUIDs, and read through the web app’s files for secrets. Depending on the kernel build, there are well‑known locals that might apply, but I don’t fire those unless I need to. In my run, good hygiene and a bit of config snooping were enough to finish.
 
 ```bash
 # Quick checks I ran
@@ -87,6 +87,6 @@ getent group docker || true
 - Ship patches regularly; locals shouldn’t be one‑command escalations.
 
 ## What Stuck With Me
-- Reading client JS first saved time—it literally pointed me to the right door.
+- Reading client JS first saved time, as it literally pointed me to the right door.
 - Security isn’t about obscurity or “nice UI”; it’s about boring, consistent validation.
 - The fastest path is often the cleanest one: be curious, read the code, then move.

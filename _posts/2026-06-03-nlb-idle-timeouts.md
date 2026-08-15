@@ -19,7 +19,7 @@ The environment utilizes an automated system to generate container images on dem
 
 Unlike an Application Load Balancer (ALB), which supports configurable idle timeouts, an NLB has a fixed TCP idle timeout of 350 seconds.
 
-If a connection is established but remains idle—meaning no data is transmitted—for 350 seconds, the NLB silently removes the entry from its flow table. When the client (the build node) eventually attempts to transmit data or acknowledge a packet, the NLB sends a RST (reset) because it no longer recognizes the connection.
+If a connection is established but remains idle (meaning no data is transmitted) for 350 seconds, the NLB silently removes the entry from its flow table. When the client (the build node) eventually attempts to transmit data or acknowledge a packet, the NLB sends a RST (reset) because it no longer recognizes the connection.
 
 ### Why Image Pulls are Affected
 

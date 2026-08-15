@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hack The Box: Cap (Easy) — My Experience"
+title: "Hack The Box: Cap (Easy) - My Experience"
 date: 2025-09-10 12:00:00 -0500
 categories: [CTF, HackTheBox]
 tags: [htb, cap, ctf, walkthrough, enumeration, privilege-escalation]
@@ -51,7 +51,7 @@ rlwrap nc -lvnp 4444
 ```
 
 ## PrivEsc Thoughts
-I kept the same flow I use on easy boxes: check sudo, SUIDs, cron, and app configs. On this host the name “Cap” is a hint—Linux capabilities. Finding a Python binary with `cap_setuid=ep` made escalation straightforward.
+I kept the same flow I use on easy boxes: check sudo, SUIDs, cron, and app configs. On this host the name "Cap" is a hint: Linux capabilities. Finding a Python binary with `cap_setuid=ep` made escalation straightforward.
 
 ```bash
 sudo -l || true
@@ -85,4 +85,4 @@ PY
 
 ---
 
-Working in DevOps can feel fast‑paced. I move slower, and that’s sometimes looked down on—but that’s why my changes stick. Not knowing isn’t a bad thing—it forces investigation and growth.
+Working in DevOps can feel fast‑paced. I move slower, and that’s sometimes looked down on, but that’s why my changes stick. Not knowing isn’t a bad thing; it forces investigation and growth.

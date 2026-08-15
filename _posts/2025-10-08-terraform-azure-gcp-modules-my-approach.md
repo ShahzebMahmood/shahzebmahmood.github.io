@@ -69,7 +69,7 @@ module "gcp_core" {
 ## Little Things That Made A Big Difference
 - A `providers` block inside modules is optional; I pass providers from root for clarity
 - `terraform fmt` + `tflint` + `pre-commit` kept everything neat
-- Outputs are for consumers, not for me—only expose what callers actually need
+- Outputs are for consumers, not for me: only expose what callers actually need
 
 ## Where I Tripped Up (And How I Fixed It)
 - Linting got noisy fast across clouds; provider mismatches and unused variables were my biggest offenders.

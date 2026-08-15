@@ -183,6 +183,6 @@ These two pipelines made migrations safer and IaC reviews faster for the team.
 
 ## Related Posts
 
-- [GitHub Actions Security Hardening — What I Actually Use](/posts/github-actions-security-hardening-what-i-use/)
+- [GitHub Actions Security Hardening: What I Actually Use](/posts/github-actions-security-hardening-what-i-use/)
 - [Terraform Modules: How I Built Reusable Azure and GCP Building Blocks](/posts/terraform-azure-gcp-modules-my-approach/)
 - [ECR Permissions in AWS](/posts/ecr-permissions-aws/)

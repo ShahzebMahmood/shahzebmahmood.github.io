@@ -262,9 +262,9 @@ So I went ahead and created an ApplicationSet and AppProject within the same fil
 
 One thing most developers or even tech people underestimate is the fear and caution one has when deploying an app or change to any environment. This is where I would check, check, and check again. I asked for help; however, I would still be hesitant to apply this to the cluster.
 
-In the end, I did press enter and the app was deployed. I saw the notification on our communication platform stating it was created. I navigated to our deployment interface and checked—it was there in an unknown state. This is where I noticed the error `.Values.clusterName is required` which is due to the Helm chart being so strict. I fixed this with the patching solution and did a `sync`, which created everything successfully.
+In the end, I did press enter and the app was deployed. I saw the notification on our communication platform stating it was created. I navigated to our deployment interface and checked, and it was there in an unknown state. This is where I noticed the error `.Values.clusterName is required` which is due to the Helm chart being so strict. I fixed this with the patching solution and did a `sync`, which created everything successfully.
 
-My next issue was a permission problem with the EKS role I specified. I had made an error in the IAM role configuration—once that was corrected, everything was fixed and sending to CloudWatch properly. Since I'm paranoid, I double-checked in AWS CloudWatch and confirmed metrics and logs were being sent. Simple mistake but something that's easily overlooked.
+My next issue was a permission problem with the EKS role I specified. I had made an error in the IAM role configuration. Once that was corrected, everything was fixed and sending to CloudWatch properly. Since I'm paranoid, I double-checked in AWS CloudWatch and confirmed metrics and logs were being sent. Simple mistake but something that's easily overlooked.
 
 Boom! Everything was working as intended. The joy and relief of not breaking anything is a great feeling.
 
@@ -273,7 +273,7 @@ In tech there's not much help, and even if you do ask, it's often met with disda
 
 Testing in dev is a must. I did break the deployment a few times, but I learned from it and fixed it. I think I learned more from my testing than from anyone telling me what to do. 
 
-Even though our work is hard and stressful, it's just work at the end of the day and shouldn't consume your life. It took me a while to get this task completed—maybe someone could have done it quicker and better.
+Even though our work is hard and stressful, it's just work at the end of the day and shouldn't consume your life. It took me a while to get this task completed. Maybe someone could have done it quicker and better.
 
 If you work in DevOps or any tech role, the best thing you can do is try, try, and try again because at the end of the day you will learn more from doing it yourself than from anyone telling you what to do.
 
