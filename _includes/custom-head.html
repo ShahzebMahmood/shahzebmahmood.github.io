@@ -28,5 +28,16 @@
 }
 </script>
 
-<!-- Umami Analytics (Home Server) -->
-<script defer src="http://192.168.2.194:3002/script.js" data-website-id="0de93f25-d93c-43b2-8df1-b71cb55bb087"></script>
+<!-- Shaz Labs Analytics Telemetry -->
+<script>
+  (function() {
+    var host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'http://127.0.0.1:3002/script.js';
+      s.setAttribute('data-website-id', '0de93f25-d93c-43b2-8df1-b71cb55bb087');
+      document.head.appendChild(s);
+    }
+  })();
+</script>

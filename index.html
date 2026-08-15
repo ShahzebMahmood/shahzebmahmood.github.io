@@ -8,32 +8,44 @@ title: Home
   class="hero-section"
   style="
     text-align: center;
-    padding: 2rem 0;
+    padding: 2.5rem 1rem;
     background: var(--card-bg);
     color: var(--text-color);
     margin: -2rem -1rem 2rem;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid var(--main-border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   "
 >
+  <div class="hero-badge-pill" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 1rem; background: rgba(102, 126, 234, 0.12); border: 1px solid var(--link-color); border-radius: 9999px; margin-bottom: 1.2rem; font-size: 0.85rem; font-weight: 600; color: var(--link-color);">
+    <span class="live-ping-dot"></span>
+    DevOps Engineer &bull; Security Researcher (TCM PJPT &bull; MSc Cybersecurity)
+  </div>
+
   <h1
-    style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color)"
+    style="font-size: 2.7rem; margin-bottom: 0.8rem; color: var(--heading-color); font-weight: 800; letter-spacing: -0.5px;"
   >
     <i class="fas fa-terminal" style="color: var(--link-color)"></i> Shaz's
-    DevOps & Security Journey
+    DevOps & Security Hub
   </h1>
-  <p style="font-size: 1.2rem; margin-bottom: 1.5rem">
-    DevOps Engineer | Cybersecurity Enthusiast | Cloud Architect
+  <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-color); font-weight: 500;">
+    Building Resilient Cloud Infrastructure, Hardened CI/CD Pipelines & AI Runtime Security
   </p>
-  <p style="font-size: 1rem; margin-bottom: 2rem; opacity: 0.9">
-    Building secure infrastructure through continuous learning and sharing
-    knowledge
+  <p style="font-size: 0.95rem; margin-bottom: 1.8rem; opacity: 0.85; max-width: 680px; margin-left: auto; margin-right: auto;">
+    Hands-on engineering across AWS, Kubernetes, Terraform, Go, and Offensive/Defensive Security. 
   </p>
+  
   <div
-    style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap"
+    style="display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap"
   >
-    <a href="/about/" class="btn btn-outline-primary">
-      <i class="fas fa-user"></i> About Me
+    <a href="#interactive-terminal" class="btn btn-primary" style="background: var(--link-color); border-color: var(--link-color); color: #fff; font-weight: 600;">
+      <i class="fas fa-terminal"></i> Open Terminal CLI
+    </a>
+    <button id="hero-open-ai-btn" class="btn btn-outline-primary" style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+      <i class="fas fa-robot"></i> Ask Shaz Labs AI
+    </button>
+    <a href="#flagship-projects" class="btn btn-outline-primary">
+      <i class="fas fa-microchip"></i> Flagship Lab
     </a>
     <a
       href="/assets/docs/Shahzeb_Mahmood_Resume.pdf"
@@ -41,10 +53,14 @@ title: Home
       target="_blank"
       download
     >
-      <i class="fas fa-download"></i> Resume
+      <i class="fas fa-download"></i> Resume (PDF)
     </a>
-    <a href="/categories/" class="btn btn-outline-primary">
-      <i class="fas fa-code"></i> My Posts
+    <a
+      href="https://www.credly.com/users/shahzebmahmood"
+      class="btn btn-outline-primary"
+      target="_blank"
+    >
+      <i class="fas fa-award"></i> Credly
     </a>
     <a
       href="https://github.com/ShahzebMahmood"
@@ -56,42 +72,249 @@ title: Home
   </div>
 </div>
 
+<!-- LIVE SHAZ LABS TELEMETRY STRIP -->
+<div class="homelab-telemetry-bar" style="margin: 2rem 0; padding: 1rem 1.4rem; background: var(--card-bg); border: 1px solid var(--main-border-color); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: var(--card-shadow);">
+  <div style="display: flex; align-items: center; gap: 0.75rem;">
+    <span class="pulse-dot"></span>
+    <span style="font-size: 0.9rem; font-weight: 700; color: var(--heading-color);">
+      Debian 13 Shaz Labs Server: <span style="color: #10b981;">ONLINE</span>
+    </span>
+  </div>
+  <div class="telemetry-items" style="display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-color);">
+    <span class="telemetry-chip"><i class="fab fa-docker" style="color: var(--link-color);"></i> <strong>7/7</strong> Docker Containers</span>
+    <span class="telemetry-chip"><i class="fas fa-memory" style="color: var(--toc-highlight);"></i> <strong>ZRAM</strong> In-Memory Swap</span>
+    <span class="telemetry-chip"><i class="fas fa-shield-alt" style="color: #10b981;"></i> <strong>Tailscale</strong> Mesh (0 WAN Ports)</span>
+    <span class="telemetry-chip"><i class="fas fa-brain" style="color: var(--link-color);"></i> <strong>Ollama</strong> Qwen 2.5 3B</span>
+  </div>
+</div>
+
+<!-- INTERACTIVE DEVELOPER TERMINAL HUB -->
+<div id="interactive-terminal" class="terminal-hub-wrapper" style="margin: 2.5rem 0;">
+  <div class="terminal-card" style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
+    <div class="terminal-header" style="background: #161b22; padding: 0.6rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #30363d;">
+      <div class="terminal-controls" style="display: flex; gap: 7px;">
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; display: inline-block;"></span>
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; display: inline-block;"></span>
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f; display: inline-block;"></span>
+      </div>
+      <div class="terminal-title" style="font-family: monospace; font-size: 0.85rem; color: #8b949e; display: flex; align-items: center; gap: 0.4rem;">
+        <i class="fas fa-terminal" style="font-size: 0.75rem;"></i> shaz@shazlabs:~ (zsh)
+      </div>
+      <div style="display: flex; gap: 0.4rem;">
+        <button id="term-ai-toggle-btn" style="background: #238636; border: 1px solid #2ea043; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
+          <i class="fas fa-robot"></i> Ask AI
+        </button>
+        <button id="term-clear-btn" style="background: transparent; border: 1px solid #30363d; color: #8b949e; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
+          <i class="fas fa-eraser"></i> Clear
+        </button>
+      </div>
+    </div>
+
+    <div class="terminal-body" style="padding: 1.2rem; font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace; font-size: 0.9rem; color: #c9d1d9; min-height: 280px; max-height: 480px; overflow-y: auto;">
+      <div class="term-line" style="margin-bottom: 0.8rem; color: #8b949e;">
+        🚀 <span style="color: #58a6ff; font-weight: 600;">Welcome to Shaz's Interactive Terminal CLI.</span><br>
+        Type a command or click a quick shortcut below (or type <code style="color: #7ee787;">ai &lt;question&gt;</code> to prompt Shaz Labs AI):
+      </div>
+
+      <div class="terminal-quick-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <button class="cli-chip" data-cmd="whoami"><i class="fas fa-user"></i> whoami</button>
+        <button class="cli-chip" data-cmd="shazlabs"><i class="fas fa-server"></i> shaz labs status</button>
+        <button class="cli-chip" data-cmd="projects"><i class="fas fa-code-branch"></i> flagship projects</button>
+        <button class="cli-chip" data-cmd="certs"><i class="fas fa-shield-alt"></i> certifications</button>
+        <button class="cli-chip" data-cmd="skills"><i class="fas fa-layer-group"></i> skills</button>
+        <button class="cli-chip" data-cmd="ai what are Shahzeb's top projects?"><i class="fas fa-robot"></i> ask AI</button>
+        <button class="cli-chip" data-cmd="cat resume.pdf"><i class="fas fa-file-pdf"></i> cat resume</button>
+        <button class="cli-chip" data-cmd="clear"><i class="fas fa-trash-alt"></i> clear</button>
+      </div>
+
+      <div id="term-output-area"></div>
+
+      <div class="term-input-row" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem;">
+        <span style="color: #7ee787; font-weight: 600;">shaz@shazlabs:~$</span>
+        <input type="text" id="term-cli-input" placeholder="type 'help', 'shazlabs', 'ai <question>'..." autocomplete="off" spellcheck="false" style="flex: 1; background: transparent; border: none; outline: none; color: #58a6ff; font-family: inherit; font-size: inherit; font-weight: 600;" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLAGSHIP SYSTEMS & SECURITY LAB -->
+<div id="flagship-projects" class="flagship-showcase" style="margin: 3.5rem 0;">
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <div style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--link-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem;">
+      Offensive & Defensive Security Lab
+    </div>
+    <h2 style="font-size: 2.2rem; color: var(--heading-color); font-weight: 800;">
+      <i class="fas fa-shield-virus" style="color: var(--link-color)"></i> Flagship Engineering Projects
+    </h2>
+    <p style="color: var(--text-color); opacity: 0.85; max-width: 600px; margin: 0.5rem auto 0;">
+      Production-grade tools, security proxies, and cloud infrastructure engineered for real-world reliability.
+    </p>
+  </div>
+
+  <div class="row">
+    <!-- Project 1: Amanah AI Gateway -->
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100 project-featured-card" style="border-left: 4px solid #10b981;">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; font-weight: 600; font-size: 0.75rem;">
+              <i class="fas fa-shield-alt"></i> AI Runtime Security
+            </span>
+            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Active Live Project</span>
+          </div>
+          <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
+            Amanah AI Security Gateway & Firewall
+          </h4>
+          <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
+            A high-performance security runtime proxy written in Go that intercepts LLM tool calls in real time. It mitigates prompt injections, stops destructive cloud commands (e.g. AWS/Kubernetes teardowns), and blocks unauthorized data exfiltration.
+          </p>
+          <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span class="skill-tag">Go (Golang)</span>
+            <span class="skill-tag">AI Firewall</span>
+            <span class="skill-tag">Prompt Injection Defense</span>
+            <span class="skill-tag">Runtime Policy</span>
+          </div>
+          <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/posts/building-digital-amannah-values-based-safety/" class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-book-open"></i> Read Architecture Post
+            </a>
+            <span style="font-size: 0.85rem; font-weight: 600; color: #10b981;">
+              <i class="fas fa-check-circle"></i> Live on Shaz Labs
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Pythia LLM Red-Teaming CLI -->
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100 project-featured-card" style="border-left: 4px solid var(--link-color);">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="badge" style="background: rgba(102, 126, 234, 0.15); color: var(--link-color); border: 1px solid var(--link-color); font-weight: 600; font-size: 0.75rem;">
+              <i class="fas fa-bug"></i> Adversarial Security
+            </span>
+            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Open Source CLI</span>
+          </div>
+          <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
+            Pythia — LLM Red-Teaming & Safety Fuzzer
+          </h4>
+          <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
+            A research CLI and automated security assessment engine built to fuzz and red-team Large Language Models against prompt injections, jailbreaks, system prompt extractions, and SSRF tool-calling exploits.
+          </p>
+          <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">LLM Red-Teaming</span>
+            <span class="skill-tag">OWASP LLM Top 10</span>
+            <span class="skill-tag">CLI Tooling</span>
+          </div>
+          <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/posts/building-pythia-cli-for-llm-red-teaming/" class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-book-open"></i> Read Case Study
+            </a>
+            <a href="https://github.com/ShahzebMahmood" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Production EKS Multi-Tenant GitOps -->
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100 project-featured-card" style="border-left: 4px solid var(--toc-highlight);">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="badge" style="background: rgba(235, 104, 65, 0.15); color: var(--toc-highlight); border: 1px solid var(--toc-highlight); font-weight: 600; font-size: 0.75rem;">
+              <i class="fas fa-cube"></i> Cloud Native Infra
+            </span>
+            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Production Architecture</span>
+          </div>
+          <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
+            Production EKS GitOps with ArgoCD & ESO
+          </h4>
+          <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
+            Declarative Kubernetes infrastructure deployed via Terraform on AWS. Features ArgoCD ApplicationSets for multi-environment syncing, External Secrets Operator (ESO) syncing with AWS Secrets Manager, and Trivy automated container vulnerability gating.
+          </p>
+          <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span class="skill-tag">AWS EKS</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">ArgoCD</span>
+            <span class="skill-tag">External Secrets</span>
+            <span class="skill-tag">Trivy</span>
+          </div>
+          <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/posts/working-with-argocd-applicationsets-github-testing/" class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-book-open"></i> View Walkthrough
+            </a>
+            <a href="/posts/building-production-ready-eks-cluster-with-terraform/" class="btn btn-sm btn-outline-secondary">
+              <i class="fas fa-layer-group"></i> EKS Guide
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: Digital Amannah Platform -->
+    <div class="col-lg-6 mb-4">
+      <div class="card h-100 project-featured-card" style="border-left: 4px solid #3b82f6;">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid #3b82f6; font-weight: 600; font-size: 0.75rem;">
+              <i class="fas fa-user-shield"></i> Zero-Tracking & Privacy
+            </span>
+            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Production Web Platform</span>
+          </div>
+          <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
+            Digital Amannah — Values-Based Digital Wellness Platform
+          </h4>
+          <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
+            A privacy-first digital safety platform built with Next.js App Router and React Server Components for zero client-side tracking. Features automated markdown content delivery, strict TypeScript type safety, and localized moderation workflows.
+          </p>
+          <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span class="skill-tag">Next.js App Router</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Supabase</span>
+            <span class="skill-tag">Privacy by Design</span>
+          </div>
+          <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/posts/building-digital-amannah-values-based-safety/" class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-book-open"></i> Read Architecture Post
+            </a>
+            <a href="https://github.com/ShahzebMahmood" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH STACK & EXPERTISE -->
 <div class="tech-stack" style="margin: 3rem 0">
   <h2
-    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color)"
+    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color); font-weight: 800;"
   >
     <i class="fas fa-cogs" style="color: var(--link-color)"></i> Tech Stack &
-    Expertise
+    Core Expertise
   </h2>
 
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card h-100" style="border-left: 4px solid var(--link-color)">
         <div class="card-body">
-          <h5 class="card-title">
+          <h5 class="card-title" style="font-weight: 700;">
             <i class="fas fa-cloud" style="color: var(--toc-highlight)"></i>
             Cloud & Infrastructure
           </h5>
-          <ul class="list-unstyled">
-            <li>
-              <i class="fab fa-aws" style="color: var(--link-color)"></i> AWS
-            </li>
-            <li>
-              <i class="fab fa-microsoft" style="color: var(--link-color)"></i>
-              Azure
-            </li>
-            <li>
-              <i class="fab fa-google" style="color: var(--link-color)"></i>
-              Google Cloud
-            </li>
-            <li>
-              <i class="fas fa-cube" style="color: var(--link-color)"></i>
-              Kubernetes
-            </li>
-            <li>
-              <i class="fab fa-docker" style="color: var(--link-color)"></i>
-              Docker
-            </li>
+          <ul class="list-unstyled" style="line-height: 1.8;">
+            <li><i class="fab fa-aws" style="color: var(--link-color); width: 22px;"></i> AWS (EKS, IAM, S3, NLB, VPC)</li>
+            <li><i class="fab fa-microsoft" style="color: var(--link-color); width: 22px;"></i> Azure (Batch, SP, Blob)</li>
+            <li><i class="fab fa-google" style="color: var(--link-color); width: 22px;"></i> Google Cloud Platform</li>
+            <li><i class="fas fa-cube" style="color: var(--link-color); width: 22px;"></i> Kubernetes & Kustomize</li>
+            <li><i class="fab fa-docker" style="color: var(--link-color); width: 22px;"></i> Docker & Containerd</li>
           </ul>
         </div>
       </div>
@@ -103,34 +326,16 @@ title: Home
         style="border-left: 4px solid var(--toc-highlight)"
       >
         <div class="card-body">
-          <h5 class="card-title">
+          <h5 class="card-title" style="font-weight: 700;">
             <i class="fas fa-shield-alt" style="color: var(--link-color)"></i>
-            Security & DevOps
+            Security & Hardening
           </h5>
-          <ul class="list-unstyled">
-            <li>
-              <i class="fas fa-bug" style="color: var(--toc-highlight)"></i>
-              Vulnerability Scanning
-            </li>
-            <li>
-              <i class="fas fa-key" style="color: var(--link-color)"></i>
-              Secrets Management
-            </li>
-            <li>
-              <i
-                class="fas fa-code-branch"
-                style="color: var(--link-color)"
-              ></i>
-              CI/CD Pipelines
-            </li>
-            <li>
-              <i class="fas fa-code" style="color: var(--link-color)"></i>
-              Infrastructure as Code
-            </li>
-            <li>
-              <i class="fas fa-search" style="color: var(--link-color)"></i>
-              Threat Detection
-            </li>
+          <ul class="list-unstyled" style="line-height: 1.8;">
+            <li><i class="fas fa-certificate" style="color: #10b981; width: 22px;"></i> TCM Security PJPT Certified</li>
+            <li><i class="fas fa-bug" style="color: var(--toc-highlight); width: 22px;"></i> Vulnerability Scanning (Trivy)</li>
+            <li><i class="fas fa-key" style="color: var(--link-color); width: 22px;"></i> Secrets Management (ESO, Vault)</li>
+            <li><i class="fas fa-code-branch" style="color: var(--link-color); width: 22px;"></i> Hardened CI/CD (GitHub Actions)</li>
+            <li><i class="fas fa-user-shield" style="color: var(--link-color); width: 22px;"></i> IAM OIDC & Least Privilege</li>
           </ul>
         </div>
       </div>
@@ -139,37 +344,16 @@ title: Home
     <div class="col-md-4 mb-4">
       <div class="card h-100" style="border-left: 4px solid var(--link-color)">
         <div class="card-body">
-          <h5 class="card-title">
+          <h5 class="card-title" style="font-weight: 700;">
             <i class="fas fa-tools" style="color: var(--link-color)"></i> Tools
-            & Technologies
+            & Languages
           </h5>
-          <ul class="list-unstyled">
-            <li>
-              <i class="fas fa-cube" style="color: var(--link-color)"></i>
-              Terraform
-            </li>
-            <li>
-              <i class="fab fa-python" style="color: var(--link-color)"></i>
-              Python
-            </li>
-            <li>
-              <i class="fas fa-terminal" style="color: var(--text-color)"></i>
-              Bash
-            </li>
-            <li>
-              <i
-                class="fas fa-chart-line"
-                style="color: var(--toc-highlight)"
-              ></i>
-              Monitoring
-            </li>
-            <li>
-              <i
-                class="fas fa-robot"
-                style="color: var(--text-muted-color)"
-              ></i>
-              Automation
-            </li>
+          <ul class="list-unstyled" style="line-height: 1.8;">
+            <li><i class="fas fa-cubes" style="color: var(--link-color); width: 22px;"></i> Terraform & OpenTofu</li>
+            <li><i class="fab fa-golang" style="color: #00add8; width: 22px;"></i> Go (Golang) & Python</li>
+            <li><i class="fas fa-terminal" style="color: var(--text-color); width: 22px;"></i> Bash & Linux Hardening</li>
+            <li><i class="fas fa-chart-line" style="color: var(--toc-highlight); width: 22px;"></i> Grafana, CloudWatch, Kuma</li>
+            <li><i class="fas fa-network-wired" style="color: var(--link-color); width: 22px;"></i> Tailscale WireGuard Mesh</li>
           </ul>
         </div>
       </div>
@@ -177,61 +361,60 @@ title: Home
   </div>
 </div>
 
+<!-- CURRENT FOCUS & CREDENTIALS -->
 <div
   class="current-focus"
   style="
     background: var(--card-bg);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 12px;
     margin: 3rem 0;
     border: 1px solid var(--main-border-color);
   "
 >
   <h2
-    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color)"
+    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color); font-weight: 800;"
   >
-    <i class="fas fa-target" style="color: var(--link-color)"></i> Current Focus
+    <i class="fas fa-bullseye" style="color: var(--link-color)"></i> Current Focus & Credentials
   </h2>
   <div class="row">
-    <div class="col-md-6">
-      <h5>
+    <div class="col-md-6 mb-3">
+      <h5 style="font-weight: 700;">
         <i class="fas fa-briefcase" style="color: var(--link-color)"></i>
-        Professional
+        Professional Engineering
       </h5>
-      <ul>
+      <ul style="line-height: 1.8;">
         <li><strong>DevOps Engineer</strong> at Seqera Labs</li>
-        <li>
-          Building secure CI/CD pipelines with
-          <strong>Trivy</strong> integration
-        </li>
-        <li>Automating secrets management with <strong>ESO</strong></li>
-        <li>Multi-cloud infrastructure automation</li>
+        <li>Building secure CI/CD pipelines with <strong>Trivy</strong> automated vulnerability gating</li>
+        <li>Automating secrets management with <strong>External Secrets Operator (ESO)</strong></li>
+        <li>Multi-cloud infrastructure as code automation with <strong>Terraform</strong></li>
       </ul>
     </div>
-    <div class="col-md-6">
-      <h5>
+    <div class="col-md-6 mb-3">
+      <h5 style="font-weight: 700;">
         <i
           class="fas fa-graduation-cap"
           style="color: var(--toc-highlight)"
         ></i>
-        Learning & Growth
+        Education & Research
       </h5>
-      <ul>
-        <li><strong>MSc Cybersecurity</strong> at University of York</li>
-        <li>Advanced <strong>HackTheBox</strong> challenges</li>
-        <li>Cloud security architecture patterns</li>
-        <li>Expanding penetration testing skills</li>
+      <ul style="line-height: 1.8;">
+        <li><strong>MSc Computer Science with Cybersecurity</strong> at University of York</li>
+        <li><strong>TCM Security PJPT</strong> (Practical Junior Penetration Tester)</li>
+        <li><strong>Verified Certifications:</strong> <a href="https://www.credly.com/users/shahzebmahmood" target="_blank" style="color: var(--link-color); font-weight: 600;">Credly Badges</a></li>
+        <li>Active <strong>HackTheBox</strong> penetration testing & red-teaming labs</li>
+        <li>Runtime AI Security & Prompt Injection research</li>
       </ul>
     </div>
   </div>
 </div>
 
+<!-- CAREER TIMELINE -->
 <div class="career-timeline" style="margin: 3rem 0">
   <h2
-    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color)"
+    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color); font-weight: 800;"
   >
-    <i class="fas fa-route" style="color: var(--link-color)"></i> My DevOps
-    Journey
+    <i class="fas fa-route" style="color: var(--link-color)"></i> My DevOps Journey
   </h2>
 
   <div class="timeline-container">
@@ -374,18 +557,19 @@ title: Home
   </div>
 </div>
 
-<div class="featured-content" style="margin: 3rem 0">
+<!-- LATEST INSIGHTS -->
+<div class="featured-content" style="margin: 3.5rem 0">
   <h2
-    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color)"
+    style="text-align: center; margin-bottom: 2rem; color: var(--heading-color); font-weight: 800;"
   >
-    <i class="fas fa-star" style="color: var(--link-color)"></i> Latest Insights
+    <i class="fas fa-book-open" style="color: var(--link-color)"></i> Latest Technical Articles
   </h2>
   <div class="row">
     {% for post in site.posts limit:3 %}
     <div class="col-md-4 mb-3">
       <div class="card h-100">
-        <div class="card-body">
-          <h6 class="card-title">
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title" style="font-weight: 700;">
             <a
               href="{{ post.url | relative_url }}"
               class="text-decoration-none"
@@ -393,13 +577,12 @@ title: Home
               {{ post.title }}
             </a>
           </h6>
-          <p class="card-text text-muted small">
+          <p class="card-text text-muted small" style="margin-bottom: 1rem;">
             {{ post.excerpt | strip_html | truncatewords: 15 }}
           </p>
           <div class="mt-auto">
             <small class="text-muted">
-              <i class="fas fa-calendar-alt"></i> {{ post.date | date: "%b %d,
-              %Y" }}
+              <i class="fas fa-calendar-alt"></i> {{ post.date | date: "%b %d, %Y" }}
             </small>
           </div>
         </div>
@@ -409,19 +592,138 @@ title: Home
   </div>
 
   <div style="text-align: center; margin-top: 2rem">
-    <a href="/archives/" class="btn btn-primary">
-      <i class="fas fa-arrow-right"></i> View All Posts
+    <a href="/archives/" class="btn btn-primary" style="background: var(--link-color); border-color: var(--link-color); color: #fff; font-weight: 600;">
+      <i class="fas fa-arrow-right"></i> View All Articles & Archives
     </a>
   </div>
 </div>
 
+<!-- ==================================================== -->
+<!-- FLOATING SHAZ LABS AI CHATBOT DRAWER                 -->
+<!-- ==================================================== -->
+<div id="shaz-ai-drawer" class="shaz-ai-drawer-hidden">
+  <div class="shaz-ai-header">
+    <div class="shaz-ai-title-wrap">
+      <div class="shaz-ai-avatar">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div>
+        <div class="shaz-ai-title">Shaz AI Assistant</div>
+        <div class="shaz-ai-sub">
+          <span class="pulse-dot-mini"></span> Powered by Shaz Labs LLM (Qwen 2.5 3B)
+        </div>
+      </div>
+    </div>
+    <div class="shaz-ai-header-actions">
+      <button id="shaz-ai-close-btn" class="shaz-ai-icon-btn" title="Close"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <div class="shaz-ai-body" id="shaz-ai-chat-body">
+    <div class="shaz-msg shaz-msg-bot">
+      <div class="shaz-msg-bubble">
+        👋 Hi! I am Shahzeb's AI Assistant running on his Debian Shaz Labs server. Ask me anything about his cloud architecture, Amanah AI Gateway, Pythia CLI, Kubernetes setups, or his background!
+      </div>
+    </div>
+
+    <div class="shaz-ai-suggestions" id="shaz-ai-suggestions">
+      <button class="shaz-chip" data-prompt="What projects has he worked on?">🛠️ Flagship Projects</button>
+      <button class="shaz-chip" data-prompt="What is Shahzeb's DevOps experience?">⚡ DevOps experience</button>
+      <button class="shaz-chip" data-prompt="Tell me about the Amanah AI Security Gateway">🛡️ Amanah AI Gateway</button>
+      <button class="shaz-chip" data-prompt="How does Shaz Labs work?">🐧 Shaz Labs Architecture</button>
+      <button class="shaz-chip" data-prompt="What are his certifications and MSc?">🎓 Certifications & MSc</button>
+    </div>
+  </div>
+
+  <div class="shaz-ai-footer">
+    <div class="shaz-ai-input-wrap">
+      <input type="text" id="shaz-ai-input" placeholder="Ask about projects, Shaz Labs, skills..." autocomplete="off" spellcheck="false" />
+      <button id="shaz-ai-send-btn" title="Send message"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING LAUNCHER BUTTON -->
+<button id="shaz-ai-launcher" class="shaz-ai-launcher-btn" title="Open AI Assistant">
+  <span class="ai-launcher-pulse"></span>
+  <i class="fas fa-robot"></i>
+  <span class="ai-launcher-text">Ask Shaz Labs AI</span>
+</button>
+
 <style>
-  /* Original Styles */
-  .hero-section {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: slideInDown 0.8s ease-out;
+  /* Pulsing live dot */
+  .live-ping-dot, .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: ping-animation 1.8s infinite cubic-bezier(0, 0, 0.2, 1);
   }
 
+  .pulse-dot-mini {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  @keyframes ping-animation {
+    0% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+    }
+    70% {
+      box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+  }
+
+  /* CLI Quick Chips */
+  .cli-chip {
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #58a6ff;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .cli-chip:hover {
+    background: #30363d;
+    border-color: #58a6ff;
+    color: #79c0ff;
+    transform: translateY(-1px);
+  }
+
+  /* Project Featured Cards */
+  .project-featured-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .project-featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .skill-tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--link-color);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+  }
+
+  /* Hero button hover */
   .hero-section .btn {
     margin: 0.2rem;
     border-width: 2px;
@@ -431,11 +733,7 @@ title: Home
   }
 
   .hero-section .btn:hover {
-    background-color: var(--link-color);
-    border-color: var(--link-color);
-    color: var(--main-bg);
     transform: translateY(-2px);
-    box-shadow: var(--card-shadow);
   }
 
   .card {
@@ -444,156 +742,10 @@ title: Home
     background: var(--card-bg);
     color: var(--text-color);
     box-shadow: var(--card-shadow);
-    animation: slideInUp 0.5s ease-out;
-    animation-fill-mode: both;
-  }
-
-  .card:hover {
-    transform: translateY(-2px);
-    background: var(--card-hovor-bg);
-    box-shadow: var(--card-shadow);
-  }
-
-  .card:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  .card:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  .card:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-
-  .tech-stack {
-    animation: fadeInUp 0.6s ease-out 0.4s both;
-  }
-
-  .current-focus {
-    animation: fadeInUp 0.6s ease-out 0.6s both;
-  }
-
-  .featured-content {
-    animation: fadeInUp 0.6s ease-out 0.8s both;
-  }
-
-  .featured-content .card-title a {
-    color: var(--heading-color);
-  }
-
-  .featured-content .card-title a:hover {
-    color: var(--link-color);
-  }
-
-  .featured-content .card-text {
-    color: var(--text-muted-color);
-  }
-
-  .featured-content .text-muted {
-    color: var(--text-muted-color) !important;
-  }
-
-  .tech-stack li {
-    padding: 0.2rem 0;
-    font-weight: 500;
-  }
-
-  .current-focus ul li {
-    margin-bottom: 0.5rem;
-  }
-
-  /* Loading Animations */
-  @keyframes slideInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideInUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Resume Button Pulse Effect */
-  a[href*="Resume"],
-  a[href*="resume"] {
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 var(--link-color);
-    }
-    70% {
-      box-shadow: 0 0 0 10px transparent;
-    }
-    100% {
-      box-shadow: 0 0 0 0 var(--link-color);
-    }
-  }
-
-  /* Icon Hover Effects */
-  .fas,
-  .fab {
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-
-  .card .fas:hover,
-  .card .fab:hover {
-    transform: scale(1.2);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero-section h1 {
-      font-size: 2rem;
-    }
-
-    .hero-section p {
-      font-size: 1rem;
-    }
-
-    .hero-section {
-      margin: -1rem -0.5rem 2rem;
-      padding: 1.5rem 1rem;
-    }
-  }
-
-  /* Reduce motion for accessibility */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
   }
 
   /* Career Timeline Styles */
   .career-timeline {
-    animation: fadeInUp 0.6s ease-out 1s both;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
@@ -670,51 +822,10 @@ title: Home
 
   .timeline-item.active .timeline-marker {
     background: var(--link-color);
-    animation: pulse-marker 2s infinite;
   }
 
   .timeline-item.education .timeline-marker {
     background: var(--toc-highlight);
-  }
-
-  @keyframes pulse-marker {
-    0% {
-      box-shadow: var(--card-shadow);
-    }
-    50% {
-      box-shadow: 0 4px 20px var(--link-color);
-    }
-    100% {
-      box-shadow: var(--card-shadow);
-    }
-  }
-
-  @keyframes shake {
-    0%,
-    100% {
-      transform: translateX(-50%) rotate(0deg);
-    }
-    25% {
-      transform: translateX(-50%) rotate(-5deg);
-    }
-    75% {
-      transform: translateX(-50%) rotate(5deg);
-    }
-  }
-
-  @keyframes animate-in {
-    from {
-      opacity: 0;
-      transform: translateY(30px) scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  .animate-in {
-    animation: animate-in 0.6s ease-out forwards;
   }
 
   .timeline-content {
@@ -732,14 +843,8 @@ title: Home
     transform: translateY(-2px);
   }
 
-  .timeline-item.active .timeline-content {
-    border-left-color: var(--link-color);
-    background: var(--card-bg);
-  }
-
   .timeline-item.education .timeline-content {
     border-left-color: var(--toc-highlight);
-    background: var(--card-bg);
   }
 
   .timeline-date {
@@ -749,39 +854,24 @@ title: Home
     margin-bottom: 0.5rem;
   }
 
-  .timeline-item.active .timeline-date {
-    color: var(--link-color);
-  }
-
-  .timeline-item.education .timeline-date {
-    color: var(--toc-highlight);
-  }
-
   .timeline-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
     color: var(--heading-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
   }
 
   .timeline-company {
-    color: var(--link-color);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-  }
-
-  .timeline-item.active .timeline-company {
-    color: var(--link-color);
-  }
-
-  .timeline-item.education .timeline-company {
     color: var(--toc-highlight);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .timeline-description {
     color: var(--text-color);
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
     margin-bottom: 1rem;
   }
 
@@ -795,181 +885,709 @@ title: Home
     justify-content: flex-end;
   }
 
-  .skill-tag {
-    background: var(--link-color);
-    color: var(--main-bg);
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .skill-tag:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow);
-  }
-
-  .timeline-item.active .skill-tag {
-    background: var(--link-color);
-  }
-
-  .timeline-item.education .skill-tag {
-    background: var(--toc-highlight);
-  }
-
-  /* Mobile Timeline Styles */
   @media (max-width: 768px) {
     .timeline-line {
       left: 30px;
     }
-
     .timeline-marker {
       left: 30px;
-      width: 40px;
-      height: 40px;
-      font-size: 1rem;
     }
-
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
       margin-left: 80px;
       margin-right: 0;
       text-align: left;
-      max-width: calc(100% - 100px);
+      max-width: none;
     }
-
     .timeline-item:nth-child(odd) .timeline-skills {
       justify-content: flex-start;
     }
+  }
 
-    .timeline-content {
-      padding: 1rem;
-    }
+  /* ---------------------------------------------------- */
+  /* FLOATING CHATBOT WIDGET STYLES                       */
+  /* ---------------------------------------------------- */
+  .shaz-ai-launcher-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.75rem 1.3rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 8px 24px rgba(118, 75, 162, 0.4);
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-    .timeline-title {
-      font-size: 1.1rem;
-    }
+  .shaz-ai-launcher-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(118, 75, 162, 0.55);
+  }
+
+  .ai-launcher-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+    animation: ping-animation 1.6s infinite cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  #shaz-ai-drawer {
+    position: fixed;
+    bottom: 85px;
+    right: 24px;
+    width: 390px;
+    max-width: calc(100vw - 32px);
+    height: 530px;
+    max-height: calc(100vh - 120px);
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+    overflow: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .shaz-ai-drawer-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  .shaz-ai-header {
+    background: #161b22;
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #30363d;
+  }
+
+  .shaz-ai-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .shaz-ai-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .shaz-ai-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #f0f6fc;
+  }
+
+  .shaz-ai-sub {
+    font-size: 0.75rem;
+    color: #8b949e;
+    display: flex;
+    align-items: center;
+  }
+
+  .shaz-ai-icon-btn {
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 4px;
+    transition: color 0.2s;
+  }
+
+  .shaz-ai-icon-btn:hover {
+    color: #f0f6fc;
+  }
+
+  .shaz-ai-body {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: #0d1117;
+  }
+
+  .shaz-msg {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shaz-msg-user {
+    align-items: flex-end;
+  }
+
+  .shaz-msg-bot {
+    align-items: flex-start;
+  }
+
+  .shaz-msg-user .shaz-msg-bubble {
+    background: #1f6feb;
+    color: #fff;
+    border-radius: 14px 14px 2px 14px;
+  }
+
+  .shaz-msg-bot .shaz-msg-bubble {
+    background: #161b22;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    border-radius: 14px 14px 14px 2px;
+  }
+
+  .shaz-msg-bubble {
+    max-width: 88%;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .shaz-ai-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+
+  .shaz-chip {
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #58a6ff;
+    padding: 0.3rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .shaz-chip:hover {
+    background: #30363d;
+    color: #79c0ff;
+    border-color: #58a6ff;
+  }
+
+  .shaz-ai-footer {
+    padding: 0.75rem 1rem;
+    background: #161b22;
+    border-top: 1px solid #30363d;
+  }
+
+  .shaz-ai-input-wrap {
+    display: flex;
+    gap: 0.5rem;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .shaz-ai-input-wrap input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f0f6fc;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .shaz-ai-input-wrap button {
+    background: #238636;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+
+  .shaz-ai-input-wrap button:hover {
+    background: #2ea043;
   }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Add loading effect to resume button
-    const resumeBtn = document.querySelector('a[href*="Resume"]');
-    if (resumeBtn) {
-      resumeBtn.addEventListener("click", function () {
-        this.innerHTML =
-          '<i class="fas fa-spinner fa-spin"></i> Downloading...';
-        setTimeout(() => {
-          this.innerHTML = '<i class="fas fa-download"></i> Resume';
-        }, 2000);
-      });
-    }
-
-    // Smooth hover effects for cards
-    const cards = document.querySelectorAll(".card");
-    cards.forEach((card) => {
-      card.addEventListener("mouseenter", function () {
-        this.style.transform = "translateY(-5px) scale(1.02)";
-      });
-
-      card.addEventListener("mouseleave", function () {
-        this.style.transform = "translateY(-2px) scale(1)";
-      });
-    });
-
-    // Timeline interactions
-    initializeTimeline();
-  });
-
-  // Timeline Animation and Interactions
-  function initializeTimeline() {
-    const timelineItems = document.querySelectorAll(".timeline-item");
-
-    // Intersection Observer for scroll animations
-    const timelineObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-
-            // Add staggered animation delay
-            const delay = Array.from(timelineItems).indexOf(entry.target) * 0.2;
-            entry.target.style.animationDelay = `${delay}s`;
-            entry.target.classList.add("animate-in");
-          }
-        });
+    // ----------------------------------------------------
+    // SHAZ LABS SEMANTIC KNOWLEDGE BASE ENGINE
+    // ----------------------------------------------------
+    const knowledgeBase = [
+      {
+        triggers: ["current job", "current role", "job", "role", "workplace", "company", "companies", "how many companies", "career history", "employers", "work history", "where has he worked", "where does he work", "past roles", "roles", "jobs", "worked in", "worked at", "experience", "seqera", "cloudbeds", "traction", "impellam"],
+        response: `<strong>🏢 Career History & Roles (4 Companies Total):</strong><br><br>
+1. <strong>Seqera Labs</strong> (2024 - Present): DevOps Engineer & Cloud Support Engineer (AWS, Kubernetes, Terraform, Trivy scanning, External Secrets)<br>
+2. <strong>Cloudbeds</strong> (2023 - 2024): IT Administrator (Enterprise infrastructure automation, 99.9% uptime, 40% ticket reduction)<br>
+3. <strong>Traction on Demand</strong> (2022 - 2023): Infrastructure Technology Helpdesk Administrator (Network troubleshooting & infrastructure support)<br>
+4. <strong>Impellam Group</strong> (2021 - 2022): Application Support Analyst & Service Desk Analyst`
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px",
+        triggers: ["project", "projects", "portfolio", "built", "apps", "creations", "tools", "flagship", "what has he built", "what has he worked on"],
+        response: `<strong>🛠️ Shahzeb's Flagship Engineering Projects:</strong><br><br>
+1. <strong>Amanah AI Security Gateway:</strong> High-performance Go proxy intercepting LLM tool calls to stop prompt injections and cloud destruction.<br>
+2. <strong>Pythia CLI:</strong> Automated red-teaming and prompt-injection security assessment engine for LLMs.<br>
+3. <strong>Production EKS GitOps:</strong> Multi-tenant Kubernetes stack on AWS with Terraform, ArgoCD ApplicationSets, External Secrets (ESO), and Trivy vulnerability gating.<br>
+4. <strong>Digital Amannah:</strong> Values-based, zero-tracking digital wellness platform built with Next.js App Router, TypeScript, and Supabase.`
+      },
+      {
+        triggers: ["amanah", "firewall", "gateway", "ai security", "injection", "tool call", "llm proxy", "ai firewall", "prompt injection"],
+        response: `<strong>🛡️ Amanah AI Security Gateway & Firewall:</strong><br>
+A Go-based runtime security proxy that sits between Large Language Models and external tools. It parses tool-calling payloads in real time, scoring risk against categories like <em>cloud_destruction</em> and <em>data_exfiltration</em>. Destructive commands (like <code>aws ec2 terminate-instances</code> or unauthorized database drops) are automatically intercepted and require explicit approval.`
+      },
+      {
+        triggers: ["pythia", "red team", "red-team", "fuzzer", "jailbreak", "adversarial", "llm fuzzer"],
+        response: `<strong>⚡ Pythia LLM Red-Teaming CLI:</strong><br>
+An open-source Python research CLI that automates adversarial testing against LLMs (local and cloud). It tests models against the OWASP LLM Top 10 vulnerabilities, automated prompt jailbreaks, system prompt extractions, and SSRF tool exploits.`
+      },
+      {
+        triggers: ["shazlabs", "shaz labs", "labs", "homelab", "server", "debian", "laptop", "hardware", "specs", "cpu", "zram", "ram", "memory", "uptime", "status", "containers", "docker", "adguard", "kuma", "n8n", "umami", "qdrant"],
+        response: `<strong>🐧 Debian 13 Shaz Labs Architecture:</strong><br>
+• <strong>Host:</strong> Headless low-power Intel Core i3 micro-server (5-7W idle draw)<br>
+• <strong>Memory:</strong> ZRAM LZ4 In-Memory Swap (1.9GB active buffer) preventing disk wear<br>
+• <strong>Active Stack (7/7):</strong> Umami Analytics & Postgres, Ollama (Qwen 2.5 3B), Qdrant Vector DB, Uptime Kuma, AdGuard Home, n8n Automation, and Homepage Hub<br>
+• <strong>Defense:</strong> UFW active, 0 open router WAN ports, accessible via Tailscale WireGuard mesh.`
+      },
+      {
+        triggers: ["eks", "kubernetes", "k8s", "argocd", "gitops", "trivy", "eso", "terraform", "iac", "aws", "cloud"],
+        response: `<strong>☁️ Cloud Native & Kubernetes Architecture:</strong><br>
+Shahzeb architects multi-environment EKS clusters with Terraform and OpenTofu. His stack utilizes ArgoCD ApplicationSets for automated GitOps, External Secrets Operator (ESO) syncing from AWS Secrets Manager, IAM Pod Identity, and automated Trivy vulnerability gating in GitHub Actions CI/CD.`
+      },
+      {
+        triggers: ["skill", "skills", "tech stack", "languages", "language", "code in", "coding", "programming", "technologies", "devops", "golang", "go", "python", "bash", "typescript"],
+        response: `<strong>⚡ Core Technical Skillset & Languages:</strong><br>
+• <strong>Languages:</strong> Go (Golang), Python, Bash, TypeScript/Node.js, SQL<br>
+• <strong>Cloud & Infra:</strong> AWS (EKS, IAM, S3, NLB, VPC), Azure, GCP, Kubernetes, Docker<br>
+• <strong>IaC & Automation:</strong> Terraform, OpenTofu, Bash, GitHub Actions, n8n<br>
+• <strong>Security:</strong> Trivy, External Secrets (ESO), Fail2ban, UFW, Network Pentesting (PJPT)`
+      },
+      {
+        triggers: ["cert", "certs", "certification", "certifications", "pjpt", "tcm", "pentest", "credly", "badge", "badges", "hackthebox", "htb"],
+        response: `<strong>🎖️ Security Certifications & Credentials:</strong><br>
+• <strong>TCM Security PJPT (Practical Junior Penetration Tester):</strong> Hands-on credential covering real-world Active Directory exploitation, network pivoting, and web penetration testing.<br>
+• <strong>Verified Credly Profile:</strong> <a href='https://www.credly.com/users/shahzebmahmood' target='_blank' style='color:#58a6ff;'>credly.com/users/shahzebmahmood</a><br>
+• <strong>Active HackTheBox:</strong> Hands-on security challenges & CTF writeups.`
+      },
+      {
+        triggers: ["education", "degree", "msc", "masters", "university", "york", "school", "college", "academics", "graduating"],
+        response: `<strong>🎓 Academic Background:</strong><br>
+• <strong>MSc Computer Science with Cybersecurity</strong> — University of York (Expected Aug 2026)<br>
+• Advanced research in threat detection, security architecture, cryptography, and defensive engineering.`
+      },
+      {
+        triggers: ["digital amannah", "amannah", "wellness", "nextjs", "wiqayah", "privacy platform"],
+        response: `<strong>🌿 Digital Amannah Platform:</strong><br>
+A privacy-first digital safety platform built with Next.js App Router and React Server Components for zero client-side tracking. Built with Tailwind CSS, Supabase, and custom client-side moderation.`
+      },
+      {
+        triggers: ["resume", "cv", "pdf", "download"],
+        response: `<strong>📄 Resume Preview:</strong><br>
+DevOps Engineer & Security Researcher specializing in Kubernetes, Terraform, and AI Runtime Security.<br><br>
+<a href='/assets/docs/Shahzeb_Mahmood_Resume.pdf' target='_blank' download style='display:inline-block;background:#238636;color:#fff;padding:0.35rem 0.85rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85rem;'><i class='fas fa-download'></i> Download Shahzeb_Mahmood_Resume.pdf</a>`
+      },
+      {
+        triggers: ["contact", "email", "linkedin", "github", "touch", "reach", "hire", "social", "phone", "message"],
+        response: `<strong>📫 Connect with Shahzeb:</strong><br>
+• <strong>LinkedIn:</strong> <a href='https://www.linkedin.com/in/shaz-mahmood1/' target='_blank' style='color:#58a6ff;'>linkedin.com/in/shaz-mahmood1/</a><br>
+• <strong>GitHub:</strong> <a href='https://github.com/ShahzebMahmood' target='_blank' style='color:#58a6ff;'>github.com/ShahzebMahmood</a><br>
+• <strong>Credly:</strong> <a href='https://www.credly.com/users/shahzebmahmood' target='_blank' style='color:#58a6ff;'>credly.com/users/shahzebmahmood</a><br>
+• <strong>Email:</strong> <a href='mailto:shahzebmahmood3@gmail.com' style='color:#58a6ff;'>shahzebmahmood3@gmail.com</a>`
+      },
+      {
+        triggers: ["who", "about", "shahzeb", "shaz", "bio", "intro", "summary", "introduce"],
+        response: `<strong>👤 About Shahzeb Mahmood:</strong><br>
+Shahzeb is a DevOps Engineer at Seqera Labs and an MSc Cybersecurity researcher at the University of York. He is TCM PJPT certified and specializes in cloud infrastructure hardening, Kubernetes GitOps, and Go AI security proxies.`
       }
-    );
+    ];
 
-    // Initialize timeline items with hidden state
-    timelineItems.forEach((item, index) => {
-      item.style.opacity = "0";
-      item.style.transform = "translateY(30px)";
-      item.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    function formatMarkdown(text) {
+      if (!text) return "";
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code style="background:#21262d;padding:0.1rem 0.3rem;border-radius:4px;color:#58a6ff;font-family:monospace;">$1</code>')
+        .replace(/\n\n/g, '<br><br>')
+        .replace(/\n/g, '<br>');
+    }
 
-      // Observe for scroll animations
-      timelineObserver.observe(item);
-
-      // Add click interactions
-      item.addEventListener("click", function () {
-        // Remove active class from all items
-        timelineItems.forEach((otherItem) =>
-          otherItem.classList.remove("active")
-        );
-
-        // Add active class to clicked item
-        this.classList.add("active");
-
-        // Add subtle shake animation to marker
-        const marker = this.querySelector(".timeline-marker");
-        marker.style.animation = "shake 0.5s ease-in-out";
-        setTimeout(() => {
-          marker.style.animation = "";
-        }, 500);
-      });
-
-      // Enhanced hover effects
-      item.addEventListener("mouseenter", function () {
-        if (!this.classList.contains("active")) {
-          this.style.transform = "translateY(-5px) scale(1.02)";
-          this.style.opacity = "1";
+    async function queryHomelabAI(prompt) {
+      // 1. Try Live Shaz Labs Ollama only on local development environment (Zero LAN IP exposure)
+      const isLocalDev = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+      if (isLocalDev) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 8000);
+          const res = await fetch("http://127.0.0.1:11434/api/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              model: "qwen2.5:3b",
+              system: "You are Shahzeb Mahmood's Portfolio AI Assistant running on his Debian Shaz Labs server. Shahzeb is a DevOps Engineer at Seqera Labs, MSc Cybersecurity candidate at University of York, and TCM Security PJPT certified. Career history: 4 companies total (Seqera Labs: DevOps Engineer & Cloud Support 2024-Present, Cloudbeds: IT Admin 2023-2024, Traction on Demand: Infra Tech Helpdesk 2022-2023, Impellam Group: App Support 2021-2022). Flagship projects: Amanah AI Security Gateway (Go runtime proxy stopping prompt injections), Pythia CLI (LLM red-teaming fuzzer), Production EKS GitOps (Terraform, ArgoCD, ESO, Trivy), and Digital Amannah (Next.js privacy platform). Shaz Labs: headless Debian 13 with ZRAM in-memory swap and Tailscale mesh with 0 open WAN ports. Answer accurately and concisely in 2-4 sentences.",
+              prompt: prompt,
+              stream: false
+            }),
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.response && data.response.trim().length > 10) {
+              return formatMarkdown(data.response.trim()) + `<div style="margin-top:0.4rem;font-size:0.75rem;color:#10b981;"><i class="fas fa-bolt"></i> Live from Shaz Labs Qwen 2.5 3B (${(data.total_duration / 1e9).toFixed(1)}s)</div>`;
+            }
+          }
+        } catch (err) {
+          // Graceful fallback to knowledge base
         }
-      });
+      }
 
-      item.addEventListener("mouseleave", function () {
-        if (!this.classList.contains("active")) {
-          this.style.transform = "translateY(0) scale(1)";
-          this.style.opacity = "0.7";
+      // 2. Intelligent Embedded Knowledge Engine Fallback (Word Boundary & Phrase Matching)
+      const lower = prompt.toLowerCase().trim();
+      for (const entry of knowledgeBase) {
+        const isMatch = entry.triggers.some(t => {
+          if (t.includes(" ")) {
+            return lower.includes(t);
+          }
+          const regex = new RegExp(`(^|[^a-z0-9])${t}([^a-z0-9]|$)`, "i");
+          return regex.test(lower);
+        });
+        if (isMatch) {
+          return entry.response;
         }
-      });
+      }
+
+      return `<strong>💡 Shaz AI Assistant:</strong><br>
+Shahzeb is a DevOps Engineer (Seqera Labs) & Security Researcher (MSc Cybersecurity | TCM PJPT). He specializes in AWS, Kubernetes (EKS), Terraform, Go AI Firewalls (Amanah), and local Shaz Labs micro-services. Try asking about his <strong>career history</strong>, <strong>projects</strong>, <strong>Shaz Labs architecture</strong>, or <strong>certifications</strong>!`;
+    }
+
+    // ----------------------------------------------------
+    // FLOATING CHATBOT DRAWER LOGIC
+    // ----------------------------------------------------
+    const drawer = document.getElementById("shaz-ai-drawer");
+    const launcher = document.getElementById("shaz-ai-launcher");
+    const closeBtn = document.getElementById("shaz-ai-close-btn");
+    const heroAiBtn = document.getElementById("hero-open-ai-btn");
+    const chatBody = document.getElementById("shaz-ai-chat-body");
+    const aiInput = document.getElementById("shaz-ai-input");
+    const sendBtn = document.getElementById("shaz-ai-send-btn");
+    const chipsContainer = document.getElementById("shaz-ai-suggestions");
+
+    function openChat() {
+      drawer.classList.remove("shaz-ai-drawer-hidden");
+      if (aiInput) aiInput.focus();
+    }
+
+    function closeChat() {
+      drawer.classList.add("shaz-ai-drawer-hidden");
+    }
+
+    if (launcher) launcher.addEventListener("click", () => {
+      if (drawer.classList.contains("shaz-ai-drawer-hidden")) openChat();
+      else closeChat();
     });
 
-    // Auto-highlight current role
-    const currentItem = document.querySelector(
-      '.timeline-item[data-year="2025"]'
-    );
-    if (currentItem && currentItem.classList.contains("active")) {
-      currentItem.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
+    if (closeBtn) closeBtn.addEventListener("click", closeChat);
+    if (heroAiBtn) heroAiBtn.addEventListener("click", openChat);
+
+    async function handleUserChat(text) {
+      const q = text.trim();
+      if (!q) return;
+
+      // Add user bubble
+      const userDiv = document.createElement("div");
+      userDiv.className = "shaz-msg shaz-msg-user";
+      userDiv.innerHTML = `<div class="shaz-msg-bubble">${q}</div>`;
+      chatBody.appendChild(userDiv);
+
+      if (aiInput) aiInput.value = "";
+      if (chipsContainer) chipsContainer.style.display = "none";
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      // Add bot typing bubble
+      const botDiv = document.createElement("div");
+      botDiv.className = "shaz-msg shaz-msg-bot";
+      botDiv.innerHTML = `<div class="shaz-msg-bubble"><i class="fas fa-spinner fa-spin"></i> Generating response...</div>`;
+      chatBody.appendChild(botDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      const aiAnswer = await queryHomelabAI(q);
+      botDiv.querySelector(".shaz-msg-bubble").innerHTML = aiAnswer;
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    if (sendBtn) {
+      sendBtn.addEventListener("click", () => {
+        if (aiInput) handleUserChat(aiInput.value);
       });
     }
 
-    // Progressive timeline reveal
-    setTimeout(() => {
-      timelineItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.style.opacity = index === 0 ? "1" : "0.7";
-          item.style.transform = "translateY(0)";
-        }, index * 200);
+    if (aiInput) {
+      aiInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") handleUserChat(aiInput.value);
       });
-    }, 1000);
-  }
+    }
+
+    document.querySelectorAll(".shaz-chip").forEach(chip => {
+      chip.addEventListener("click", function() {
+        const p = this.getAttribute("data-prompt");
+        handleUserChat(p);
+      });
+    });
+
+    // ----------------------------------------------------
+    // INTERACTIVE TERMINAL LOGIC (HARDENED)
+    // ----------------------------------------------------
+    const cliInput = document.getElementById("term-cli-input");
+    const outputArea = document.getElementById("term-output-area");
+    const clearBtn = document.getElementById("term-clear-btn");
+    const termAiBtn = document.getElementById("term-ai-toggle-btn");
+    const cliChips = document.querySelectorAll(".cli-chip");
+
+    const commands = {
+      whoami: `
+        <div style="color: #79c0ff; font-weight: 600; margin: 0.3rem 0;">👤 Shahzeb Mahmood (Shaz)</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <strong>Role:</strong> DevOps Engineer at Seqera Labs<br>
+          &bull; <strong>Education:</strong> MSc Computer Science with Cybersecurity (University of York)<br>
+          &bull; <strong>Certifications:</strong> TCM Security PJPT (Practical Junior Penetration Tester)<br>
+          &bull; <strong>Focus:</strong> Kubernetes, Terraform, Hardened CI/CD Pipelines, and AI Runtime Security
+        </div>
+      `,
+      shazlabs: `
+        <div style="color: #7ee787; font-weight: 600; margin: 0.3rem 0;">🐧 DEBIAN 13 MINIMAL SHAZ LABS &bull; 24/7 ONLINE</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <strong>Hardware:</strong> Low-Power Headless Intel Core i3 (5-7W idle draw)<br>
+          &bull; <strong>Memory Strategy:</strong> ZRAM LZ4 In-Memory Swap (1.9GB active pool)<br>
+          &bull; <strong>Docker Stack (7/7 Running):</strong><br>
+          &nbsp;&nbsp;├─ <strong>Umami Analytics & PostgreSQL</strong> [Privacy Web Telemetry]<br>
+          &nbsp;&nbsp;├─ <strong>Ollama AI Engine</strong> [Qwen 2.5 3B & DeepSeek R1]<br>
+          &nbsp;&nbsp;├─ <strong>Qdrant Vector Database</strong> [Knowledge Base Embeddings]<br>
+          &nbsp;&nbsp;├─ <strong>Uptime Kuma</strong> [24/7 Health Monitoring & Telegram Alerts]<br>
+          &nbsp;&nbsp;├─ <strong>AdGuard Home</strong> [Network-Wide DNS Sinkhole]<br>
+          &nbsp;&nbsp;├─ <strong>n8n Automation</strong> [Event-Driven CI/CD Workflows]<br>
+          &nbsp;&nbsp;└─ <strong>Command Center Hub</strong> [Unified Operations Dashboard]<br>
+          &bull; <strong>Security Posture:</strong> UFW Active &bull; 0 Open WAN Ports &bull; Tailscale WireGuard Mesh
+        </div>
+      `,
+      homelab: `
+        <div style="color: #7ee787; font-weight: 600; margin: 0.3rem 0;">🐧 DEBIAN 13 MINIMAL SHAZ LABS &bull; 24/7 ONLINE</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <strong>Hardware:</strong> Low-Power Headless Intel Core i3 (5-7W idle draw)<br>
+          &bull; <strong>Memory Strategy:</strong> ZRAM LZ4 In-Memory Swap (1.9GB active pool)<br>
+          &bull; <strong>Docker Stack (7/7 Running):</strong><br>
+          &nbsp;&nbsp;├─ <strong>Umami Analytics & PostgreSQL</strong> [Privacy Web Telemetry]<br>
+          &nbsp;&nbsp;├─ <strong>Ollama AI Engine</strong> [Qwen 2.5 3B & DeepSeek R1]<br>
+          &nbsp;&nbsp;├─ <strong>Qdrant Vector Database</strong> [Knowledge Base Embeddings]<br>
+          &nbsp;&nbsp;├─ <strong>Uptime Kuma</strong> [24/7 Health Monitoring & Telegram Alerts]<br>
+          &nbsp;&nbsp;├─ <strong>AdGuard Home</strong> [Network-Wide DNS Sinkhole]<br>
+          &nbsp;&nbsp;├─ <strong>n8n Automation</strong> [Event-Driven CI/CD Workflows]<br>
+          &nbsp;&nbsp;└─ <strong>Command Center Hub</strong> [Unified Operations Dashboard]<br>
+          &bull; <strong>Security Posture:</strong> UFW Active &bull; 0 Open WAN Ports &bull; Tailscale WireGuard Mesh
+        </div>
+      `,
+      labs: `
+        <div style="color: #7ee787; font-weight: 600; margin: 0.3rem 0;">🐧 DEBIAN 13 MINIMAL SHAZ LABS &bull; 24/7 ONLINE</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <strong>Hardware:</strong> Low-Power Headless Intel Core i3 (5-7W idle draw)<br>
+          &bull; <strong>Memory Strategy:</strong> ZRAM LZ4 In-Memory Swap (1.9GB active pool)<br>
+          &bull; <strong>Docker Stack (7/7 Running):</strong><br>
+          &nbsp;&nbsp;├─ <strong>Umami Analytics & PostgreSQL</strong> [Privacy Web Telemetry]<br>
+          &nbsp;&nbsp;├─ <strong>Ollama AI Engine</strong> [Qwen 2.5 3B & DeepSeek R1]<br>
+          &nbsp;&nbsp;├─ <strong>Qdrant Vector Database</strong> [Knowledge Base Embeddings]<br>
+          &nbsp;&nbsp;├─ <strong>Uptime Kuma</strong> [24/7 Health Monitoring & Telegram Alerts]<br>
+          &nbsp;&nbsp;├─ <strong>AdGuard Home</strong> [Network-Wide DNS Sinkhole]<br>
+          &nbsp;&nbsp;├─ <strong>n8n Automation</strong> [Event-Driven CI/CD Workflows]<br>
+          &nbsp;&nbsp;└─ <strong>Command Center Hub</strong> [Unified Operations Dashboard]<br>
+          &bull; <strong>Security Posture:</strong> UFW Active &bull; 0 Open WAN Ports &bull; Tailscale WireGuard Mesh
+        </div>
+      `,
+      projects: `
+        <div style="color: #d2a8ff; font-weight: 600; margin: 0.3rem 0;">🛠️ FLAGSHIP ENGINEERING & SECURITY LAB</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          1. <strong style="color: #79c0ff;">Amanah AI Security Gateway</strong>: Go AI proxy mitigating prompt injections & tool-call destruction.<br>
+          2. <strong style="color: #79c0ff;">Pythia CLI</strong>: Adversarial prompt injection & safety auditing engine for LLMs.<br>
+          3. <strong style="color: #79c0ff;">Production EKS GitOps</strong>: AWS EKS + Terraform + ArgoCD + External Secrets + Trivy.<br>
+          4. <strong style="color: #79c0ff;">Digital Amannah</strong>: Values-based zero-tracking platform built with Next.js, TypeScript & Supabase.
+        </div>
+      `,
+      certs: `
+        <div style="color: #ffa657; font-weight: 600; margin: 0.3rem 0;">🎖️ CERTIFICATIONS & CREDENTIALS</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <strong>TCM Security PJPT:</strong> Practical Junior Penetration Tester (Hands-on Active Directory & Web Pentest)<br>
+          &bull; <strong>MSc Computer Science with Cybersecurity:</strong> University of York (Expected Aug 2026)<br>
+          &bull; <strong>Verified Badges:</strong> <a href="https://www.credly.com/users/shahzebmahmood" target="_blank" style="color: #58a6ff;">credly.com/users/shahzebmahmood</a><br>
+          &bull; <strong>Hack The Box:</strong> Security Enthusiast (CTF Writeups & Pro Labs)
+        </div>
+      `,
+      skills: `
+        <div style="color: #58a6ff; font-weight: 600; margin: 0.3rem 0;">⚡ CORE TECHNICAL SKILLS</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <strong>Cloud & Container:</strong> AWS (EKS, IAM, S3, NLB), Azure, GCP, Docker, Kubernetes, ArgoCD<br>
+          &bull; <strong>IaC & Automation:</strong> Terraform, OpenTofu, Bash, GitHub Actions, n8n<br>
+          &bull; <strong>Security & Compliance:</strong> Trivy, External Secrets (ESO), Fail2ban, UFW, Network Pentesting<br>
+          &bull; <strong>Languages:</strong> Go (Golang), Python, Bash, JavaScript/Node.js, SQL
+        </div>
+      `,
+      "cat resume.pdf": `
+        <div style="color: #7ee787; font-weight: 600; margin: 0.3rem 0;">📄 SHAHZEB MAHMOOD &bull; RESUME</div>
+        <div style="color: #c9d1d9; line-height: 1.6; margin-bottom: 0.5rem;">
+          DevOps Engineer with deep expertise in cloud security hardening, Kubernetes orchestration, and multi-tenant automation.
+        </div>
+        <a href="/assets/docs/Shahzeb_Mahmood_Resume.pdf" target="_blank" download style="display: inline-block; background: #238636; color: #fff; padding: 0.3rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+          <i class="fas fa-download"></i> Download Full Resume (PDF)
+        </a>
+      `,
+      resume: `
+        <div style="color: #7ee787; font-weight: 600; margin: 0.3rem 0;">📄 SHAHZEB MAHMOOD &bull; RESUME</div>
+        <div style="color: #c9d1d9; line-height: 1.6; margin-bottom: 0.5rem;">
+          DevOps Engineer with deep expertise in cloud security hardening, Kubernetes orchestration, and multi-tenant automation.
+        </div>
+        <a href="/assets/docs/Shahzeb_Mahmood_Resume.pdf" target="_blank" download style="display: inline-block; background: #238636; color: #fff; padding: 0.3rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+          <i class="fas fa-download"></i> Download Full Resume (PDF)
+        </a>
+      `,
+      contact: `
+        <div style="color: #79c0ff; font-weight: 600; margin: 0.3rem 0;">📫 GET IN TOUCH</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shaz-mahmood1/" target="_blank" style="color: #58a6ff;">linkedin.com/in/shaz-mahmood1/</a><br>
+          &bull; <strong>GitHub:</strong> <a href="https://github.com/ShahzebMahmood" target="_blank" style="color: #58a6ff;">github.com/ShahzebMahmood</a><br>
+          &bull; <strong>Credly:</strong> <a href="https://www.credly.com/users/shahzebmahmood" target="_blank" style="color: #58a6ff;">credly.com/users/shahzebmahmood</a><br>
+          &bull; <strong>Email:</strong> <a href="mailto:shahzebmahmood3@gmail.com" style="color: #58a6ff;">shahzebmahmood3@gmail.com</a>
+        </div>
+      `,
+      help: `
+        <div style="color: #ffa657; font-weight: 600; margin: 0.3rem 0;">💡 AVAILABLE COMMANDS</div>
+        <div style="color: #c9d1d9; line-height: 1.6;">
+          &bull; <code style="color: #79c0ff;">whoami</code> &mdash; Background, role, and current credentials<br>
+          &bull; <code style="color: #79c0ff;">shazlabs</code> &mdash; Hardened Debian server status, stack, and ZRAM stats<br>
+          &bull; <code style="color: #79c0ff;">projects</code> &mdash; Flagship security and cloud engineering tools<br>
+          &bull; <code style="color: #79c0ff;">certs</code> &mdash; Certifications (TCM PJPT, MSc, HTB, Credly)<br>
+          &bull; <code style="color: #79c0ff;">skills</code> &mdash; Technical proficiencies across DevOps & Security<br>
+          &bull; <code style="color: #79c0ff;">ai &lt;question&gt;</code> &mdash; Ask Shaz Labs AI model directly in terminal<br>
+          &bull; <code style="color: #79c0ff;">cat resume.pdf</code> &mdash; Resume preview and download link<br>
+          &bull; <code style="color: #79c0ff;">contact</code> &mdash; Direct email and social profiles<br>
+          &bull; <code style="color: #79c0ff;">clear</code> &mdash; Clear terminal screen
+        </div>
+      `,
+      clear: "CLEAR"
+    };
+
+    async function runCommand(cmdText) {
+      const clean = cmdText.trim();
+      if (!clean) return;
+
+      if (clean.toLowerCase() === "clear") {
+        outputArea.innerHTML = "";
+        return;
+      }
+
+      // Check if command is AI query
+      if (clean.toLowerCase().startsWith("ai ") || clean.toLowerCase().startsWith("ask ")) {
+        const query = clean.substring(clean.indexOf(" ") + 1);
+        const cmdBlock = document.createElement("div");
+        cmdBlock.style.marginBottom = "0.8rem";
+        cmdBlock.innerHTML = `
+          <div style="display: flex; gap: 0.5rem; color: #7ee787; font-weight: 600;">
+            <span>shaz@shazlabs:~$</span>
+            <span style="color: #58a6ff;">${cmdText}</span>
+          </div>
+          <div style="margin-left: 0.5rem; color: #d2a8ff; margin-top: 0.2rem;">
+            🤖 <span style="font-weight:600;">Shaz Labs AI:</span> <span class="term-ai-response"><i class="fas fa-spinner fa-spin"></i> Querying Qwen 2.5 3B...</span>
+          </div>
+        `;
+        outputArea.appendChild(cmdBlock);
+        const termBody = document.querySelector(".terminal-body");
+        if (termBody) termBody.scrollTop = termBody.scrollHeight;
+
+        const aiResponse = await queryHomelabAI(query);
+        cmdBlock.querySelector(".term-ai-response").innerHTML = aiResponse;
+        if (termBody) termBody.scrollTop = termBody.scrollHeight;
+        return;
+      }
+
+      const response = commands[clean.toLowerCase()] || `
+        <div style="color: #f85149; margin: 0.2rem 0;">
+          command not found: <strong>${cmdText}</strong>. Type <code style="color: #58a6ff;">help</code> for commands or <code style="color: #7ee787;">ai &lt;question&gt;</code> to prompt AI.
+        </div>
+      `;
+
+      const cmdBlock = document.createElement("div");
+      cmdBlock.style.marginBottom = "0.8rem";
+      cmdBlock.innerHTML = `
+        <div style="display: flex; gap: 0.5rem; color: #7ee787; font-weight: 600;">
+          <span>shaz@shazlabs:~$</span>
+          <span style="color: #58a6ff;">${cmdText}</span>
+        </div>
+        <div style="margin-left: 0.5rem;">${response}</div>
+      `;
+
+      outputArea.appendChild(cmdBlock);
+      const termBody = document.querySelector(".terminal-body");
+      if (termBody) termBody.scrollTop = termBody.scrollHeight;
+    }
+
+    if (cliInput) {
+      cliInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          runCommand(this.value);
+          this.value = "";
+        }
+      });
+    }
+
+    cliChips.forEach(chip => {
+      chip.addEventListener("click", function () {
+        const cmd = this.getAttribute("data-cmd");
+        if (cliInput) cliInput.value = cmd;
+        runCommand(cmd);
+        if (cliInput) cliInput.value = "";
+      });
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function () {
+        outputArea.innerHTML = "";
+      });
+    }
+
+    if (termAiBtn) {
+      termAiBtn.addEventListener("click", openChat);
+    }
+
+    // Auto-run whoami on load for a great first impression
+    setTimeout(() => {
+      runCommand("whoami");
+    }, 600);
+
+    // ----------------------------------------------------
+    // TIMELINE ANIMATIONS
+    // ----------------------------------------------------
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    timelineItems.forEach(item => {
+      item.addEventListener("click", function () {
+        timelineItems.forEach(other => other.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
 </script>

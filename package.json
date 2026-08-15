@@ -1,0 +1,10 @@
+{
+  "name": "shahzeb-portfolio",
+  "version": "1.0.0",
+  "description": "Shahzeb Mahmood - DevOps & Security Portfolio",
+  "scripts": {
+    "dev": "bundle exec jekyll serve -l -H 127.0.0.1 -P 4000",
+    "build": "bundle exec jekyll build",
+    "check": "./check-before-push.sh"
+  }
+}
