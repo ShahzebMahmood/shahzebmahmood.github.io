@@ -25,27 +25,24 @@ title: Home
   <h1
     style="font-size: 2.7rem; margin-bottom: 0.8rem; color: var(--heading-color); font-weight: 800; letter-spacing: -0.5px;"
   >
-    <i class="fas fa-terminal" style="color: var(--link-color)"></i> Shaz's
+    <i class="fas fa-shield-alt" style="color: var(--link-color)"></i> Shaz's
     DevOps & Security Hub
   </h1>
   <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-color); font-weight: 500;">
-    Building Resilient Cloud Infrastructure, Hardened CI/CD Pipelines & AI Runtime Security
+    Building Resilient Cloud Infrastructure, Hardened CI/CD Pipelines & Secure Architectures
   </p>
   <p style="font-size: 0.95rem; margin-bottom: 1.8rem; opacity: 0.85; max-width: 680px; margin-left: auto; margin-right: auto;">
-    Hands-on engineering across AWS, Kubernetes, Terraform, Go, and Offensive/Defensive Security. 
+    Hands-on engineering across AWS, Kubernetes, Terraform, Go, Python, and Cloud & Network Security.
   </p>
   
   <div
     style="display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap"
   >
-    <a href="#interactive-terminal" class="btn btn-primary" style="background: var(--link-color); border-color: var(--link-color); color: #fff; font-weight: 600;">
-      <i class="fas fa-terminal"></i> Open Terminal CLI
+    <a href="#flagship-projects" class="btn btn-primary" style="background: var(--link-color); border-color: var(--link-color); color: #fff; font-weight: 600;">
+      <i class="fas fa-layer-group"></i> Flagship Projects
     </a>
-    <button id="hero-open-ai-btn" class="btn btn-outline-primary" style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
-      <i class="fas fa-robot"></i> Ask Shaz Labs AI
-    </button>
-    <a href="#flagship-projects" class="btn btn-outline-primary">
-      <i class="fas fa-microchip"></i> Flagship Lab
+    <a href="/about/" class="btn btn-outline-primary">
+      <i class="fas fa-user"></i> About Me
     </a>
     <a
       href="/assets/docs/Shahzeb_Mahmood_Resume.pdf"
@@ -72,155 +69,22 @@ title: Home
   </div>
 </div>
 
-<!-- LIVE SHAZ LABS TELEMETRY STRIP -->
-<div class="homelab-telemetry-bar" style="margin: 2rem 0; padding: 1rem 1.4rem; background: var(--card-bg); border: 1px solid var(--main-border-color); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: var(--card-shadow);">
-  <div style="display: flex; align-items: center; gap: 0.75rem;">
-    <span class="pulse-dot"></span>
-    <span style="font-size: 0.9rem; font-weight: 700; color: var(--heading-color);">
-      Debian 13 Shaz Labs Server: <span style="color: #10b981;">ONLINE</span>
-    </span>
-  </div>
-  <div class="telemetry-items" style="display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-color);">
-    <span class="telemetry-chip"><i class="fab fa-docker" style="color: var(--link-color);"></i> <strong>7/7</strong> Docker Containers</span>
-    <span class="telemetry-chip"><i class="fas fa-memory" style="color: var(--toc-highlight);"></i> <strong>ZRAM</strong> In-Memory Swap</span>
-    <span class="telemetry-chip"><i class="fas fa-shield-alt" style="color: #10b981;"></i> <strong>Tailscale</strong> Mesh (0 WAN Ports)</span>
-    <span class="telemetry-chip"><i class="fas fa-brain" style="color: var(--link-color);"></i> <strong>Ollama</strong> Qwen 2.5 3B</span>
-  </div>
-</div>
-
-<!-- INTERACTIVE DEVELOPER TERMINAL HUB -->
-<div id="interactive-terminal" class="terminal-hub-wrapper" style="margin: 2.5rem 0;">
-  <div class="terminal-card" style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
-    <div class="terminal-header" style="background: #161b22; padding: 0.6rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #30363d;">
-      <div class="terminal-controls" style="display: flex; gap: 7px;">
-        <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; display: inline-block;"></span>
-        <span style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; display: inline-block;"></span>
-        <span style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f; display: inline-block;"></span>
-      </div>
-      <div class="terminal-title" style="font-family: monospace; font-size: 0.85rem; color: #8b949e; display: flex; align-items: center; gap: 0.4rem;">
-        <i class="fas fa-terminal" style="font-size: 0.75rem;"></i> shaz@shazlabs:~ (zsh)
-      </div>
-      <div style="display: flex; gap: 0.4rem;">
-        <button id="term-ai-toggle-btn" style="background: #238636; border: 1px solid #2ea043; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
-          <i class="fas fa-robot"></i> Ask AI
-        </button>
-        <button id="term-clear-btn" style="background: transparent; border: 1px solid #30363d; color: #8b949e; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; transition: all 0.2s;">
-          <i class="fas fa-eraser"></i> Clear
-        </button>
-      </div>
-    </div>
-
-    <div class="terminal-body" style="padding: 1.2rem; font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace; font-size: 0.9rem; color: #c9d1d9; min-height: 280px; max-height: 480px; overflow-y: auto;">
-      <div class="term-line" style="margin-bottom: 0.8rem; color: #8b949e;">
-        🚀 <span style="color: #58a6ff; font-weight: 600;">Welcome to Shaz's Interactive Terminal CLI.</span><br>
-        Type a command or click a quick shortcut below (or type <code style="color: #7ee787;">ai &lt;question&gt;</code> to prompt Shaz Labs AI):
-      </div>
-
-      <div class="terminal-quick-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        <button class="cli-chip" data-cmd="whoami"><i class="fas fa-user"></i> whoami</button>
-        <button class="cli-chip" data-cmd="shazlabs"><i class="fas fa-server"></i> shaz labs status</button>
-        <button class="cli-chip" data-cmd="projects"><i class="fas fa-code-branch"></i> flagship projects</button>
-        <button class="cli-chip" data-cmd="certs"><i class="fas fa-shield-alt"></i> certifications</button>
-        <button class="cli-chip" data-cmd="skills"><i class="fas fa-layer-group"></i> skills</button>
-        <button class="cli-chip" data-cmd="ai what are Shahzeb's top projects?"><i class="fas fa-robot"></i> ask AI</button>
-        <button class="cli-chip" data-cmd="cat resume.pdf"><i class="fas fa-file-pdf"></i> cat resume</button>
-        <button class="cli-chip" data-cmd="clear"><i class="fas fa-trash-alt"></i> clear</button>
-      </div>
-
-      <div id="term-output-area"></div>
-
-      <div class="term-input-row" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem;">
-        <span style="color: #7ee787; font-weight: 600;">shaz@shazlabs:~$</span>
-        <input type="text" id="term-cli-input" placeholder="type 'help', 'shazlabs', 'ai <question>'..." autocomplete="off" spellcheck="false" style="flex: 1; background: transparent; border: none; outline: none; color: #58a6ff; font-family: inherit; font-size: inherit; font-weight: 600;" />
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- FLAGSHIP SYSTEMS & SECURITY LAB -->
 <div id="flagship-projects" class="flagship-showcase" style="margin: 3.5rem 0;">
   <div style="text-align: center; margin-bottom: 2rem;">
     <div style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--link-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem;">
-      Offensive & Defensive Security Lab
+      Systems & Security Engineering
     </div>
     <h2 style="font-size: 2.2rem; color: var(--heading-color); font-weight: 800;">
-      <i class="fas fa-shield-virus" style="color: var(--link-color)"></i> Flagship Engineering Projects
+      <i class="fas fa-cubes" style="color: var(--link-color)"></i> Flagship Engineering Projects
     </h2>
     <p style="color: var(--text-color); opacity: 0.85; max-width: 600px; margin: 0.5rem auto 0;">
-      Production-grade tools, security proxies, and cloud infrastructure engineered for real-world reliability.
+      Production-grade tools, automated security pipelines, and cloud native architectures.
     </p>
   </div>
 
   <div class="row">
-    <!-- Project 1: Amanah AI Gateway -->
-    <div class="col-lg-6 mb-4">
-      <div class="card h-100 project-featured-card" style="border-left: 4px solid #10b981;">
-        <div class="card-body d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-start mb-2">
-            <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; font-weight: 600; font-size: 0.75rem;">
-              <i class="fas fa-shield-alt"></i> AI Runtime Security
-            </span>
-            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Active Live Project</span>
-          </div>
-          <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
-            Amanah AI Security Gateway & Firewall
-          </h4>
-          <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
-            A high-performance security runtime proxy written in Go that intercepts LLM tool calls in real time. It mitigates prompt injections, stops destructive cloud commands (e.g. AWS/Kubernetes teardowns), and blocks unauthorized data exfiltration.
-          </p>
-          <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-            <span class="skill-tag">Go (Golang)</span>
-            <span class="skill-tag">AI Firewall</span>
-            <span class="skill-tag">Prompt Injection Defense</span>
-            <span class="skill-tag">Runtime Policy</span>
-          </div>
-          <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/posts/building-amanah-ai-security-gateway-and-runtime-firewall/" class="btn btn-sm btn-outline-primary">
-              <i class="fas fa-book-open"></i> Read Architecture Post
-            </a>
-            <span style="font-size: 0.85rem; font-weight: 600; color: #10b981;">
-              <i class="fas fa-check-circle"></i> Live on Shaz Labs
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 2: Pythia LLM Red-Teaming CLI -->
-    <div class="col-lg-6 mb-4">
-      <div class="card h-100 project-featured-card" style="border-left: 4px solid var(--link-color);">
-        <div class="card-body d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-start mb-2">
-            <span class="badge" style="background: rgba(102, 126, 234, 0.15); color: var(--link-color); border: 1px solid var(--link-color); font-weight: 600; font-size: 0.75rem;">
-              <i class="fas fa-bug"></i> Adversarial Security
-            </span>
-            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Open Source CLI</span>
-          </div>
-          <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
-            Pythia — LLM Red-Teaming & Safety Fuzzer
-          </h4>
-          <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
-            A research CLI and automated security assessment engine built to fuzz and red-team Large Language Models against prompt injections, jailbreaks, system prompt extractions, and SSRF tool-calling exploits.
-          </p>
-          <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">LLM Red-Teaming</span>
-            <span class="skill-tag">OWASP LLM Top 10</span>
-            <span class="skill-tag">CLI Tooling</span>
-          </div>
-          <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/posts/building-pythia-cli-for-llm-red-teaming/" class="btn btn-sm btn-outline-primary">
-              <i class="fas fa-book-open"></i> Read Case Study
-            </a>
-            <a href="https://github.com/ShahzebMahmood" target="_blank" class="btn btn-sm btn-outline-secondary">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 3: Production EKS Multi-Tenant GitOps -->
+    <!-- Project 1: Production EKS Multi-Tenant GitOps -->
     <div class="col-lg-6 mb-4">
       <div class="card h-100 project-featured-card" style="border-left: 4px solid var(--toc-highlight);">
         <div class="card-body d-flex flex-column">
@@ -255,7 +119,7 @@ title: Home
       </div>
     </div>
 
-    <!-- Project 4: Digital Amannah Platform -->
+    <!-- Project 2: Digital Amannah Platform -->
     <div class="col-lg-6 mb-4">
       <div class="card h-100 project-featured-card" style="border-left: 4px solid #3b82f6;">
         <div class="card-body d-flex flex-column">
@@ -290,71 +154,71 @@ title: Home
       </div>
     </div>
 
-    <!-- Project 5: Debian Homelab & Private AI Server -->
+    <!-- Project 3: SubTrackr Subscription Engine -->
     <div class="col-lg-6 mb-4">
-      <div class="card h-100 project-featured-card" style="border-left: 4px solid #8b5cf6;">
+      <div class="card h-100 project-featured-card" style="border-left: 4px solid #10b981;">
         <div class="card-body d-flex flex-column">
           <div class="d-flex justify-content-between align-items-start mb-2">
-            <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6; border: 1px solid #8b5cf6; font-weight: 600; font-size: 0.75rem;">
-              <i class="fas fa-server"></i> Self-Hosted AI & Homelab
+            <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; font-weight: 600; font-size: 0.75rem;">
+              <i class="fas fa-code"></i> Full-Stack Architecture
             </span>
-            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Active Homelab</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Open Source Web App</span>
           </div>
           <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
-            Debian 13 Silent Linux AI Homelab & Vector Stack
+            SubTrackr — Go Backend & Supabase RLS Subscription Engine
           </h4>
           <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
-            A low-power headless micro-server running on Debian 13 with ZRAM LZ4 in-memory swap. Hosts Ollama (Qwen 2.5), Qdrant Vector DB, AdGuard Home DNS sinkhole, and automated backup routines at 5-7W idle draw.
+            A full-stack subscription and recurring expense management platform engineered with a high-performance Go (Gin) REST API, React 18 frontend, PostgreSQL Row Level Security (RLS) policies, and automated email notification jobs.
           </p>
           <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-            <span class="skill-tag">Debian 13</span>
-            <span class="skill-tag">ZRAM Swap</span>
-            <span class="skill-tag">Ollama</span>
-            <span class="skill-tag">Qdrant</span>
-            <span class="skill-tag">Tailscale Mesh</span>
+            <span class="skill-tag">Go (Gin)</span>
+            <span class="skill-tag">React 18</span>
+            <span class="skill-tag">PostgreSQL RLS</span>
+            <span class="skill-tag">Supabase Auth</span>
+            <span class="skill-tag">REST API</span>
           </div>
           <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/posts/transforming-an-old-laptop-into-a-silent-linux-ai-server/" class="btn btn-sm btn-outline-primary">
-              <i class="fas fa-book-open"></i> Read Homelab Post
+            <a href="/posts/building-subtrackr-go-react-supabase-rls/" class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-book-open"></i> Read Architecture Post
             </a>
-            <span style="font-size: 0.85rem; font-weight: 600; color: #8b5cf6;">
-              <i class="fas fa-microchip"></i> 5-7W Low Power
-            </span>
+            <a href="https://github.com/ShahzebMahmood" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="fab fa-github"></i> GitHub
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Project 6: Self-Hosted Privacy Analytics & Operations Hub -->
+    <!-- Project 4: Keyless OIDC & CI/CD Security Hardening -->
     <div class="col-lg-6 mb-4">
-      <div class="card h-100 project-featured-card" style="border-left: 4px solid #06b6d4;">
+      <div class="card h-100 project-featured-card" style="border-left: 4px solid var(--link-color);">
         <div class="card-body d-flex flex-column">
           <div class="d-flex justify-content-between align-items-start mb-2">
-            <span class="badge" style="background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid #06b6d4; font-weight: 600; font-size: 0.75rem;">
-              <i class="fas fa-chart-pie"></i> Observability & Analytics
+            <span class="badge" style="background: rgba(102, 126, 234, 0.15); color: var(--link-color); border: 1px solid var(--link-color); font-weight: 600; font-size: 0.75rem;">
+              <i class="fas fa-shield-alt"></i> Pipeline Security
             </span>
-            <span style="font-size: 0.8rem; color: var(--text-muted-color);">Production Observability</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted-color);">DevSecOps Automation</span>
           </div>
           <h4 class="card-title" style="font-size: 1.3rem; font-weight: 700; color: var(--heading-color);">
-            Self-Hosted Privacy Analytics & Command Center
+            Hardened CI/CD & Keyless AWS OIDC Pipeline
           </h4>
           <p class="card-text" style="font-size: 0.9rem; color: var(--text-color); opacity: 0.9; margin: 0.5rem 0 1rem;">
-            A privacy-respecting analytics pipeline replacing Google Analytics with self-hosted Umami and PostgreSQL 15. Integrated with Uptime Kuma health probes and an operations Command Center dashboard.
+            Zero-long-lived-credentials CI/CD architecture replacing static AWS IAM keys with OpenID Connect (OIDC) identity federation in GitHub Actions, combined with automated Trivy vulnerability scanning and security regression checks.
           </p>
           <div class="project-tags mb-3" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-            <span class="skill-tag">Umami</span>
-            <span class="skill-tag">PostgreSQL 15</span>
-            <span class="skill-tag">Uptime Kuma</span>
-            <span class="skill-tag">Docker Compose</span>
-            <span class="skill-tag">Zero Cookies</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">AWS IAM OIDC</span>
+            <span class="skill-tag">Trivy Scanning</span>
+            <span class="skill-tag">Least Privilege</span>
+            <span class="skill-tag">DevSecOps</span>
           </div>
           <div class="mt-auto pt-2 border-top" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/posts/self-hosted-privacy-analytics-and-homelab-command-center/" class="btn btn-sm btn-outline-primary">
-              <i class="fas fa-book-open"></i> Read Analytics Post
+            <a href="/posts/replacing-aws-keys-with-oidc-github-actions/" class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-book-open"></i> Read OIDC Guide
             </a>
-            <span style="font-size: 0.85rem; font-weight: 600; color: #06b6d4;">
-              <i class="fas fa-lock"></i> 100% Privacy
-            </span>
+            <a href="/posts/securing-cicd-pipelines-my-approach/" class="btn btn-sm btn-outline-secondary">
+              <i class="fas fa-shield-alt"></i> Pipeline Security
+            </a>
           </div>
         </div>
       </div>
@@ -421,7 +285,7 @@ title: Home
           <ul class="list-unstyled" style="line-height: 1.8;">
             <li><i class="fas fa-cubes" style="color: var(--link-color); width: 22px;"></i> Terraform & OpenTofu</li>
             <li><i class="fab fa-golang" style="color: #00add8; width: 22px;"></i> Go (Golang) & Python</li>
-            <li><i class="fas fa-terminal" style="color: var(--text-color); width: 22px;"></i> Bash & Linux Hardening</li>
+            <li><i class="fas fa-terminal" style="color: var(--text-color); width: 22px;"></i> Bash Scripting & Linux Hardening</li>
             <li><i class="fas fa-chart-line" style="color: var(--toc-highlight); width: 22px;"></i> Grafana, CloudWatch, Kuma</li>
             <li><i class="fas fa-network-wired" style="color: var(--link-color); width: 22px;"></i> Tailscale WireGuard Mesh</li>
           </ul>
@@ -473,7 +337,7 @@ title: Home
         <li><strong>TCM Security PJPT</strong> (Practical Junior Penetration Tester)</li>
         <li><strong>Verified Certifications:</strong> <a href="https://www.credly.com/users/shahzebmahmood" target="_blank" style="color: var(--link-color); font-weight: 600;">Credly Badges</a></li>
         <li>Active <strong>HackTheBox</strong> penetration testing & red-teaming labs</li>
-        <li>Runtime AI Security & Prompt Injection research</li>
+        <li>Infrastructure as Code & Cloud Native Security Automation</li>
       </ul>
     </div>
   </div>
@@ -668,61 +532,9 @@ title: Home
   </div>
 </div>
 
-<!-- ==================================================== -->
-<!-- FLOATING SHAZ LABS AI CHATBOT DRAWER                 -->
-<!-- ==================================================== -->
-<div id="shaz-ai-drawer">
-  <div class="shaz-ai-header">
-    <div class="shaz-ai-title-wrap">
-      <div class="shaz-ai-avatar">
-        <i class="fas fa-robot"></i>
-      </div>
-      <div>
-        <div class="shaz-ai-title">Shaz AI Assistant</div>
-        <div class="shaz-ai-sub">
-          <span class="pulse-dot-mini"></span> Powered by Shaz Labs LLM (Qwen 2.5 3B)
-        </div>
-      </div>
-    </div>
-    <div class="shaz-ai-header-actions">
-      <button id="shaz-ai-close-btn" class="shaz-ai-icon-btn" title="Close"><i class="fas fa-times"></i></button>
-    </div>
-  </div>
-
-  <div class="shaz-ai-body" id="shaz-ai-chat-body">
-    <div class="shaz-msg shaz-msg-bot">
-      <div class="shaz-msg-bubble">
-        👋 Hi! I am Shahzeb's AI Assistant running on his Debian Shaz Labs server. Ask me anything about his cloud architecture, Amanah AI Gateway, Pythia CLI, Kubernetes setups, or his background!
-      </div>
-    </div>
-
-    <div class="shaz-ai-suggestions" id="shaz-ai-suggestions">
-      <button class="shaz-chip" data-prompt="What projects has he worked on?">🛠️ Flagship Projects</button>
-      <button class="shaz-chip" data-prompt="What is Shahzeb's DevOps experience?">⚡ DevOps experience</button>
-      <button class="shaz-chip" data-prompt="Tell me about the Amanah AI Security Gateway">🛡️ Amanah AI Gateway</button>
-      <button class="shaz-chip" data-prompt="How does Shaz Labs work?">🐧 Shaz Labs Architecture</button>
-      <button class="shaz-chip" data-prompt="What are his certifications and MSc?">🎓 Certifications & MSc</button>
-    </div>
-  </div>
-
-  <div class="shaz-ai-footer">
-    <div class="shaz-ai-input-wrap">
-      <input type="text" id="shaz-ai-input" placeholder="Ask about projects, Shaz Labs, skills..." autocomplete="off" spellcheck="false" />
-      <button id="shaz-ai-send-btn" title="Send message"><i class="fas fa-paper-plane"></i></button>
-    </div>
-  </div>
-</div>
-
-<!-- FLOATING LAUNCHER BUTTON -->
-<button id="shaz-ai-launcher" class="shaz-ai-launcher-btn" title="Open AI Assistant">
-  <span class="ai-launcher-pulse"></span>
-  <i class="fas fa-robot"></i>
-  <span class="ai-launcher-text">Ask Shaz Labs AI</span>
-</button>
-
 <style>
   /* Pulsing live dot */
-  .live-ping-dot, .pulse-dot {
+  .live-ping-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -730,15 +542,6 @@ title: Home
     display: inline-block;
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
     animation: ping-animation 1.8s infinite cubic-bezier(0, 0, 0.2, 1);
-  }
-
-  .pulse-dot-mini {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #10b981;
-    display: inline-block;
-    margin-right: 4px;
   }
 
   @keyframes ping-animation {
@@ -751,26 +554,6 @@ title: Home
     100% {
       box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
     }
-  }
-
-  /* CLI Quick Chips */
-  .cli-chip {
-    background: #21262d;
-    border: 1px solid #30363d;
-    color: #58a6ff;
-    padding: 0.25rem 0.65rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .cli-chip:hover {
-    background: #30363d;
-    border-color: #58a6ff;
-    color: #79c0ff;
-    transform: translateY(-1px);
   }
 
   /* Project Featured Cards */
@@ -973,235 +756,4 @@ title: Home
       justify-content: flex-start;
     }
   }
-
-  /* ---------------------------------------------------- */
-  /* FLOATING CHATBOT WIDGET STYLES                       */
-  /* ---------------------------------------------------- */
-  .shaz-ai-launcher-btn {
-    position: fixed !important;
-    bottom: 24px !important;
-    right: 24px !important;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-    color: #fff !important;
-    border: none !important;
-    border-radius: 9999px !important;
-    padding: 0.75rem 1.3rem !important;
-    font-weight: 700 !important;
-    font-size: 0.9rem !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.6rem !important;
-    box-shadow: 0 8px 24px rgba(118, 75, 162, 0.4) !important;
-    cursor: pointer !important;
-    z-index: 999999 !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  }
-
-  .shaz-ai-launcher-btn:hover {
-    transform: translateY(-3px) scale(1.03) !important;
-    box-shadow: 0 12px 30px rgba(118, 75, 162, 0.55) !important;
-  }
-
-  .ai-launcher-pulse {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
-    animation: ping-animation 1.6s infinite cubic-bezier(0, 0, 0.2, 1);
-  }
-
-  #shaz-ai-drawer {
-    display: none;
-    position: fixed !important;
-    bottom: 85px !important;
-    right: 24px !important;
-    width: 390px !important;
-    max-width: calc(100vw - 32px) !important;
-    height: 530px !important;
-    max-height: calc(100vh - 120px) !important;
-    background: #0d1117 !important;
-    border: 1px solid #30363d !important;
-    border-radius: 16px !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
-    flex-direction: column !important;
-    z-index: 9999999 !important;
-    overflow: hidden !important;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px) scale(0.95);
-    transition: opacity 0.25s ease, transform 0.25s ease !important;
-  }
-
-  #shaz-ai-drawer.shaz-ai-drawer-open {
-    display: flex !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    visibility: visible !important;
-    transform: translateY(0) scale(1) !important;
-  }
-
-  .shaz-ai-header {
-    background: #161b22;
-    padding: 0.85rem 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #30363d;
-  }
-
-  .shaz-ai-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .shaz-ai-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 0.9rem;
-  }
-
-  .shaz-ai-title {
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: #f0f6fc;
-  }
-
-  .shaz-ai-sub {
-    font-size: 0.75rem;
-    color: #8b949e;
-    display: flex;
-    align-items: center;
-  }
-
-  .shaz-ai-icon-btn {
-    background: transparent;
-    border: none;
-    color: #8b949e;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.3rem;
-    border-radius: 4px;
-    transition: color 0.2s;
-  }
-
-  .shaz-ai-icon-btn:hover {
-    color: #f0f6fc;
-  }
-
-  .shaz-ai-body {
-    flex: 1;
-    padding: 1rem;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    background: #0d1117;
-  }
-
-  .shaz-msg {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .shaz-msg-user {
-    align-items: flex-end;
-  }
-
-  .shaz-msg-bot {
-    align-items: flex-start;
-  }
-
-  .shaz-msg-user .shaz-msg-bubble {
-    background: #1f6feb;
-    color: #fff;
-    border-radius: 14px 14px 2px 14px;
-  }
-
-  .shaz-msg-bot .shaz-msg-bubble {
-    background: #161b22;
-    border: 1px solid #30363d;
-    color: #c9d1d9;
-    border-radius: 14px 14px 14px 2px;
-  }
-
-  .shaz-msg-bubble {
-    max-width: 88%;
-    padding: 0.65rem 0.9rem;
-    font-size: 0.88rem;
-    line-height: 1.5;
-  }
-
-  .shaz-ai-suggestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.4rem;
-  }
-
-  .shaz-chip {
-    background: #21262d;
-    border: 1px solid #30363d;
-    color: #58a6ff;
-    padding: 0.3rem 0.65rem;
-    border-radius: 9999px;
-    font-size: 0.78rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .shaz-chip:hover {
-    background: #30363d;
-    color: #79c0ff;
-    border-color: #58a6ff;
-  }
-
-  .shaz-ai-footer {
-    padding: 0.75rem 1rem;
-    background: #161b22;
-    border-top: 1px solid #30363d;
-  }
-
-  .shaz-ai-input-wrap {
-    display: flex;
-    gap: 0.5rem;
-    background: #0d1117;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    padding: 0.3rem 0.5rem;
-  }
-
-  .shaz-ai-input-wrap input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #f0f6fc;
-    font-size: 0.85rem;
-    padding: 0.2rem 0.4rem;
-  }
-
-  .shaz-ai-input-wrap button {
-    background: #238636;
-    border: none;
-    color: #fff;
-    border-radius: 6px;
-    padding: 0.3rem 0.7rem;
-    cursor: pointer;
-    font-size: 0.85rem;
-    transition: background 0.2s;
-  }
-
-  .shaz-ai-input-wrap button:hover {
-    background: #2ea043;
-  }
 </style>
-
-
