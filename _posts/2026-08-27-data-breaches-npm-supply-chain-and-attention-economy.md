@@ -110,7 +110,7 @@ Protecting your household requires a two-front strategy: **hardening your techni
 flowchart LR
     Defense["Your Digital Defense Playbook"]
     
-    Defense --> Tech["🛡️ Technical Security Layer\n• Password Vaults (Vaultwarden)\n• Network DNS Filtering (Wiqayah)\n• Dependency Pinning & MFA"]
+    Defense --> Tech["🛡️ Technical Security Layer\n• Password Vaults (Vaultwarden)\n• Network DNS Filtering (AdGuard / Pi-hole)\n• Dependency Pinning & MFA"]
     
     Defense --> Habit["🌿 Attention & Habit Layer\n• Greyscale Display Mode\n• Sacred Screen-Free Zones\n• Real-Human Notifications Only"]
 ```
@@ -118,7 +118,7 @@ flowchart LR
 ### 🛡️ Layer 1: Technical Hardening
 
 * **Deploy a Zero-Knowledge Password Manager:** Stop reusing passwords across multiple sites. Use an end-to-end encrypted vault (like self-hosted **Vaultwarden** or Bitwarden) so a breach at one data broker never compromises your other accounts.
-* **Block Trackers at the Network Level:** Use tools like **Wiqayah** or network DNS firewalls (like AdGuard Home) to block analytics beacons, ad trackers, and known malicious telemetry endpoints before they reach your home devices.
+* **Block Trackers at the Network Level:** Use network DNS firewalls (like AdGuard Home, NextDNS, or Pi-hole) to block analytics beacons, ad trackers, and known malicious telemetry endpoints across all family devices at the router level.
 * **For Developers: Lock Down Your Supply Chain:**
   * Always commit your `package-lock.json` to prevent automatic pulling of unvetted sub-dependencies.
   * Enforce hardware security keys (FIDO2/WebAuthn) for GitHub and NPM publishing.
