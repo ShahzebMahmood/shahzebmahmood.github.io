@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Attention Trap & The Supply Chain: Modern Data Breaches, NPM Poisoning, and Digital Wellness"
-description: "A technical analysis of how mass data broker leaks, cloud warehouse compromises, and NPM open-source supply chain attacks are fueled by the attention economy—and how to harden your stack."
+description: "A technical analysis of how mass data broker leaks, cloud warehouse compromises, and NPM open-source supply chain attacks are fueled by the attention economy, and how to harden your stack."
 date: 2026-08-27 18:00:00 -0400
 categories: [Cybersecurity, Privacy]
 tags: [security, privacy, supply-chain, npm, devsecops, digital-wellness]
@@ -31,7 +31,7 @@ Every time you scroll, pause on a video for three extra seconds, or click a tren
 
 Because capturing your screen time is the core revenue engine of Big Tech, platforms collect and hoard every conceivable metric. They buy and sell your data across shadowy broker networks to enrich behavioral profiles.
 
-When these companies inevitably get breached, it isn't just an email address that leaks—it is the intimate blueprint of your digital identity.
+When these companies inevitably get breached, it isn't just an email address that leaks, it is the intimate blueprint of your digital identity.
 
 ---
 
@@ -68,7 +68,7 @@ Why are modern apps so vulnerable to supply chain attacks? **Because ad-funded, 
 
 To maximize engagement and ad targeting, consumer apps frequently embed dozens of unvetted third-party SDKs: session recorders, analytics beacons, behavioral telemetry trackers, and ad-exchange plugins. Each third-party tracker introduces dozens of sub-dependencies, expanding the attack surface exponentially.
 
-When you use "free," ad-saturated apps that aggressively fight for your attention, you aren't just losing your time—you are running hundreds of untrusted, third-party code packages on your private devices.
+When you use "free," ad-saturated apps that aggressively fight for your attention, you aren't just losing your time, you are running hundreds of untrusted, third-party code packages on your private devices.
 
 ---
 

@@ -8,7 +8,7 @@ tags: [ai-security, golang, prompt-injection, llm-firewall, devsecops, api-gatew
 mermaid: true
 ---
 
-As autonomous AI agents and Large Language Models (LLMs) gain tool-calling capabilities—executing database queries, triggering AWS CLI commands, and invoking external APIs—the security perimeter changes fundamentally.
+As autonomous AI agents and Large Language Models (LLMs) gain tool-calling capabilities, executing database queries, triggering AWS CLI commands, and invoking external APIs, the security perimeter changes fundamentally.
 
 In traditional web applications, input validation is deterministic: you sanitize strings against SQL injection and cross-site scripting (XSS). With LLMs, however, user input, system prompts, retrieval-augmented generation (RAG) context, and tool responses all share the exact same unstructured context window. 
 
@@ -23,7 +23,7 @@ If an attacker successfully injects instructions (e.g., via a poisoned PDF, untr
 }
 ```
 
-To solve this problem at runtime, I built **Amanah AI Gateway & Firewall**—a lightweight, high-performance security proxy written in **Go** that sits directly between LLM inference engines and external tool executors.
+To solve this problem at runtime, I built **Amanah AI Gateway & Firewall**, a lightweight, high-performance security proxy written in **Go** that sits directly between LLM inference engines and external tool executors.
 
 ---
 

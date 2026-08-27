@@ -11,7 +11,7 @@ tags: [nextjs, tailwind, typescript, supabase, security, privacy]
 
 Creating a digital wellness platform inherently demands a strict adherence to privacy and security. Users seeking digital safety tools do not want to be tracked, logged, or monetized. Digital Amannah was conceived with exactly these principles in mind: a values-based platform dedicated to zero-tracking and absolute user privacy.
 
-In this case study, we dive deep into the architectural decisions and technical stack utilized to build Digital Amannah, focusing on Next.js, Tailwind CSS, Supabase, and our lightweight browser extension, Wiqayah.
+In this case study, we dive deep into the architectural decisions and technical stack utilized to build Digital Amannah, focusing on Next.js, Tailwind CSS, Supabase, and our lightweight browser extension, AdGuard Home.
 
 ## The Core Philosophy: Privacy by Design
 
@@ -84,11 +84,11 @@ USING (auth.uid() = user_id);
 
 Even if a vulnerability were to exist in the application layer, the database itself refuses to serve data that doesn't belong to the authenticated session. This deeply aligns with our defense-in-depth and privacy-first strategy.
 
-## The Wiqayah Extension: Localized URL Scanning
+## The AdGuard Home Extension: Localized URL Scanning
 
-A key feature of Digital Amannah is the **Wiqayah** browser extension, designed to provide safety guardrails. The technical challenge was providing content filtering *without* sending a user's browsing history to a central server.
+A key feature of Digital Amannah is the **AdGuard Home** browser extension, designed to provide safety guardrails. The technical challenge was providing content filtering *without* sending a user's browsing history to a central server.
 
-We architected Wiqayah to rely entirely on **local execution**:
+We architected AdGuard Home to rely entirely on **local execution**:
 - **Offline Rule Sets:** The extension periodically downloads a heavily compressed, cryptographic hash-list of blocked domains and URL patterns.
 - **Local Evaluation:** When a user navigates to a URL, the extension evaluates the domain against the local hash-list. 
 - **Zero Data Exhaust:** The URL is never transmitted over the network for evaluation. There is absolutely no centralized logging of what a user visits or what gets blocked. 

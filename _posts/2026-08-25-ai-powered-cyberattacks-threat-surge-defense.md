@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Uptick in Cyberattacks: Why Old Defenses Are Breaking and How I Protect My Stack"
-description: "A look at the recent surge in AI-augmented attacks, session-hijacking, and automated bot scanning—and the practical zero-trust patterns I use to protect Digital Amanah and my infrastructure."
+description: "A look at the recent surge in AI-augmented attacks, session-hijacking, and automated bot scanning, and the practical zero-trust patterns I use to protect Digital Amanah and my infrastructure."
 date: 2026-08-25 10:00:00 -0400
 categories: [Cybersecurity, DevOps]
 tags: [cybersecurity, zero-trust, ai-threats, devsecops, passkeys, webauthn, tailscale]
@@ -52,7 +52,7 @@ flowchart TD
 ### A. The "Small Target" Fallacy Is Dead
 A common mindset among developers is: *"I'm just running a small side project, why would anyone target me?"*
 
-Attackers are not sitting at a terminal hand-typing IP addresses. They run continuous, distributed scanners against the entire IPv4 space. The second you spin up a cloud VM or expose a port on your home router, bots hit it within minutes trying known CVEs, default credentials, and misconfigured API routes. You are not being targeted personally—you are being swept up in an automated net.
+Attackers are not sitting at a terminal hand-typing IP addresses. They run continuous, distributed scanners against the entire IPv4 space. The second you spin up a cloud VM or expose a port on your home router, bots hit it within minutes trying known CVEs, default credentials, and misconfigured API routes. You are not being targeted personally, you are being swept up in an automated net.
 
 ### B. Precision Phishing Without the "Tells"
 Phishing used to be easy to spot: weird sender addresses, terrible spelling, and generic greetings. 
@@ -62,7 +62,7 @@ Now, automated pipelines can scrape your public GitHub commits, pull request dis
 ### C. Session Hijacking (Why Basic 2FA Is No Longer Enough)
 Most people assume that having an authenticator app (TOTP) or SMS 2FA makes them bulletproof. Unfortunately, tools like **Evilginx** (Adversary-in-the-Middle reverse proxies) have changed the game.
 
-When a user clicks a malicious link, the reverse proxy sits between them and the real login service (like Google, GitHub, or Okta). The user logs in and enters their 2FA code. The real service grants access, but the reverse proxy **intercepts the authenticated session cookie**. The attacker drops that cookie into their own browser and is logged in immediately—without ever needing your password or 2FA seed.
+When a user clicks a malicious link, the reverse proxy sits between them and the real login service (like Google, GitHub, or Okta). The user logs in and enters their 2FA code. The real service grants access, but the reverse proxy **intercepts the authenticated session cookie**. The attacker drops that cookie into their own browser and is logged in immediately, without ever needing your password or 2FA seed.
 
 ---
 
@@ -84,7 +84,7 @@ To protect Digital Amanah, my homelab, and cloud workloads, I rely on determinis
 flowchart TD
     subgraph ZeroTrustLayer["🛡️ My Multi-Layer Defense Stack"]
         Auth["1. FIDO2 / Passkeys\n(Hardware-bound keys that cannot be phished)"]
-        Network["2. Private Mesh Overlay\n(Tailscale / Cloudflare Zero Trust — Zero open ports)"]
+        Network["2. Private Mesh Overlay\n(Tailscale / Cloudflare Zero Trust, Zero open ports)"]
         Identity["3. OIDC & Ephemeral Secrets\n(No static AWS keys in CI/CD)"]
         Egress["4. Strict Egress Filtering\n(Block compromised containers from calling home)"]
     end
@@ -135,7 +135,7 @@ I do not expose SSH, database ports, or staging dashboards to the public interne
 
 Instead, all my internal services (homelab nodes, staging databases, Grafana dashboards, and private Kubernetes control planes) run inside a private **Tailscale** overlay network. 
 
-If a bot scans my public IP, it sees nothing—ports are completely closed. Only devices authenticated to my Tailnet with strict tag-based ACLs can route traffic:
+If a bot scans my public IP, it sees nothing, ports are completely closed. Only devices authenticated to my Tailnet with strict tag-based ACLs can route traffic:
 
 ```json
 // Tailscale ACL policy enforcing least privilege
@@ -224,7 +224,7 @@ In the tech world, it is easy to look at cybersecurity through the lens of compl
 * **Your team** trusts you to protect deployment pipelines from supply-chain attacks.
 * **Your family** trusts you to keep home devices, cameras, and networks safe from extortion and bad actors.
 
-Treating security as an *Amanah* means not taking shortcuts. It means assuming that automated threats are knocking on the door 24/7, and building architectures that protect that trust by design—not by luck.
+Treating security as an *Amanah* means not taking shortcuts. It means assuming that automated threats are knocking on the door 24/7, and building architectures that protect that trust by design, not by luck.
 
 ---
 
@@ -244,8 +244,8 @@ If you want to quickly harden your own setup against the current wave of attacks
 
 ## Wrapping Up
 
-The uptick in cyberattacks is not something that is going away—if anything, automation will make it more pervasive. But we do not have to be passive targets.
+The uptick in cyberattacks is not something that is going away, if anything, automation will make it more pervasive. But we do not have to be passive targets.
 
 By ditching phishable passwords, closing public attack surfaces with mesh networks, killing static API keys, and remembering our duty of care, we can build systems that stay secure no matter how noisy the internet gets.
 
-*Security is not about hoping you never get attacked—it is about designing a system that holds the line when you do.*
+*Security is not about hoping you never get attacked, it is about designing a system that holds the line when you do.*

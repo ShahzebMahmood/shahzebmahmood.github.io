@@ -236,7 +236,7 @@ Here is a hardened access policy dividing access between Developers, DevOps Engi
 
 One of the most elusive networking bugs with overlay VPNs is **Path MTU (PMTU) blackholing**.
 
-WireGuard encapsulates IP packets inside UDP packets, adding 40–80 bytes of overhead. If a client attempts to send standard 1500-byte Ethernet frames through the tunnel without PMTU Discovery working properly, packets get silently dropped, resulting in TLS handshakes stalling or SSH sessions freezing during large data transfers.
+WireGuard encapsulates IP packets inside UDP packets, adding 40-80 bytes of overhead. If a client attempts to send standard 1500-byte Ethernet frames through the tunnel without PMTU Discovery working properly, packets get silently dropped, resulting in TLS handshakes stalling or SSH sessions freezing during large data transfers.
 
 To eliminate this across all subnet clients, add an **MSS clamping rule** using `iptables` on the subnet router:
 
