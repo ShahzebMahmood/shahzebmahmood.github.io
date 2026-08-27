@@ -8,7 +8,7 @@ tags: [cybersecurity, zero-trust, ai-threats, devsecops, passkeys, webauthn, tai
 mermaid: true
 ---
 
-If you spend any time inspecting edge logs on a public VPS, cloud VPC, or even a modest homelab router, you have probably noticed a dramatic shift over the past year. 
+If you spend any time inspecting edge logs on a public VPS, cloud VPC, or even a modest homelab router, you have probably noticed a dramatic shift over the past year.
 
 It used to be that public internet noise was fairly predictable. You would see routine bots scanning for open port 22, script kiddies trying `/wp-admin` on non-WordPress sites, and obvious phishing emails with broken grammar and mismatched sender domains.
 
@@ -47,7 +47,7 @@ flowchart TD
     Scrape --> Synthesize --> AiTM
     AiTM -.->|Evades| BrokenDefenses
     BrokenDefenses -.-> Breach
-```
+```text
 
 ### A. The "Small Target" Fallacy Is Dead
 A common mindset among developers is: *"I'm just running a small side project, why would anyone target me?"*
@@ -55,7 +55,7 @@ A common mindset among developers is: *"I'm just running a small side project, w
 Attackers are not sitting at a terminal hand-typing IP addresses. They run continuous, distributed scanners against the entire IPv4 space. The second you spin up a cloud VM or expose a port on your home router, bots hit it within minutes trying known CVEs, default credentials, and misconfigured API routes. You are not being targeted personally, you are being swept up in an automated net.
 
 ### B. Precision Phishing Without the "Tells"
-Phishing used to be easy to spot: weird sender addresses, terrible spelling, and generic greetings. 
+Phishing used to be easy to spot: weird sender addresses, terrible spelling, and generic greetings.
 
 Now, automated pipelines can scrape your public GitHub commits, pull request discussions, and team updates, then feed that context into an LLM to generate an email that looks like an urgent internal message from a collaborator or vendor. There are no grammatical tells anymore.
 
@@ -90,7 +90,7 @@ flowchart TD
     end
 
     User["Request"] --> Auth --> Network --> Identity --> Egress --> Production["🚀 Production Services"]
-```
+```text
 
 ---
 
@@ -125,7 +125,7 @@ export async function verifyUserPasskey(req: Request) {
   // Save credentialID and public key in database bound to user session
   return { success: true, credentialID, credentialPublicKey, counter };
 }
-```
+```text
 
 ---
 
@@ -133,7 +133,7 @@ export async function verifyUserPasskey(req: Request) {
 
 I do not expose SSH, database ports, or staging dashboards to the public internet. Period.
 
-Instead, all my internal services (homelab nodes, staging databases, Grafana dashboards, and private Kubernetes control planes) run inside a private **Tailscale** overlay network. 
+Instead, all my internal services (homelab nodes, staging databases, Grafana dashboards, and private Kubernetes control planes) run inside a private **Tailscale** overlay network.
 
 If a bot scans my public IP, it sees nothing, ports are completely closed. Only devices authenticated to my Tailnet with strict tag-based ACLs can route traffic:
 
@@ -155,7 +155,7 @@ If a bot scans my public IP, it sees nothing, ports are completely closed. Only 
     }
   ]
 }
-```
+```text
 
 ---
 
@@ -187,7 +187,7 @@ jobs:
           role-session-name: GitHubActionsDeployment
           aws-region: us-east-1
           # Credentials are short-lived and discarded after this step
-```
+```text
 
 ---
 
@@ -208,7 +208,7 @@ sudo iptables -A OUTPUT -o lo -j ACCEPT
 # Allow outbound traffic strictly to necessary API endpoints (DNS & HTTPS)
 sudo iptables -A OUTPUT -p tcp -d 1.1.1.1 --dport 53 -j ACCEPT
 sudo iptables -A OUTPUT -p tcp -d api.supabase.com --dport 443 -j ACCEPT
-```
+```text
 
 If a malicious script tries to `curl` an external attacker server or drop a backdoor, the connection drops silently.
 

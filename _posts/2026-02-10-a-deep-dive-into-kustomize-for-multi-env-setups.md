@@ -40,7 +40,7 @@ my-app/
     └── prod/
         ├── deployment-patch.yaml
         └── kustomization.yaml
-```
+```text
 
 ### The `base`
 
@@ -73,7 +73,7 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-```
+```text
 
 `base/kustomization.yaml`:
 
@@ -84,7 +84,7 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
-```
+```text
 
 ### The `dev` Overlay
 
@@ -105,13 +105,13 @@ commonLabels:
 images:
   - name: my-org/my-app
     newTag: "dev-latest"
-```
+```text
 
 Now, to see the final YAML for `dev`, we can run:
 
 ```bash
 kubectl kustomize overlays/dev
-```
+```text
 This will output the full Kubernetes manifests with the `env: dev` label and the `dev-latest` image tag applied.
 
 ### The `prod` Overlay
@@ -138,7 +138,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "1"
-```
+```text
 
 `overlays/prod/kustomization.yaml`:
 ```yaml
@@ -157,7 +157,7 @@ images:
 
 patchesStrategicMerge:
   - deployment-patch.yaml
-```
+```text
 
 By running `kubectl kustomize overlays/prod`, we get manifests with 3 replicas, higher resource limits, and the correct image tag. The original `base/deployment.yaml` remains untouched.
 

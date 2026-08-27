@@ -7,7 +7,7 @@ categories: [Web Development, Projects]
 tags: [go, react, supabase, postgresql, tailwind, fullstack]
 ---
 
-Keeping track of monthly and annual software subscriptions can quickly get messy. To solve this problem for myself and experiment with modern full-stack architectures, I built **SubTrackr**, a clean, responsive subscription management web application. 
+Keeping track of monthly and annual software subscriptions can quickly get messy. To solve this problem for myself and experiment with modern full-stack architectures, I built **SubTrackr**, a clean, responsive subscription management web application.
 
 Here is a look at the architecture, security decisions, and engineering lessons behind the project.
 
@@ -29,7 +29,7 @@ graph LR
     GoAPI -->|Query / RLS| Postgres[Postgres DB]
     Cron[Cron Job] -->|Daily Trigger| GoAPI
     GoAPI -->|SMTP| Email[Email Reminders]
-```
+```text
 
 ---
 
@@ -58,7 +58,7 @@ CREATE POLICY "Users can update own subscriptions" ON subscriptions
 -- Allow users to delete only their own subscriptions
 CREATE POLICY "Users can delete own subscriptions" ON subscriptions
   FOR DELETE USING (auth.uid()::text = user_id);
-```
+```text
 
 By delegating isolation to PostgreSQL policies, the database itself guarantees that even if a bug in our application code attempts to access another user's UUID, the database will return an empty set.
 
@@ -66,7 +66,7 @@ By delegating isolation to PostgreSQL policies, the database itself guarantees t
 
 ## Backend Design: Go & Gin
 
-The backend is written in Go, chosen for its fast execution, minimal memory footprint, and compile-time type safety. 
+The backend is written in Go, chosen for its fast execution, minimal memory footprint, and compile-time type safety.
 
 We structure the API endpoints cleanly:
 - `GET /api/v1/subscriptions` - Retrieve all user subscriptions.
@@ -79,13 +79,13 @@ A key feature of SubTrackr is alerting users three days before a subscription re
 
 ```bash
 POST /api/v1/reminders/send?days=3
-```
+```text
 
 This endpoint queries subscriptions whose next renewal date is exactly 3 days away, formats an email body, and dispatches alerts via SMTP. To make this hands-free, we schedule a daily cron job:
 
 ```bash
 0 9 * * * curl -X POST http://localhost:8080/api/v1/reminders/send?days=3
-```
+```text
 
 ---
 

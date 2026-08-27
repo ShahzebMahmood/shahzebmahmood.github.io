@@ -29,7 +29,7 @@ modules/
 envs/
   dev/
     main.tf
-```
+```text
 
 Example usage:
 
@@ -45,7 +45,7 @@ module "core" {
     env   = "dev"
   }
 }
-```
+```text
 
 What helped: consistent naming via a small locals block and a `required_tags` variable that I pass through to all resources.
 
@@ -64,7 +64,7 @@ module "gcp_core" {
     env   = "dev"
   }
 }
-```
+```text
 
 ## Little Things That Made A Big Difference
 - A `providers` block inside modules is optional; I pass providers from root for clarity
@@ -87,7 +87,7 @@ repos:
       - id: terraform_validate
       - id: terraform_tflint
         args: ["--args=--enable-rule=terraform_deprecated_interpolation"]
-```
+```text
 
 I keep it strict enough to catch drift, but not so strict that it blocks flow.
 
@@ -98,7 +98,7 @@ I use tiny `envs/dev/main.tf` stacks to prove the modules work before wiring CI/
 terraform -chdir=envs/dev init
 terraform -chdir=envs/dev plan -var-file=dev.tfvars
 terraform -chdir=envs/dev apply -auto-approve
-```
+```text
 
 ## What I’d Do Next
 - Add optional DNS modules for both clouds

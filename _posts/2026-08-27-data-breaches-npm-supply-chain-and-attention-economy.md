@@ -60,7 +60,7 @@ In a supply chain attack, malicious actors don't target the main company directl
                   │
                   ▼
 [End User's Browser / Phone Runs Trojanized Script]
-```
+```text
 
 ### The Link to the Attention Economy
 
@@ -109,11 +109,11 @@ Protecting your household requires a two-front strategy: **hardening your techni
 ```mermaid
 flowchart LR
     Defense["Your Digital Defense Playbook"]
-    
+
     Defense --> Tech["🛡️ Technical Security Layer\n• Password Vaults (Vaultwarden)\n• Network DNS Filtering (AdGuard / Pi-hole)\n• Dependency Pinning & MFA"]
-    
+
     Defense --> Habit["🌿 Attention & Habit Layer\n• Greyscale Display Mode\n• Sacred Screen-Free Zones\n• Real-Human Notifications Only"]
-```
+```text
 
 ### 🛡️ Layer 1: Technical Hardening
 

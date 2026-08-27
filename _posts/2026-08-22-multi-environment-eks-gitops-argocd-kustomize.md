@@ -50,7 +50,7 @@ flowchart TD
 
     ArgoApp1 -->|Syncs Overlays| DevCluster
     ArgoApp2 -->|Syncs Overlays| ProdCluster
-```
+```text
 
 ---
 
@@ -88,7 +88,7 @@ gitops-fleet/
 │               └── kustomization.yaml
 └── bootstrap/
     └── applicationset.yaml
-```
+```text
 
 ### The Base Manifest
 
@@ -121,7 +121,7 @@ spec:
               port: 8080
             initialDelaySeconds: 5
             periodSeconds: 10
-```
+```text
 
 ### Reusable Kustomize Components
 
@@ -133,7 +133,7 @@ apiVersion: kustomize.config.k8s.io/v1alpha1
 kind: Component
 resources:
   - horizontal-pod-autoscaler.yaml
-```
+```text
 
 ```yaml
 # apps/web-service/components/hpa/horizontal-pod-autoscaler.yaml
@@ -155,7 +155,7 @@ spec:
         target:
           type: Utilization
           averageUtilization: 75
-```
+```text
 
 ### Environment Overlay with Components
 
@@ -178,7 +178,7 @@ patches:
     target:
       kind: Deployment
       name: web-service
-```
+```text
 
 ---
 
@@ -240,7 +240,7 @@ spec:
             duration: 5s
             factor: 2
             maxDuration: 3m
-```
+```text
 {% endraw %}
 
 ---
@@ -268,7 +268,7 @@ spec:
       remoteRef:
         key: production/web-service/database
         property: password
-```
+```text
 
 This guarantees:
 1. Zero plaintext tokens or keys exist anywhere in the GitOps repository.
@@ -294,7 +294,7 @@ metadata:
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "3" # Runs last (Ingress, DNS)
-```
+```text
 
 ---
 

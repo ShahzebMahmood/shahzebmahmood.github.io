@@ -39,7 +39,7 @@ Everything starts with the repo. If someone gets into your SCM, it's game over.
 - name: Perform CodeQL Analysis
   uses: github/codeql-action/analyze@v3
 {% endraw %}
-```
+```text
 
 ### 2. The Build Environment
 
@@ -65,7 +65,7 @@ trivy image my-app:${{ github.sha }}
 # Example: Signing an image with Cosign
 cosign sign --key cosign.key my-app:${{ github.sha }}
 {% endraw %}
-```
+```text
 
 ### 4. Deployment
 

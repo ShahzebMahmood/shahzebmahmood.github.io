@@ -23,7 +23,7 @@ I start by checking headers and body with `curl -sv`.
 
 ```bash
 curl -sv "https://cdn.example.com/config/manifest.json" -o /tmp/manifest.json
-```
+```text
 
 I look for:
 
@@ -35,7 +35,7 @@ Then I verify the actual content:
 
 ```bash
 cat /tmp/manifest.json
-```
+```text
 
 If the body still references old asset paths, the edge object is stale.
 
@@ -43,7 +43,7 @@ I also compare with similar URLs that may have refreshed naturally:
 
 ```bash
 curl -sv "https://cdn.example.com/config/other-manifest.json" -o /tmp/other-manifest.json
-```
+```text
 
 This helps confirm whether the issue is isolated to one cached object.
 
@@ -83,7 +83,7 @@ curl -sS -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/purge_ca
       "https://cdn.example.com/assets/app.20260318.js"
     ]
   }'
-```
+```text
 
 A successful call returns `"success": true`.
 
@@ -92,7 +92,7 @@ A successful call returns `"success": true`.
 ```bash
 curl -sv "https://cdn.example.com/config/manifest.json" -o /tmp/manifest-after-purge.json
 cat /tmp/manifest-after-purge.json
-```
+```text
 
 On the first request after purge, you should usually see `cf-cache-status: MISS` (or a revalidation flow) and the updated JSON body.
 

@@ -53,7 +53,7 @@ flowchart TD
     SubnetRouterAWS -->|Forward Traffic| PrivateEKS
     SubnetRouterHome -->|Forward Traffic| MonitoringNode
     SubnetRouterHome -->|Forward Traffic| StorageCluster
-```
+```text
 
 ---
 
@@ -73,13 +73,13 @@ net.core.rmem_max = 16777216
 net.core.wmem_max = 16777216
 net.ipv4.udp_rmem_min = 8192
 net.ipv4.udp_wmem_min = 8192
-```
+```text
 
 Apply the changes immediately:
 
 ```bash
 sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
-```
+```text
 
 ### AWS VPC Source/Destination Check
 
@@ -91,7 +91,7 @@ Disable it using the AWS CLI or Terraform:
 aws ec2 modify-instance-attribute \
     --instance-id i-0abcdef1234567890 \
     --no-source-dest-check
-```
+```text
 
 In Terraform:
 
@@ -107,7 +107,7 @@ resource "aws_instance" "tailscale_router" {
     Role = "Networking"
   }
 }
-```
+```text
 
 ---
 
@@ -127,7 +127,7 @@ sudo tailscale up \
     --accept-routes=false \
     --ssh=true \
     --auth-key="tskey-auth-kXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX"
-```
+```text
 
 ### Containerized Setup with Docker Compose
 
@@ -153,7 +153,7 @@ services:
       - NET_RAW
     restart: unless-stopped
     network_mode: host
-```
+```text
 
 ---
 
@@ -228,7 +228,7 @@ Here is a hardened access policy dividing access between Developers, DevOps Engi
     }
   ]
 }
-```
+```text
 
 ---
 
@@ -243,14 +243,14 @@ To eliminate this across all subnet clients, add an **MSS clamping rule** using 
 ```bash
 # Clamp TCP MSS to Path MTU for forwarded traffic
 sudo iptables -t mangle -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-```
+```text
 
 To persist this rule across reboots on Debian/Ubuntu:
 
 ```bash
 sudo apt-get install -y iptables-persistent
 sudo iptables-save | sudo tee /etc/iptables/rules.v4
-```
+```text
 
 ---
 
@@ -283,7 +283,7 @@ nc -zv -w3 10.0.24.50 5432
 
 # Test latency across the WireGuard tunnel
 ping -c 4 10.0.12.10
-```
+```text
 
 ---
 

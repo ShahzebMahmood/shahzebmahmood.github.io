@@ -31,7 +31,7 @@ Before using these snippets, I set up the following:
 platform/api
 platform/worker
 shared/frontend
-```
+```text
 
 - Terraform backend/state access already configured for the target environment
 
@@ -105,7 +105,7 @@ jobs:
             echo "Migrated $IMAGE:$TAG"
           done < images.txt
 {% endraw %}
-```
+```text
 
 ## Pipeline 2: Terraform Plan on Pull Requests
 
@@ -170,7 +170,7 @@ jobs:
         with:
           name: terraform-plan-dev
           path: terraform/envs/dev/tfplan.txt
-```
+```text
 
 ## What I Learned
 

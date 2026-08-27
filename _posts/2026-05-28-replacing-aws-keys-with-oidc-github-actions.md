@@ -41,7 +41,7 @@ The trust policy is the primary guardrail. It should be restricted to a specific
     }
   ]
 }
-```
+```text
 
 ### Step 2: Scoping S3 Permissions
 
@@ -58,7 +58,7 @@ To adhere to the principle of least privilege, the IAM role should only have acc
         }
     ]
 }
-```
+```text
 
 ### Step 3: Workflow Configuration
 
@@ -84,7 +84,7 @@ jobs:
 
       - name: Publish Artifacts
         run: ./publish.sh --bucket my-artifact-bucket --prefix artifacts
-```
+```text
 
 ## Benefits
 

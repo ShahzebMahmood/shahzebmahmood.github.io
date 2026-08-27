@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: pnpm i && pnpm lint && pnpm test && pnpm build
-```
+```text
 
 ## OIDC Role Examples (conceptual)
 - AWS: role trust on `token.actions.githubusercontent.com` with conditions like `repo:owner/name` and `ref:refs/heads/main`
@@ -46,7 +46,7 @@ jobs:
 permissions:
   id-token: write
   contents: read
-```
+```text
 
 ## What Broke (and How I Fixed It)
 - Token audience mismatch → set `audience` explicitly on the cloud side

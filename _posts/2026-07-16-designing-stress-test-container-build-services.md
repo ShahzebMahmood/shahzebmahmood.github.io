@@ -15,7 +15,7 @@ To ensure stability, running structured stress tests against your build engine i
 
 ## The Challenge of High Concurrency
 
-When a large batch of cloud computing jobs starts, each job often requests a container image to execute its workload. If the images are slightly modified or need to be dynamically built, the container build engine receives a flood of requests. 
+When a large batch of cloud computing jobs starts, each job often requests a container image to execute its workload. If the images are slightly modified or need to be dynamically built, the container build engine receives a flood of requests.
 
 The primary challenges under this high-load scenario are:
 1. **API Latency:** The control plane parsing requests and scheduling builds might slow down.
@@ -44,28 +44,28 @@ First, we define the structures to represent our tasks and results:
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"net/http"
-	"sync"
-	"time"
+  "bytes"
+  "encoding/json"
+  "fmt"
+  "net/http"
+  "sync"
+  "time"
 )
 
 // BuildRequest represents the payload sent to the container build service.
 type BuildRequest struct {
-	ImageName  string `json:"image_name"`
-	Dockerfile string `json:"dockerfile"`
-	Context    string `json:"context_url,omitempty"`
+  ImageName  string `json:"image_name"`
+  Dockerfile string `json:"dockerfile"`
+  Context    string `json:"context_url,omitempty"`
 }
 
 // Result tracks the outcome of a single build request.
 type Result struct {
-	Duration   time.Duration
-	StatusCode int
-	Error      error
+  Duration   time.Duration
+  StatusCode int
+  Error      error
 }
-```
+```text
 
 ### Creating the Worker Pool
 
@@ -73,104 +73,104 @@ We use a standard worker pool pattern to control the exact amount of concurrency
 
 ```go
 func worker(id int, jobs <-chan BuildRequest, results chan<- Result, wg *sync.WaitGroup, endpoint string) {
-	defer wg.Done()
-	
-	client := &http.Client{
-		Timeout: 60 * time.Second, // Allow adequate time for dynamic builds
-	}
+  defer wg.Done()
 
-	for job := range jobs {
-		start := time.Now()
-		
-		payload, err := json.Marshal(job)
-		if err != nil {
-			results <- Result{Error: err}
-			continue
-		}
+  client := &http.Client{
+    Timeout: 60 * time.Second, // Allow adequate time for dynamic builds
+  }
 
-		req, err := http.NewRequest("POST", endpoint, bytes.NewBuffer(payload))
-		if err != nil {
-			results <- Result{Error: err}
-			continue
-		}
-		req.Header.Set("Content-Type", "application/json")
+  for job := range jobs {
+    start := time.Now()
 
-		resp, err := client.Do(req)
-		duration := time.Since(start)
+    payload, err := json.Marshal(job)
+    if err != nil {
+      results <- Result{Error: err}
+      continue
+    }
 
-		if err != nil {
-			results <- Result{Duration: duration, Error: err}
-			continue
-		}
-		
-		// Read/close body to reuse connection
-		resp.Body.Close()
-		
-		results <- Result{
-			Duration:   duration,
-			StatusCode: resp.StatusCode,
-		}
-	}
+    req, err := http.NewRequest("POST", endpoint, bytes.NewBuffer(payload))
+    if err != nil {
+      results <- Result{Error: err}
+      continue
+    }
+    req.Header.Set("Content-Type", "application/json")
+
+    resp, err := client.Do(req)
+    duration := time.Since(start)
+
+    if err != nil {
+      results <- Result{Duration: duration, Error: err}
+      continue
+    }
+
+    // Read/close body to reuse connection
+    resp.Body.Close()
+
+    results <- Result{
+      Duration:   duration,
+      StatusCode: resp.StatusCode,
+    }
+  }
 }
-```
+```text
 
 ### Orchestrating the Test
 
-Next, we orchestrate the queue, workers, and metrics collection. 
+Next, we orchestrate the queue, workers, and metrics collection.
 
 ```go
 func main() {
-	endpoint := "https://api.build-service.internal/v1/build"
-	totalRequests := 5000
-	concurrencyLimit := 200
+  endpoint := "https://api.build-service.internal/v1/build"
+  totalRequests := 5000
+  concurrencyLimit := 200
 
-	jobs := make(chan BuildRequest, totalRequests)
-	results := make(chan Result, totalRequests)
-	var wg sync.WaitGroup
+  jobs := make(chan BuildRequest, totalRequests)
+  results := make(chan Result, totalRequests)
+  var wg sync.WaitGroup
 
-	// Start workers
-	for i := 1; i <= concurrencyLimit; i++ {
-		wg.Add(1)
-		go worker(i, jobs, results, &wg, endpoint)
-	}
+  // Start workers
+  for i := 1; i <= concurrencyLimit; i++ {
+    wg.Add(1)
+    go worker(i, jobs, results, &wg, endpoint)
+  }
 
-	// Queue up jobs
-	go func() {
-		for i := 0; i < totalRequests; i++ {
-			jobs <- BuildRequest{
-				ImageName:  fmt.Sprintf("load-test-image-%d", i),
-				Dockerfile: "FROM alpine:latest\nRUN echo 'Hello World'",
-			}
-		}
-		close(jobs)
-	}()
+  // Queue up jobs
+  go func() {
+    for i := 0; i < totalRequests; i++ {
+      jobs <- BuildRequest{
+        ImageName:  fmt.Sprintf("load-test-image-%d", i),
+        Dockerfile: "FROM alpine:latest\nRUN echo 'Hello World'",
+      }
+    }
+    close(jobs)
+  }()
 
-	// Wait in a separate goroutine to close results channel
-	go func() {
-		wg.Wait()
-		close(results)
-	}()
+  // Wait in a separate goroutine to close results channel
+  go func() {
+    wg.Wait()
+    close(results)
+  }()
 
-	// Aggregate metrics
-	var successCount, errorCount int
-	var totalDuration time.Duration
+  // Aggregate metrics
+  var successCount, errorCount int
+  var totalDuration time.Duration
 
-	for res := range results {
-		if res.Error != nil || res.StatusCode >= 400 {
-			errorCount++
-		} else {
-			successCount++
-		}
-		totalDuration += res.Duration
-	}
+  for res := range results {
+    if res.Error != nil || res.StatusCode >= 400 {
+      errorCount++
+    } else {
+      successCount++
+    }
+    totalDuration += res.Duration
+  }
 
-	fmt.Printf("Test Completed.\n")
-	fmt.Printf("Total Requests: %d\n", totalRequests)
-	fmt.Printf("Successes: %d\n", successCount)
-	fmt.Printf("Errors: %d\n", errorCount)
-	fmt.Printf("Average Latency: %v\n", totalDuration/time.Duration(totalRequests))
+  fmt.Printf("Test Completed.\n")
+  fmt.Printf("Total Requests: %d\n", totalRequests)
+  fmt.Printf("Successes: %d\n", successCount)
+  fmt.Printf("Errors: %d\n", errorCount)
+  fmt.Printf("Average Latency: %v\n", totalDuration/time.Duration(totalRequests))
 }
-```
+```text
 
 ## Tracking Metrics and Handling Failures
 
@@ -182,6 +182,6 @@ If your error rate is high due to `429 Too Many Requests`, your build service mi
 
 ## Conclusion
 
-Stress testing a container build engine exposes bottlenecks in caching mechanisms, database I/O, and network connection pools. By leveraging Go's lightweight concurrency primitives, you can easily generate thousands of simultaneous requests and carefully measure how your cloud-native infrastructure holds up under real-world pressure. 
+Stress testing a container build engine exposes bottlenecks in caching mechanisms, database I/O, and network connection pools. By leveraging Go's lightweight concurrency primitives, you can easily generate thousands of simultaneous requests and carefully measure how your cloud-native infrastructure holds up under real-world pressure.
 
 In future iterations, you can expand this load tester to randomly vary Dockerfiles, attach large build contexts, and simulate real API authentication headers to perfectly replicate production traffic.

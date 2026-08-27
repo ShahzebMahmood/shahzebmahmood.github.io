@@ -18,7 +18,7 @@ In Ubuntu 24.04, the kernel restricts the creation of unprivileged user namespac
 Container technologies that utilize FUSE and custom namespaces to mount remote filesystems often trigger this restriction. The resulting error in the logs typically looks like this:
 ```text
 clone(CLONE_NEWUSER): Permission denied
-```
+```text
 
 ## The Solution
 
@@ -30,7 +30,7 @@ The restriction can be disabled globally via sysctl. This is a quick way to veri
 
 ```bash
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
-```
+```text
 
 To make this change persistent across reboots, add it to a configuration file in /etc/sysctl.d/.
 
@@ -56,7 +56,7 @@ profile container-runtime-profile flags=(attach_disconnected,mediate_deleted) {
   owner /proc/** r,
 }
 EOF
-```
+```text
 
 ## Context: Azure Batch Nodes
 

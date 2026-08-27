@@ -43,7 +43,7 @@ Previously, with IRSA, the trust policy looked like this:
     }
   ]
 }
-```
+```text
 
 With Pod Identity, the trust policy is significantly cleaner:
 ```json
@@ -63,7 +63,7 @@ With Pod Identity, the trust policy is significantly cleaner:
         }
     ]
 }
-```
+```text
 
 ## Migrating the Stack: Storage & Identity Controllers
 

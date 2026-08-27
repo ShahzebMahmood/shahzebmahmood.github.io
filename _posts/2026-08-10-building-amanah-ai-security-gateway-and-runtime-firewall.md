@@ -10,7 +10,7 @@ mermaid: true
 
 As autonomous AI agents and Large Language Models (LLMs) gain tool-calling capabilities, executing database queries, triggering AWS CLI commands, and invoking external APIs, the security perimeter changes fundamentally.
 
-In traditional web applications, input validation is deterministic: you sanitize strings against SQL injection and cross-site scripting (XSS). With LLMs, however, user input, system prompts, retrieval-augmented generation (RAG) context, and tool responses all share the exact same unstructured context window. 
+In traditional web applications, input validation is deterministic: you sanitize strings against SQL injection and cross-site scripting (XSS). With LLMs, however, user input, system prompts, retrieval-augmented generation (RAG) context, and tool responses all share the exact same unstructured context window.
 
 If an attacker successfully injects instructions (e.g., via a poisoned PDF, untrusted web scrape, or direct prompt manipulation), the model can be tricked into generating destructive tool calls:
 
@@ -21,7 +21,7 @@ If an attacker successfully injects instructions (e.g., via a poisoned PDF, untr
     "command": "aws ec2 terminate-instances --instance-ids i-0a1b2c3d4e5f"
   }
 }
-```
+```text
 
 To solve this problem at runtime, I built **Amanah AI Gateway & Firewall**, a lightweight, high-performance security proxy written in **Go** that sits directly between LLM inference engines and external tool executors.
 
@@ -60,7 +60,7 @@ flowchart TD
     PolicyEngine -->|Safe Execution| ToolExecutor
     PolicyEngine -->|High Risk Action| AdminApproval
     PolicyEngine -->|Audit Trail| AuditLog
-```
+```text
 
 ---
 
@@ -76,49 +76,49 @@ The proxy wraps standard HTTP/gRPC transport layers, providing sub-2 millisecond
 package gateway
 
 import (
-	"encoding/json"
-	"net/http"
-	"time"
+  "encoding/json"
+  "net/http"
+  "time"
 )
 
 type ToolCall struct {
-	ID        string          `json:"id"`
-	Type      string          `json:"type"`
-	Function  FunctionCall    `json:"function"`
+  ID        string          `json:"id"`
+  Type      string          `json:"type"`
+  Function  FunctionCall    `json:"function"`
 }
 
 type FunctionCall struct {
-	Name      string          `json:"name"`
-	Arguments json.RawMessage `json:"arguments"`
+  Name      string          `json:"name"`
+  Arguments json.RawMessage `json:"arguments"`
 }
 
 type InterceptResult struct {
-	Decision    PolicyDecision `json:"decision"` // ALLOW, BLOCK, REQUIRE_APPROVAL
-	RiskScore   float64        `json:"risk_score"`
-	Category    string         `json:"category"`
-	Reason      string         `json:"reason"`
+  Decision    PolicyDecision `json:"decision"` // ALLOW, BLOCK, REQUIRE_APPROVAL
+  RiskScore   float64        `json:"risk_score"`
+  Category    string         `json:"category"`
+  Reason      string         `json:"reason"`
 }
 
 func (g *Gateway) HandleToolCall(w http.ResponseWriter, r *http.Request) {
-	var tool ToolCall
-	if err := json.NewDecoder(r.Body).Decode(&tool); err != nil {
-		http.Error(w, "Invalid payload", http.StatusBadRequest)
-		return
-	}
+  var tool ToolCall
+  if err := json.NewDecoder(r.Body).Decode(&tool); err != nil {
+    http.Error(w, "Invalid payload", http.StatusBadRequest)
+    return
+  }
 
-	// Evaluate payload against active security policy
-	eval := g.PolicyEngine.Evaluate(tool)
-	
-	switch eval.Decision {
-	case DecisionAllow:
-		g.ForwardToExecutor(w, tool)
-	case DecisionBlock:
-		g.ReturnSecurityRefusal(w, tool, eval.Reason)
-	case DecisionRequireApproval:
-		g.TriggerApprovalFlow(w, tool, eval)
-	}
+  // Evaluate payload against active security policy
+  eval := g.PolicyEngine.Evaluate(tool)
+
+  switch eval.Decision {
+  case DecisionAllow:
+    g.ForwardToExecutor(w, tool)
+  case DecisionBlock:
+    g.ReturnSecurityRefusal(w, tool, eval.Reason)
+  case DecisionRequireApproval:
+    g.TriggerApprovalFlow(w, tool, eval)
+  }
 }
-```
+```text
 
 ---
 
@@ -133,24 +133,24 @@ The gateway evaluates arguments against four primary threat signatures:
 
 ```go
 func (e *Engine) ClassifyRisk(funcName string, args string) (RiskCategory, float64) {
-	// Destructive Cloud Patterns
-	if matchCloudDestruction(args) {
-		return CategoryCloudDestruction, 0.95
-	}
+  // Destructive Cloud Patterns
+  if matchCloudDestruction(args) {
+    return CategoryCloudDestruction, 0.95
+  }
 
-	// SSRF Metadata Service Targeting
-	if strings.Contains(args, "169.254.169.254") || strings.Contains(args, "metadata.google") {
-		return CategorySSRF, 1.00
-	}
+  // SSRF Metadata Service Targeting
+  if strings.Contains(args, "169.254.169.254") || strings.Contains(args, "metadata.google") {
+    return CategorySSRF, 1.00
+  }
 
-	// SQL Drop/Truncate Guardrails
-	if isDestructiveSQL(args) {
-		return CategoryDataDestruction, 0.90
-	}
+  // SQL Drop/Truncate Guardrails
+  if isDestructiveSQL(args) {
+    return CategoryDataDestruction, 0.90
+  }
 
-	return CategoryBenign, 0.05
+  return CategoryBenign, 0.05
 }
-```
+```text
 
 ---
 
@@ -158,7 +158,7 @@ func (e *Engine) ClassifyRisk(funcName string, args string) (RiskCategory, float
 
 When a tool call exceeds the risk threshold (e.g., risk score > `0.70`), the gateway pauses downstream execution and holds the HTTP connection. It broadcasts a cryptographically signed authorization request to Telegram/Slack:
 
-```
+```text
 🚨 AMANAH AI SECURITY GATEWAY ALERT 🚨
 Decision: INTERCEPTED (Risk Score: 0.95)
 Model: DeepSeek-R1 (Tool Call ID: tc_9281a)
@@ -168,7 +168,7 @@ Proposed Command:
 
 Action Required:
 [ ✅ APPROVE EXECUTION ]   [ ❌ REJECT & TERMINATE ]
-```
+```text
 
 If the administrator rejects the request or the 60-second timeout expires, the gateway returns a polite tool execution error to the LLM context, explaining that the operation was denied by security policy.
 

@@ -13,9 +13,9 @@ mermaid: true
 
 Most homelab discussions start with buying expensive multi-core mini PCs, setting up noisy rack servers, or paying high monthly electricity bills.
 
-I did not want any of that. 
+I did not want any of that.
 
-I had an old, decommissioned dual-core laptop (Intel Core i3 with 4GB RAM) sitting in my drawer. Instead of letting it gather dust or buying new hardware, I decided to turn it into a dedicated, headless Debian 13 micro-server. 
+I had an old, decommissioned dual-core laptop (Intel Core i3 with 4GB RAM) sitting in my drawer. Instead of letting it gather dust or buying new hardware, I decided to turn it into a dedicated, headless Debian 13 micro-server.
 
 Today, it runs local AI models, vector memory, DNS ad-filtering, web analytics, and workflow automation 24/7. It stays completely silent, runs cool at around 45°C, and draws around 5 to 7 Watts of power.
 
@@ -36,7 +36,7 @@ To make it run properly as a headless server, I disabled sleep when the lid is c
 HandleLidSwitch=ignore
 HandleLidSwitchExternalPower=ignore
 HandleLidSwitchDocked=ignore
-```
+```text
 
 I also turned off the display backlight on boot so it does not waste battery or generate extra heat.
 
@@ -48,7 +48,7 @@ I used **ZRAM (LZ4 compressed in-memory swap)** instead:
 
 ```bash
 sudo apt-get install -y zram-tools
-```
+```text
 
 In `/etc/default/zramswap`:
 
@@ -56,7 +56,7 @@ In `/etc/default/zramswap`:
 ALGO=lz4
 PERCENT=50
 PRIORITY=100
-```
+```text
 
 This creates a compressed swap space directly in RAM. When memory pressure builds up, the kernel compresses inactive pages into RAM instead of writing to disk.
 
@@ -71,7 +71,7 @@ vm.vfs_cache_pressure = 50
 
 # Expand socket connection backlog
 net.core.somaxconn = 1024
-```
+```text
 
 With this setup, the server comfortably maintains over **2.1 GB of free RAM** with all services active.
 
@@ -101,7 +101,7 @@ To make sure Ollama does not permanently lock up 1.8 GB of RAM when idle, I adde
 [Service]
 Environment="OLLAMA_HOST=0.0.0.0:11434"
 Environment="OLLAMA_KEEP_ALIVE=5m"
-```
+```text
 
 With `OLLAMA_KEEP_ALIVE=5m`, the model loads into memory instantly when I send a prompt, stays hot while I work, and unloads back to disk after 5 minutes of idle time. That returns ~1.8 GB of RAM back to the OS.
 
@@ -128,7 +128,7 @@ I wanted this server to be completely self-managing so I do not have to babysit 
 
 # 08:00 AM Daily - Morning System Status to Telegram
 0 8 * * * /usr/bin/node /opt/personal-ai/openclaw/scripts/morning_briefing.js > /dev/null 2>&1
-```
+```text
 
 The Sunday maintenance script automatically creates an encrypted tarball backup of my configs and database volumes, prunes dangling Docker images, and vacuums system logs so disk space never fills up.
 
@@ -176,7 +176,7 @@ flowchart TD
     Umami --> Postgres
     N8N --> Qdrant
     Cron --> ContainerStack
-```
+```text
 
 ## Final Thoughts
 

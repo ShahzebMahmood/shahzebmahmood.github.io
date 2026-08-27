@@ -28,11 +28,11 @@ DNS-based firewall rules with wildcards are the preferred method for allowlistin
 
 If your firewall supports DNS-based rules with wildcards, allow the following domains:
 
-```
+```text
 *.enterprise-cloud-platform.com
 *.connect.cloud.enterprise-cloud-platform.com
 *.enterprise-cloud-platform.com.cdn.cloudflare.net
-```
+```text
 
 ### Enterprise Users - Specific Services
 
@@ -100,7 +100,7 @@ The endpoint returns a JSON object using the following schema:
     "z.y.x.w/32"
   ]
 }
-```
+```text
 
 - **Egress**: IP addresses that outbound traffic from Cloud services will originate from (e.g., when accessing S3 buckets, your container registries, etc.)
 - **Ingress**: IP addresses that need to be allowed to access services when pushing data to the cloud or communicating with self-hosted environments
@@ -134,17 +134,17 @@ If you are self-hosting the Enterprise Platform, ensure the following connection
 
 Allow access to the license server at:
 
-```
+```text
 licenses.enterprise-cloud-platform.com:443
-```
+```text
 
 ### Data Services and Other Plugins
 
 Data services and other plugins include built-in license checks. The compute environment running distributed pipelines must be allowed outbound network access to the license server:
 
-```
+```text
 licenses.enterprise-cloud-platform.com:443
-```
+```text
 
 ### Interactive Workspaces
 

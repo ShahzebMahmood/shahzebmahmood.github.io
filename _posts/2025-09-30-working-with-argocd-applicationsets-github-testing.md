@@ -33,7 +33,7 @@ I create a separate branch in GitHub specifically for testing:
 
 ```bash
 git checkout -b test/application-set-changes
-```
+```text
 
 ### 2. Make Your Changes
 
@@ -73,7 +73,7 @@ spec:
           prune: true
           selfHeal: true
 {% endraw %}
-```
+```text
 
 ## Using Template Patches
 
@@ -139,7 +139,7 @@ spec:
       path: /metadata/annotations/retention-days
       value: "{{retention}}"
 {% endraw %}
-```
+```text
 
 ### Common Use Cases for Template Patches
 
@@ -197,7 +197,7 @@ spec:
               memory: 512Mi
               cpu: 500m
 {% endraw %}
-```
+```text
 
 ### Tips for Using Template Patches
 
@@ -222,7 +222,7 @@ yamllint my-applicationset.yaml
 
 # Or use kubectl to validate
 kubectl apply --dry-run=client -f my-applicationset.yaml
-```
+```text
 
 ### 4. Test in a Safe Environment
 
@@ -234,7 +234,7 @@ kubectl apply -f my-applicationset.yaml --context=test-cluster
 
 # Watch the ApplicationSet create the applications
 kubectl get applicationset -n argocd -w
-```
+```text
 
 ### 5. Verify the Generated Applications
 
@@ -246,7 +246,7 @@ kubectl get applications -n argocd -l app.kubernetes.io/name=my-applicationset
 
 # Check the status of each application
 kubectl get applications -n argocd -o wide
-```
+```text
 
 ### 6. Test the Sync
 
@@ -258,7 +258,7 @@ argocd app sync dev-my-app
 
 # Or sync all applications from the set
 kubectl get applications -n argocd -l app.kubernetes.io/name=my-applicationset -o name | xargs -I {} argocd app sync {}
-```
+```text
 
 ## Testing Strategy
 
@@ -341,7 +341,7 @@ git checkout -b feature/update-applicationset
 # Commit with a clear message
 git add .
 git commit -m "Update ApplicationSet to add new environment"
-```
+```text
 
 ### Testing Locally
 
@@ -351,7 +351,7 @@ yamllint applicationset.yaml
 
 # Dry run
 kubectl apply --dry-run=client -f applicationset.yaml
-```
+```text
 
 ### After Testing
 
@@ -363,7 +363,7 @@ git push origin feature/update-applicationset
 # ... review process ...
 
 # After merge, ArgoCD will pick up the changes automatically
-```
+```text
 
 ## Building Confidence
 

@@ -11,7 +11,7 @@ mermaid: true
 
 ## Why I Replaced Third-Party Analytics with Self-Hosted Umami
 
-When I put together my portfolio and technical writeups on GitHub Pages, I wanted to understand which articles were actually helpful to people. 
+When I put together my portfolio and technical writeups on GitHub Pages, I wanted to understand which articles were actually helpful to people.
 
 At the same time, I really dislike what modern web analytics has turned into: massive JavaScript bundles, intrusive tracking cookies, cross-site profiling, and annoying consent banners. Google Analytics collects far too much personal data, and I did not want my site sending reader information to advertising networks.
 
@@ -47,7 +47,7 @@ flowchart TD
     UmamiApp -->|Persist Metrics| UmamiDB
     CommandCenter -->|Service Links & Status| UmamiApp
     Kuma -->|Health Ping| UmamiApp
-```
+```text
 
 ## Docker Compose Setup
 
@@ -80,7 +80,7 @@ services:
       - APP_SECRET=replace_with_a_random_32_char_string
     depends_on:
       - umami-db
-```
+```text
 
 ### Why Alpine and Explicit Memory Limits?
 1. **Alpine PostgreSQL image**: It starts up fast and stays under 40 MB of RAM when idle.
@@ -95,7 +95,7 @@ To inject it cleanly across every page of my Jekyll portfolio without editing do
 ```html
 <!-- Umami Analytics (Home Server) -->
 <script defer src="http://192.168.1.100:3002/script.js" data-website-id="your-umami-website-id"></script>
-```
+```text
 
 Because the script is only around 4.6 KB and loads with `defer`, it has zero impact on page load speed or Core Web Vitals. It does not set cookies, so there is no need for cookie consent banners.
 
@@ -135,7 +135,7 @@ I set up **Homepage** (running on port `3005`) and configured `/opt/personal-ai/
         icon: n8n.png
         href: "http://192.168.1.100:5678"
         description: "Event-Driven CI/CD & Notification Workflows"
-```
+```text
 
 Now, instead of memorizing port numbers or bookmarking 8 different URLs, opening `http://192.168.1.100:3005` (or my Tailscale IP when on the road) gives me instant access to my entire personal cloud.
 

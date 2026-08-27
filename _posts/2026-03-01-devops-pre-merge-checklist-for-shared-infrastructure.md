@@ -33,7 +33,7 @@ terraform fmt -recursive
 terraform validate
 terraform plan -out tfplan
 terraform show -no-color tfplan > tfplan.txt
-```
+```text
 
 If it is a shared module, I run plans from each relevant environment folder. Running one plan and assuming the rest are fine is how surprises happen.
 

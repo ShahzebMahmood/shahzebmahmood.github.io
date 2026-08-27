@@ -21,7 +21,7 @@ From day one, the architecture was constrained by one overriding rule: **no user
 
 To deliver a highly performant and SEO-friendly platform, we chose the **Next.js App Router**. Next.js provided several key benefits for this project:
 
-1. **Static Site Generation (SSG) & Server Components:** By utilizing React Server Components, the bulk of our educational content and platform pages are rendered on the server at build time. This ensures fast delivery via CDNs without client-side JavaScript overhead. 
+1. **Static Site Generation (SSG) & Server Components:** By utilizing React Server Components, the bulk of our educational content and platform pages are rendered on the server at build time. This ensures fast delivery via CDNs without client-side JavaScript overhead.
 2. **Security:** Server Components allow us to keep database credentials and backend logic completely hidden from the browser. Client components are used sparingly, only where interactivity (like forms) is strictly necessary.
 3. **Type Safety:** The entire platform is built with strict TypeScript, preventing runtime errors and ensuring predictable data structures when interfacing with our markdown content and backend services.
 
@@ -34,9 +34,9 @@ Digital wellness requires a calming, accessible, and responsive user interface. 
 
 ## Content Management: Markdown & Automated Delivery
 
-To keep the platform lightweight and easy to maintain, all educational content and blog posts are authored in Markdown. 
+To keep the platform lightweight and easy to maintain, all educational content and blog posts are authored in Markdown.
 
-We process these files using `gray-matter` to parse YAML frontmatter and standard markdown rendering libraries to generate HTML. 
+We process these files using `gray-matter` to parse YAML frontmatter and standard markdown rendering libraries to generate HTML.
 
 ```typescript
 import fs from 'fs'
@@ -55,7 +55,7 @@ export async function getPostData(slug: string) {
   const processedContent = await remark()
     .use(html, { sanitize: true }) // Crucial for XSS protection
     .process(matterResult.content)
-    
+
   const contentHtml = processedContent.toString()
 
   return {
@@ -64,7 +64,7 @@ export async function getPostData(slug: string) {
     ...(matterResult.data as { title: string; date: string }),
   }
 }
-```
+```text
 
 **Security Note:** Rendering markdown to HTML can introduce Cross-Site Scripting (XSS) vulnerabilities if not handled correctly. We explicitly configured our remark plugins to sanitize the output, stripping out any injected scripts or malicious HTML before it reaches the client.
 
@@ -80,7 +80,7 @@ CREATE POLICY "Users can only view their own settings"
 ON user_settings
 FOR SELECT
 USING (auth.uid() = user_id);
-```
+```text
 
 Even if a vulnerability were to exist in the application layer, the database itself refuses to serve data that doesn't belong to the authenticated session. This deeply aligns with our defense-in-depth and privacy-first strategy.
 
@@ -90,8 +90,8 @@ A key feature of Digital Amannah is the **AdGuard Home** browser extension, desi
 
 We architected AdGuard Home to rely entirely on **local execution**:
 - **Offline Rule Sets:** The extension periodically downloads a heavily compressed, cryptographic hash-list of blocked domains and URL patterns.
-- **Local Evaluation:** When a user navigates to a URL, the extension evaluates the domain against the local hash-list. 
-- **Zero Data Exhaust:** The URL is never transmitted over the network for evaluation. There is absolutely no centralized logging of what a user visits or what gets blocked. 
+- **Local Evaluation:** When a user navigates to a URL, the extension evaluates the domain against the local hash-list.
+- **Zero Data Exhaust:** The URL is never transmitted over the network for evaluation. There is absolutely no centralized logging of what a user visits or what gets blocked.
 
 This approach minimizes CPU overhead on the user's machine while mathematically guaranteeing that their browsing data remains strictly on their device.
 

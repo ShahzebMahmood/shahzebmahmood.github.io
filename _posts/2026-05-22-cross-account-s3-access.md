@@ -38,7 +38,7 @@ In this model, Account B access is granted direct access via a bucket policy in 
         }
     ]
 }
-```
+```text
 
 ## Option 2: Role Chaining with External ID (Cross-Account Assumption)
 
@@ -66,7 +66,7 @@ This is a solid pattern for shared infrastructure. A role in Account B assumes a
     }
   ]
 }
-```
+```text
 
 ## Why Assume the Role in the Resource Account?
 

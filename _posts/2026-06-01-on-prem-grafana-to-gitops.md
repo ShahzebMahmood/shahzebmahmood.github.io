@@ -29,7 +29,7 @@ spec:
   configMapRef:
     name: platform-overview-json
     key: dashboard.json
-```
+```text
 
 ## Challenges: Schema Versioning and Cleanup
 

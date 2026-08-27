@@ -45,7 +45,7 @@ Every line in a Dockerfile is a potential vulnerability. The non-root user, secu
 # This took me forever to get right
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nodejs -u 1001 -G nodejs
-```
+```text
 
 ### Kubernetes Security
 Pod Security Standards, Network Policies, RBAC - I felt like I was learning a new language. Security in Kubernetes isn't optional - it needs to be designed in from the beginning.
@@ -70,7 +70,7 @@ app.use((req, res, next) => {
   res.setHeader('Content-Security-Policy', "default-src 'self'")
   next()
 })
-```
+```text
 
 ### Health Checks
 Health checks seemed trivial until I realized how critical they are for Kubernetes. The difference between `/health` and `/ready` endpoints was something I had to learn the hard way.

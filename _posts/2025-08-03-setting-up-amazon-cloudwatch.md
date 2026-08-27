@@ -15,23 +15,23 @@ The first thing I did was navigate to the cluster and namespace using the comman
 
 There are two tools I used to do this which make life easier when navigating through clusters and namespaces. These tools are called [kubectx](https://github.com/ahmetb/kubectx) and [kubens](https://github.com/ahmetb/kubectx).
 
-```
+```text
 kubectx <context>
 kubens <namespace>
-```
+```text
 
-Once I navigated to the namespace, I used another tool called [k9s](https://k9scli.io/) to get a better visual representation of the resources in the namespace. 
+Once I navigated to the namespace, I used another tool called [k9s](https://k9scli.io/) to get a better visual representation of the resources in the namespace.
 
-```
+```text
 k9s -n cloudwatch
-```
+```text
 
 This is where I found that the CloudWatch pods that are on the old Amazon-Linux nodes are failing to start (`CrashLoopBackOff`). This then led me to investigate the deployment and configmaps to ascertain the root cause of the issue. This is what really stopped me in my tracks because I had difficulty figuring out how this was deployed and what the intended configuration was. However, once I checked the [official AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html), I noticed there is a deployment for DaemonSet which seems to be deprecated and now [AWS Observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.html) is the recommended way of deploying the CloudWatch agent and Fluent Bit.
 
 I decided to take the Helm chart approach as it would probably make the deployment and management easier and more configurable for our use case.
 
 ## What I implemented
- My manager mentioned it would have been better if I had created a more detailed design document. While I did create one initially, I realized I didn't have much context for the CloudWatch agent and Fluent Bit. So after a bit of research, I decided to do a test deployment in our dev environment. 
+ My manager mentioned it would have been better if I had created a more detailed design document. While I did create one initially, I realized I didn't have much context for the CloudWatch agent and Fluent Bit. So after a bit of research, I decided to do a test deployment in our dev environment.
 
  So this was my thought process:
  - GitOps deployment
@@ -155,7 +155,7 @@ patches:
         value:
           eks.amazonaws.com/role-arn: arn:aws:iam::<AWS_ACCOUNT_ID>:role/<EKS_ROLE_NAME>
 
-```
+```text
 
 base/values.yaml:
 ```yaml
@@ -164,7 +164,7 @@ base/values.yaml:
 # This file structure must match the chart's values.yaml format
 
 # Cluster configuration
-clusterName: "&#123;&#123; .Values.cluster &#125;&#125;" 
+clusterName: "&#123;&#123; .Values.cluster &#125;&#125;"
 region: <AWS_REGION>
 
 # Container logs configuration
@@ -227,7 +227,7 @@ updateStrategy:
     maxUnavailable: 1
     maxSurge: 1
 
-```
+```text
 
 The above code is generic and can be customized for specific environments by overriding the values in the respective environment's `values.yaml` file. Just a note I found out the hard way is that the AWS observability Helm chart is strict - something like `clusterName` will need to be patched to the correct name in the `kustomization.yaml` file for each environment.
 
@@ -250,7 +250,7 @@ patches:
         path: /spec/config
         value: '{"agent":{"region":"<AWS_REGION>"},"logs":{"metrics_collected":{"application_signals":{"hosted_in":"<ENVIRONMENT>"},"kubernetes":{"cluster_name":"<ENVIRONMENT>","enhanced_container_insights":true,"force_flush_interval":30,"metrics_collection_interval":300}}},"metrics":{"namespace":"CWAgent","metrics_collected":{"cpu":{"measurement":[{"name":"cpu_usage_idle","rename":"CPU_USAGE_IDLE","unit":"Percent"},{"name":"cpu_usage_iowait","rename":"CPU_USAGE_IOWAIT","unit":"Percent"},{"name":"cpu_usage_user","rename":"CPU_USAGE_USER","unit":"Percent"},{"name":"cpu_usage_system","rename":"CPU_USAGE_SYSTEM","unit":"Percent"}],"metrics_collection_interval":60}}},"traces":{"traces_collected":{"application_signals":{}}}}'
 ---
-```
+```text
 
 This just works for me and my work, yours could be different.
 
@@ -269,12 +269,12 @@ My next issue was a permission problem with the EKS role I specified. I had made
 Boom! Everything was working as intended. The joy and relief of not breaking anything is a great feeling.
 
 ## Lessons Learned
-In tech there's not much help, and even if you do ask, it's often met with disdain or seen negatively, especially at work where most people want to do their job and go home, which you can't fault them for. However, one thing I want to do is not just follow the status quo. For this task, I created a guide and put it on our internal documentation so it can help other junior workers. I do think that if we had more interactions and less judgment as tech folk, we would increase our skills and level even more. 
+In tech there's not much help, and even if you do ask, it's often met with disdain or seen negatively, especially at work where most people want to do their job and go home, which you can't fault them for. However, one thing I want to do is not just follow the status quo. For this task, I created a guide and put it on our internal documentation so it can help other junior workers. I do think that if we had more interactions and less judgment as tech folk, we would increase our skills and level even more.
 
-Testing in dev is a must. I did break the deployment a few times, but I learned from it and fixed it. I think I learned more from my testing than from anyone telling me what to do. 
+Testing in dev is a must. I did break the deployment a few times, but I learned from it and fixed it. I think I learned more from my testing than from anyone telling me what to do.
 
 Even though our work is hard and stressful, it's just work at the end of the day and shouldn't consume your life. It took me a while to get this task completed. Maybe someone could have done it quicker and better.
 
 If you work in DevOps or any tech role, the best thing you can do is try, try, and try again because at the end of the day you will learn more from doing it yourself than from anyone telling you what to do.
 
-If you got this far, thanks for reading this blog post. I hope you found it useful or at least entertaining. 
+If you got this far, thanks for reading this blog post. I hope you found it useful or at least entertaining.

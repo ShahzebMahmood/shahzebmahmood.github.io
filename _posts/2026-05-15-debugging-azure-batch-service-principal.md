@@ -31,7 +31,7 @@ The `Microsoft.Batch` resource provider can occasionally enter a degraded state 
 
 ```bash
 az provider register --namespace Microsoft.Batch
-```
+```text
 
 ### 3. Permissions vs. Scopes
 
