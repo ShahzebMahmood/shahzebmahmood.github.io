@@ -16,6 +16,7 @@ If your Azure Batch start tasks are crashing with "Permission Denied" when launc
 In Ubuntu 24.04, the kernel restricts the creation of unprivileged user namespaces by default unless an AppArmor profile explicitly permits it.
 
 Container technologies that utilize FUSE and custom namespaces to mount remote filesystems often trigger this restriction. The resulting error in the logs typically looks like this:
+
 ```text
 clone(CLONE_NEWUSER): Permission denied
 ```text

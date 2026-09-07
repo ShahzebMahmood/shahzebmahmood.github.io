@@ -16,6 +16,7 @@ The objective was clear: every dashboard must be defined in Git, managed as a Ku
 The **Grafana Operator** was utilized to manage the instances. Instead of manual updates via the UI, dashboards are now defined as GrafanaDashboard objects.
 
 **Example Dashboard CRD:**
+
 ```yaml
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard

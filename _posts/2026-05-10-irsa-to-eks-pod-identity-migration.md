@@ -14,6 +14,7 @@ Here is an analysis of why the "Pod Identity" approach is fundamentally changing
 ## The Problem with IRSA
 
 IRSA has been the standard for years, but it comes with operational overhead:
+
 1. **OIDC Provider per Cluster:** You need to manage OIDC identity providers in IAM for every cluster.
 2. **Service Account Annotations:** Every service account needs a specific ARN annotation.
 3. **Trust Policy Verbosity:** IAM role trust policies become massive as more clusters and namespaces are added.
@@ -25,6 +26,7 @@ EKS Pod Identity simplifies this by removing the OIDC requirement. Instead, the 
 ### Concrete Example: AWS Load Balancer Controller
 
 Previously, with IRSA, the trust policy looked like this:
+
 ```json
 {
   "Version": "2012-10-17",

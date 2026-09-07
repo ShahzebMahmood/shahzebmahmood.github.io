@@ -21,18 +21,21 @@ I build and maintain secure CI/CD pipelines with integrated security scanning, a
 ## Technical Expertise
 
 ### Cloud & Infrastructure
+
 - **Cloud Platforms**: AWS, Azure, Google Cloud Platform (GCP)
 - **High-Performance Computing (HPC)** environments
 - **Infrastructure as Code**: Terraform with security baselines
 - **Containerization**: Docker, Kubernetes, Podman
 
 ### DevOps & Security
+
 - **CI/CD Pipelines** with security integration (Trivy vulnerability scanning)
 - **Secrets Management**: External Secrets Operator (ESO)
 - **Monitoring**: Google SecOps for threat detection and incident analysis
 - **Security Practices**: Shift-left security, least-privilege IAM, network segmentation
 
 ### Programming & Automation
+
 - **Scripting**: Python, Bash, PowerShell
 - **Identity Management**: Okta automation
 - **Database Management**: SQL Server, database troubleshooting
@@ -67,6 +70,7 @@ Buckinghamshire New University, High Wycombe
 ## What Drives Me
 
 I'm passionate about:
+
 - **Security-first DevOps practices** and integrating security into every stage of development
 - **Infrastructure automation** that scales and reduces manual overhead
 - **Continuous learning** in cybersecurity and emerging technologies

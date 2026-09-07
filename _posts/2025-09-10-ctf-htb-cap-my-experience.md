@@ -14,6 +14,7 @@ I worked on Cap last month when I wanted something simple and focused. It was a 
 > Legal note: These notes reflect my experience on a legal training lab.
 
 ## First Impressions
+
 The landing page hinted at packet captures and network stats. That immediately set my mindset: if a web app offers downloadable files, I should assume there’s sensitive data hiding in plain sight.
 
 ```bash

@@ -14,6 +14,7 @@ I picked up TwoMillion after a long week because I wanted something that felt fu
 > Legal note: This is about my experience on a legal training lab.
 
 ## First Impressions
+
 I did a quick scan and headed straight to the website. The UI felt familiar (classic HTB throwback style) with an invite flow that immediately made me think: “There’s probably something helpful hiding in the client code.” That hunch paid off. No brute forcing.
 
 What I enjoyed here was the reminder that client-side JavaScript can be a treasure map. Reading it felt like walking behind the scenes and finding the door that everyone assumes is locked.

@@ -2,7 +2,7 @@
 
 ## DevOps Engineer | Cybersecurity Enthusiast | Cloud Architect
 
-[Email](mailto:shahzebmahmood3@gmail.com) | [LinkedIn](https://www.linkedin.com/in/shahzeb-m-70b694166) | [GitHub](https://github.com/ShahzebMahmood)
+[Email](mailto:shahzebmahmood3@gmail.com) | [LinkedIn](https://www.linkedin.com/in/shaz-mahmood1) | [GitHub](https://github.com/ShahzebMahmood)
 
 ---
 
@@ -49,7 +49,7 @@ Skilled DevOps Engineer with robust background in infrastructure automation, con
 
 ## Education
 
-**MSc Computer Science with Cybersecurity** *(Expected August 2025)*
+**MSc Computer Science with Cybersecurity** *(Expected August 2026)*
 University of York, United Kingdom
 
 **BSc (Hons) Sport and Exercise Science** *(July 2017)*
@@ -76,7 +76,3 @@ Buckinghamshire New University, High Wycombe
 - **IT Administrator** - Cloudbeds
 - **Infrastructure Technology Helpdesk Administrator** - TractionOnDemand
 - **Application Support Analyst & Service Desk Analyst** - Impellam Group
-
----
-
-Note: Replace this markdown file with your actual PDF resume.

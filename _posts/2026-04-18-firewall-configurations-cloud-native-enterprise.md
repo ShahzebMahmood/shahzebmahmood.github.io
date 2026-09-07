@@ -7,8 +7,6 @@ categories: [Security, DevOps]
 tags: [security, firewall, cloudflare, networking, devops, cloud]
 ---
 
-# Firewall Configuration for Enterprise Cloud Platforms
-
 > This is a blog post from the Cloud Infrastructure Engineering team that describes firewall configurations to apply when working with enterprise cloud-native products.
 
 ## Why This Matters

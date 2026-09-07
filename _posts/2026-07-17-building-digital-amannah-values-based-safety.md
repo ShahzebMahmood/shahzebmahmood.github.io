@@ -7,8 +7,6 @@ categories: [Web Development, Projects]
 tags: [nextjs, tailwind, typescript, supabase, security, privacy]
 ---
 
-# Building Digital Amannah: A Case Study in Values-Based Digital Wellness Tech
-
 Creating a digital wellness platform inherently demands a strict adherence to privacy and security. Users seeking digital safety tools do not want to be tracked, logged, or monetized. Digital Amannah was conceived with exactly these principles in mind: a values-based platform dedicated to zero-tracking and absolute user privacy.
 
 In this case study, we dive deep into the architectural decisions and technical stack utilized to build Digital Amannah, focusing on Next.js, Tailwind CSS, Supabase, and our lightweight browser extension, AdGuard Home.

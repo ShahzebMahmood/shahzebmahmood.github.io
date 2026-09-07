@@ -1,4 +1,6 @@
-{% if post.excerpt %}
+{% if post.description %}
+  {{ post.description }}
+{% elsif post.excerpt %}
   {{ post.excerpt | strip_html | truncatewords: 30 }}
 {% else %}
   {{ post.content | strip_html | truncatewords: 30 }}

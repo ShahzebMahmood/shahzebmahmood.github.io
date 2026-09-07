@@ -12,11 +12,13 @@ pin: false
 I tightened my pipelines without slowing anyone down. This is the short list that stuck for me across personal projects and DevOps work.
 
 ## What I Secured First
+
 - OIDC to AWS/Azure/GCP (no long‑lived keys), least‑privilege roles
 - Required reviews on workflow changes and branch protection on `main`
 - Dependency + secret scanning on every PR
 
 ## Reusable Workflows That Helped
+
 - `lint-test-build.yml` that app repos call with `workflow_call`
 - `plan.yml` for IaC PRs; `apply.yml` on `main` with manual approval
 

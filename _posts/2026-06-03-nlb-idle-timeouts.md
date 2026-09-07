@@ -24,6 +24,7 @@ If a connection is established but remains idle (meaning no data is transmitted)
 ### Why Image Pulls are Affected
 
 During a large image pull:
+
 1. One layer may be downloading rapidly, maintaining an active connection.
 2. Simultaneously, another layer may be waiting for local processing or decompression.
 3. If the local processing exceeds 350 seconds without transmitting a TCP packet, the NLB terminates the connection.

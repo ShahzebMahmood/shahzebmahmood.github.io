@@ -90,7 +90,7 @@ services:
 
 Once Umami was running on `http://192.168.1.100:3002`, I logged into the dashboard, registered my website, and generated my tracking ID.
 
-To inject it cleanly across every page of my Jekyll portfolio without editing dozens of markdown posts individually, I added the snippet into `_includes/custom-head.html`:
+To inject it cleanly across every page of my Jekyll portfolio without editing dozens of markdown posts individually, I added the snippet into `_includes/metadata-hook.html`:
 
 ```html
 <!-- Umami Analytics (Home Server) -->

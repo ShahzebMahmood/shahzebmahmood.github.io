@@ -21,6 +21,7 @@ This post explores the two primary methods for managing this: **Bucket Policies*
 In this model, Account B access is granted direct access via a bucket policy in Account A.
 
 **Bucket Policy in Account A:**
+
 ```json
 {
     "Version": "2012-10-17",

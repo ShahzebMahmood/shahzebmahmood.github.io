@@ -7,8 +7,6 @@ categories: [DevOps, Cloud Engineering]
 tags: [go, docker, kubernetes, load-testing, scaling, cloud]
 ---
 
-# Designing and Running a Stress Test for Container Build Services at Scale
-
 In modern cloud-native architectures, dynamically building and caching container images is a core part of operating scalable compute jobs. When hundreds or thousands of background jobs trigger simultaneously, the underlying container build service is hit with massive request spikes. This surge can expose architectural bottlenecks, ranging from image layer caching inefficiencies to API latency and aggressive rate limiting thresholds.
 
 To ensure stability, running structured stress tests against your build engine is critical. In this post, we’ll explore how to design and run a highly concurrent stress test for a container build service using Go.
@@ -18,6 +16,7 @@ To ensure stability, running structured stress tests against your build engine i
 When a large batch of cloud computing jobs starts, each job often requests a container image to execute its workload. If the images are slightly modified or need to be dynamically built, the container build engine receives a flood of requests.
 
 The primary challenges under this high-load scenario are:
+
 1. **API Latency:** The control plane parsing requests and scheduling builds might slow down.
 2. **Caching Overhead:** Checking whether a container layer already exists in the cache across multiple concurrent requests introduces heavy I/O operations and database lookups.
 3. **Rate Limits:** Upstream container registries (like Docker Hub, AWS ECR, or Google Artifact Registry) may aggressively rate-limit pulling base images.
@@ -32,6 +31,7 @@ Go (Golang) is uniquely positioned for building load testing tools. Its concurre
 ## Designing the Load Tester
 
 Our load testing tool needs a few core components:
+
 1. **Worker Pool:** A set of goroutines executing requests concurrently.
 2. **Task Queue:** A channel feeding build configurations (e.g., Dockerfiles, context URLs) to the workers.
 3. **Metrics Aggregator:** A thread-safe way to collect success counts, error rates, and response times.

@@ -7,7 +7,7 @@ tags: [devops, cybersecurity, portfolio, introduction]
 pin: false
 ---
 
-## Welcome!
+## Welcome
 
 Hi there! I'm Shahzeb, and welcome to my portfolio website where I'll be sharing my journey in DevOps engineering and cybersecurity.
 
@@ -22,7 +22,9 @@ I'll be posting about:
 - **Learning**: My progress through certifications and hands-on labs
 
 ## My Focus Areas
+
 Currently working as a DevOps Engineer, I'm passionate about:
+
 - Building secure, scalable infrastructure
 - Implementing shift-left security practices
 - Automating everything that can be automated

@@ -16,6 +16,7 @@ I set out wanting to build something real: deploy a Node.js app to AWS using EKS
 There were days I felt completely lost, frustrated, and honestly, a bit defeated. The constant context-switching and the pressure to get every detail right started to take a toll, not just on my time, but on my confidence. It’s easy to underestimate how much this kind of project can wear you down, especially when you care about doing it well.
 
 After weeks of work, I ended up with:
+
 - **Infrastructure as Code**: Terraform modules that actually work (after many iterations)
 - **EKS Cluster**: Auto-scaling Kubernetes that doesn't break
 - **CI/CD Pipeline**: GitHub Actions that sometimes work on the first try
@@ -30,6 +31,7 @@ One of the biggest challenges I faced was setting up a GitHub Action to automate
 ## The Breakthrough Moments
 
 ### 1. CI/CD Magic
+
 The first time I pushed code and saw it automatically deploy to my cluster - that's when I felt like a real DevOps engineer. Watching the workflow complete and seeing my app live in minutes was pure satisfaction.
 
 ## Security: The Hard Way
@@ -39,6 +41,7 @@ One thing I love is security, but making something secure isn’t always efficie
 There’s always a trade-off!
 
 ### Container Security
+
 Every line in a Dockerfile is a potential vulnerability. The non-root user, security audits, health checks - each serves a purpose I didn't initially understand.
 
 ```dockerfile

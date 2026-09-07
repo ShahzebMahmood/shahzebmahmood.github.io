@@ -12,11 +12,13 @@ pin: false
 I spent some time last week refactoring IaC into proper Terraform modules for both Azure and GCP. The goal was simple: make it easy to stamp out secure, tagged, and observable infrastructure with as little duplication as possible.
 
 ## What I Optimized For
+
 - Predictable inputs/outputs across clouds
 - Opinionated defaults (security, tags/labels, naming)
 - Clear separation between core infra and environment overlays
 
 ## Azure: Resource Group + Network + Storage
+
 I started with a tiny module that creates a resource group, a VNet, and a storage account with private access. It’s the baseline for most of my workloads.
 
 ```bash

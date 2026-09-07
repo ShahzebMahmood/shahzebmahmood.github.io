@@ -57,13 +57,15 @@ fi
 # Check that all posts have front matter
 echo ""
 echo "3. Checking post front matter..."
+FM_ERRORS=0
 for file in _posts/*.md; do
     if ! head -1 "$file" | grep -q "^---"; then
         echo "   ✗ $file missing opening ---"
+        FM_ERRORS=$((FM_ERRORS + 1))
         ERRORS=$((ERRORS + 1))
     fi
 done
-if [ $ERRORS -eq 0 ]; then
+if [ $FM_ERRORS -eq 0 ]; then
     echo "   ✓ All posts have valid front matter"
 fi
 

@@ -262,9 +262,11 @@ Tailscale supports **Active/Passive High Availability** automatically:
 
 1. Launch two subnet routers in different Availability Zones (`us-east-1a` and `us-east-1b`).
 2. Have both instances advertise the exact same CIDR route:
-   ```bash
-   sudo tailscale up --advertise-routes=10.0.0.0/16
-   ```
+
+    ```bash
+    sudo tailscale up --advertise-routes=10.0.0.0/16
+    ```
+
 3. Tailscale's coordination server monitors the health of both routers. If Router A becomes unreachable, the control plane automatically re-routes traffic through Router B within seconds, without requiring DNS updates or client reconnection.
 
 ---

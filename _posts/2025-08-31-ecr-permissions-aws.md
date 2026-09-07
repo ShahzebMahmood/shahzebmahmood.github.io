@@ -14,6 +14,7 @@ Here are the steps I took:
 First, I navigated to the ECR console in AWS and noticed that the repository policy did not have the necessary permissions for the user to push images. Since the user needed to push images, I decided to replicate the behavior the user was experiencing by testing the push myself.
 
 I made sure that I was logged into the correct account:
+
 ```text
 aws sso login --profile <account_name>
 ```text
